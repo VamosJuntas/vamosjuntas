@@ -11,5 +11,10 @@
     "url": "gitlab_sa@git.thoughtworks.net:levelup-porto-alegre/vamosjuntas.git"
   },
   "author": "Level Up Porto Alegre",
-  "license": "No license - Copyright"
+  "license": "No license - Copyright",
+  "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.11",
+    "karma-jasmine": "^0.3.6"
+  }
 }
