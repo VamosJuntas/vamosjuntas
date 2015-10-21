@@ -1,0 +1,15 @@
+{
+  "name": "vamosjuntas",
+  "version": "1.0.0",
+  "description": "É um app para promover segurança",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitlab_sa@git.thoughtworks.net:levelup-porto-alegre/vamosjuntas.git"
+  },
+  "author": "Level Up Porto Alegre",
+  "license": "No license - Copyright"
+}
