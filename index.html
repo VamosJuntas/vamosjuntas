@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/components/hello-world/hello-world.controller.js"></script>
+		<script type="text/javascript" src="app/components/hello-world/hello-world.factory.js"></script>
+	</head>
+
+	<body ng-app="vamosJuntas">
+		<div ng-controller="helloWorldController as vm">
+		  <form ng-submit="vm.submit()">
+			<div>
+				<label>Name:</label>
+				<input ng-model="vm.name"></input>
+			</div>
+			<div>
+				<label>Age:</label>
+				<input ng-model="vm.age"></input>
+			</div>
+			<label>Country:</label>
+			<select ng-model="vm.selectedCountry" ng-options="country.name for country in vm.countries">
+			</select>			
+			<input type="submit"></input>
+		  </form>
+
+		{{vm.factory.list}}
+
+		  <div ng-repeat="item in vm.factory.list">
+			<label>{{item.name}}</label>
+			<label>{{item.age}}</label>
+			<label>{{item.country}}</label>
+		  </div>
+		</div>
+	</body>
+</html>
