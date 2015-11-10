@@ -13,8 +13,15 @@
   "author": "Level Up Porto Alegre",
   "license": "No license - Copyright",
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-karma": "^0.12.1",
+    "grunt-protractor-runner": "^2.1.0",
     "jasmine-core": "^2.3.4",
-    "karma": "^0.13.11",
-    "karma-jasmine": "^0.3.6"
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
+    "protractor": "^2.5.1"
   }
 }
