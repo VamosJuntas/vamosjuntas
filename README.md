@@ -12,7 +12,6 @@ Necessário instalar:
 * Karma cli
 * Ionic
 
-
 ####NPM
 `brew install node`
 
@@ -23,5 +22,5 @@ Necessário instalar:
 `npm install -g karma-cli`
 
 ####Ionic
-`npm install -g cordova ionic`
+npm install -g cordova ionic ios-sim`
 
