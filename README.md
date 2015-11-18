@@ -22,5 +22,5 @@ Necessário instalar:
 `npm install -g karma-cli`
 
 ####Ionic
-npm install -g cordova ionic ios-sim`
+`npm install -g cordova ionic ios-sim`
 
