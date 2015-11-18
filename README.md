@@ -10,6 +10,7 @@ Necessário instalar:
 * NPM
 * Bower
 * Karma cli
+* Ionic
 
 
 ####NPM
@@ -20,4 +21,7 @@ Necessário instalar:
 
 ####Karma cli
 `npm install -g karma-cli`
+
+####Ionic
+`npm install -g cordova ionic`
 
