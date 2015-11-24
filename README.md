@@ -10,6 +10,7 @@ Necessário instalar:
 * NPM
 * Bower
 * Karma cli
+* PhantomJS
 * Ionic
 
 ####NPM
@@ -21,6 +22,12 @@ Necessário instalar:
 ####Karma cli
 `npm install -g karma-cli`
 
+####PhantomJS
+`npm install -g panthomjs`
+
 ####Ionic
 `npm install -g cordova ionic ios-sim`
 
+#### How to run the tests
+
+`karma start karma.conf.js`
