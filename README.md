@@ -1,3 +1,4 @@
+[![Build Status](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master/build_image)](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master)
 #Vamos Juntas
 
 Repositório do cliente da aplicação do Vamos Juntas
