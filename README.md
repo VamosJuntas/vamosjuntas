@@ -14,6 +14,7 @@ npm install -g karma-cli
 npm install -g cordova ionic ios-sim
 ```
 
+
 ## Running
 
 ### Browser
@@ -23,8 +24,17 @@ ionic serve
 ```
 ### Phone Emulation
 
+#### Set platform as IOS
+
 ```
+cordova platform add ios
 ionic emulate ios
+```
+
+#### Set platform as Android
+
+```
+cordova platform add Android
 ionic emulate android
 ```
 
