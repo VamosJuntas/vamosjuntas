@@ -17,10 +17,11 @@
     "tests"
   ],
   "dependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.1"
+    "ionic": "driftyco/ionic-bower#1.1.1",
+    "ngCordova": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.4.3",
-    "ngCordova": "~0.1.23-alpha"
+    "ngCordova": "latest"
   }
 }
