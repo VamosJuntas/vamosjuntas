@@ -3,7 +3,54 @@
 
 VamosJuntas mobile application.
 
-## Installing dependencies
+
+## Automatic setup
+
+```
+npm run setup
+```
+
+## Run on Android
+
+```
+ionic emulate android
+```
+
+## Run on IOS
+
+```
+ionic emulate ios
+```
+
+## Run on Browser
+
+```
+ionic serve
+```
+
+## Debugging
+
+```
+ionic emulate -lc ios
+```
+
+## Testing
+
+```
+npm run test -- running tests with watcher
+npm run ci -- running tests once
+```
+
+## Troubleshooting
+
+Restore plugins in case of problems
+
+```
+ionic state restore
+```
+
+----------------------------------------------------
+## Manual Setup Instructios
 
 `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
 
@@ -14,49 +61,9 @@ npm install -g karma-cli
 npm install -g cordova ionic ios-sim
 ```
 
-
-## Running
-
-### Browser
-
-```
-ionic serve
-```
-### Phone Emulation
-
-#### Set platform as IOS
+#### Adding platforms
 
 ```
 cordova platform add ios
-ionic emulate ios
+cordova platform add android
 ```
-
-#### Set platform as Android
-
-```
-cordova platform add Android
-ionic emulate android
-```
-
-## Testing
-
-```
-npm run test -- running tests with watcher
-npm run ci -- running tests once
-```
-
-## Debugging
-
-```
-ionic emulate -lc ios
-```
-`karma start karma.conf.js`
-
-## Troubleshooting
-
-Restore plugins in case of problems
-
-```
-ionic state restore
-```
-
