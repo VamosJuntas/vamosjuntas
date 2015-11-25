@@ -1,34 +1,42 @@
 [![Build Status](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master/build_image)](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master)
 #Vamos Juntas
 
-Repositório do cliente da aplicação do Vamos Juntas
+VamosJuntas mobile application.
 
+## Installing dependencies
 
-##Instalação
+`brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
 
-Necessário instalar:
+```
+npm install
+npm install -g bower
+npm install -g karma-cli
+npm install -g cordova ionic ios-sim
+```
 
-* NPM
-* Bower
-* Karma cli
-* PhantomJS
-* Ionic
+## Running
 
-####NPM
-`brew install node`
+### Browser
 
-####Bower
-`npm install -g bower`
+```
+ionic serve
+```
+### Phone Emulation
 
-####Karma cli
-`npm install -g karma-cli`
+```
+ionic emulate ios
+ionic emulate android
+```
 
-####PhantomJS
-`npm install -g phanthomjs`
+## Testing
 
-####Ionic
-`npm install -g cordova ionic ios-sim`
+```
+npm run test -- running tests with watcher
+npm run ci -- running tests once
+```
 
-#### How to run the tests
+## Debugging
 
-`karma start karma.conf.js`
+```
+ionic emulate -lc ios
+```
