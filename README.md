@@ -50,3 +50,13 @@ npm run ci -- running tests once
 ```
 ionic emulate -lc ios
 ```
+`karma start karma.conf.js`
+
+## Troubleshooting
+
+Restore plugins in case of problems
+
+```
+ionic state restore
+```
+
