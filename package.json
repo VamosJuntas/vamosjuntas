@@ -35,7 +35,7 @@
     "android"
   ],
   "scripts": {
-    "test": "karma start karma.conf.js",
-    "ci": "karma start karma.conf.js --single-run"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "ci": "./node_modules/karma/bin/karma start karma.conf.js --single-run"
   }
 }
