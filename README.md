@@ -24,7 +24,7 @@ Necessário instalar:
 `npm install -g karma-cli`
 
 ####PhantomJS
-`npm install -g panthomjs`
+`npm install -g phanthomjs`
 
 ####Ionic
 `npm install -g cordova ionic ios-sim`
