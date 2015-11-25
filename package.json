@@ -36,7 +36,7 @@
   ],
   "scripts": {
     "setup": "npm install node; npm install -g bower karma-cli phantomjs cordova ionic ios-sim; cordova platform add android; cordova platform add ios",
-    "test": "karma start karma.conf.js",
-    "ci": "karma start karma.conf.js --single-run"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "ci": "./node_modules/karma/bin/karma start karma.conf.js --single-run"
   }
 }

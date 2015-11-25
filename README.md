@@ -7,6 +7,7 @@ VamosJuntas mobile application.
 ## Automatic setup
 
 ```
+`brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
 npm run setup
 ```
 
