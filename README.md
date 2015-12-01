@@ -41,7 +41,11 @@ ionic emulate -lc ios
 npm run test -- running tests with watcher
 npm run ci -- running tests once
 ```
+## Linter
 
+```
+npm run lint -- running eslint
+```
 ## Troubleshooting
 
 Restore plugins in case of problems
