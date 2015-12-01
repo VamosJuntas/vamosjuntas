@@ -1,7 +1,9 @@
-app.controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
+angular.module('starter').controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
  var options = {timeout: 10000, enableHighAccuracy: true};
 
-  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+  var promise = $cordovaGeolocation.getCurrentPosition(options);
+
+  promise.then(function(position){
 
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
