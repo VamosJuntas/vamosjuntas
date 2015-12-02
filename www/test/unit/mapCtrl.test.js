@@ -1,30 +1,29 @@
 describe('MapCtrl', function() {
-     
-    var cordovaGeolocation;
 
-    beforeEach(function(){
-        module('starter');
+  var cordovaGeolocation;
 
-        inject(function ($rootScope, $controller, $injector, $cordovaGeolocation) {
-        var scope = $injector.get('$rootScope');
-        cordovaGeolocation = $cordovaGeolocation;
+  beforeEach(function() {
+    module('starter');
 
-        createController = function() {
-                return $controller('MapCtrl', {
-                    '$scope': scope,
-                    '$state': {},
-                    '$cordovaGeolocation': cordovaGeolocation
-                });
-            };
-        })
+    inject(function($rootScope, $controller, $injector, $cordovaGeolocation) {
+      var scope = $injector.get('$rootScope');
+      cordovaGeolocation = $cordovaGeolocation;
+
+      createController = function() {
+          return $controller('MapCtrl', {
+              '$scope': scope,
+              '$state': {},
+              '$cordovaGeolocation': cordovaGeolocation
+            });
+        };
     });
+  });
 
-    it('should get current position', function() {
-        var promise = {then:function(){}};
-    	spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
-        var controller = createController();
+  it('should get current position', function() {
+    var promise = {then: function() {}}; spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
+    var controller = createController();
 
-        expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalled();
+    expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalled();
 
-    });
+  });
 });
