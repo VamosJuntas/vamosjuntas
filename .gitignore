@@ -13,3 +13,4 @@ plugins/
 *.DS_Store
 www/ionic.app.css
 www/ionic.app.min.css
+.idea/
