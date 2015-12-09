@@ -1,16 +1,16 @@
-describe('MapCtrl', function() {
+describe('MapController', function() {
 
     var cordovaGeolocation;
 
     beforeEach(function() {
-        module('starter');
+        module('vamosJuntas');
 
         inject(function ($rootScope, $controller, $injector, $cordovaGeolocation) {
         var scope = $injector.get('$rootScope');
         cordovaGeolocation = $cordovaGeolocation;
 
         createController = function() {
-                return $controller('MapCtrl', {
+                return $controller('MapController', {
                     '$scope': scope,
                     '$state': {},
                     '$cordovaGeolocation': cordovaGeolocation

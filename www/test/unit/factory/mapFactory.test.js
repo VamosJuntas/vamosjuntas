@@ -3,7 +3,7 @@ describe('MapFactory', function() {
       $cordovaGeolocation;
 
   beforeEach(function() {
-      module('starter');
+      module('vamosJuntas');
       inject(function (_mapFactory_, _$cordovaGeolocation_) {
         $cordovaGeolocation = _$cordovaGeolocation_;
         mapFactory = _mapFactory_;

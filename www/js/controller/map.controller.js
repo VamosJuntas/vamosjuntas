@@ -1,4 +1,4 @@
-angular.module('starter').controller('MapController', function($scope, $state, $cordovaGeolocation) {
+angular.module('vamosJuntas').controller('MapController', function($scope, $state, $cordovaGeolocation) {
   var options = {timeout: 10000, enableHighAccuracy: true};
   var promise = $cordovaGeolocation.getCurrentPosition(options);
 

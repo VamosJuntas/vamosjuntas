@@ -1,4 +1,4 @@
-angular.module('starter').factory('mapFactory', function($cordovaGeolocation) {
+angular.module('vamosJuntas').factory('mapFactory', function($cordovaGeolocation) {
   var map = {};
   map.position;
 
