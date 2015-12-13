@@ -1,31 +1,31 @@
-// describe('MapController', function() {
+describe('MapController', function() {
 
-//     var cordovaGeolocation, createController;
+  var cordovaGeolocation, createController;
 
-//     beforeEach(function() {
-//         module('vamosJuntas');
+  beforeEach(function() {
+    module('vamosJuntas');
 
-//         inject(function ($rootScope, $controller, $injector, $cordovaGeolocation) {
-//             var scope = $injector.get('$rootScope');
-//             cordovaGeolocation = $cordovaGeolocation;
+    inject(function ($rootScope, $controller, $injector, $cordovaGeolocation, $httpBackend) {
+      $httpBackend.whenGET('templates/map.html').respond({});
+        var scope = $injector.get('$rootScope');
+        cordovaGeolocation = $cordovaGeolocation;
 
-//             createController = function() {
-//                 $controller('MapController', {
-//                     '$scope': scope,
-//                     '$state': {},
-//                     '$cordovaGeolocation': cordovaGeolocation
-//                 });
-//                 scope.$root.$digest();
-//             };
-//         })
-//     });
+        createController = function() {
+          $controller('MapController', {
+              '$scope': scope,
+              '$state': {},
+              '$cordovaGeolocation': cordovaGeolocation
+          });
+          scope.$root.$digest();
+        };
+    })
+  });
 
-//     it('should get current position', function() {
-//         var promise = {then:function(){}};
-//     	spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
-//         createController();
+  it('should get current position', function() {
+    var promise = {then:function(){}};
+    spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
+    createController();
 
-//         expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalled();
-
-//     });
-// });
+    expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalled();
+  });
+});
