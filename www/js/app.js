@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('vamosJuntas', ['ionic', 'ngCordova'])
+angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,7 +17,8 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova'])
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+
+.config(function($stateProvider, $urlRouterProvider,uiGmapGoogleMapApiProvider) {
 
   $stateProvider
   .state('map', {
@@ -25,7 +26,11 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova'])
     templateUrl: 'templates/map.html',
     controller: 'MapController'
   });
-
+  uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
+        v: '3.20', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
   $urlRouterProvider.otherwise('/');
 
 });

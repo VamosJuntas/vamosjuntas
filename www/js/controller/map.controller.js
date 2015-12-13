@@ -1,27 +1,26 @@
-angular.module('vamosJuntas').controller('MapController', function($scope, $state, $cordovaGeolocation) {
-  var options = {timeout: 10000, enableHighAccuracy: true};
-  var promise = $cordovaGeolocation.getCurrentPosition(options);
+angular.module('vamosJuntas').controller('MapController', function($scope, $state, $cordovaGeolocation, uiGmapGoogleMapApi) {
+  
+  uiGmapGoogleMapApi.then(function(maps) {
+    var options = {timeout: 10000, enableHighAccuracy: true};
+    var promise = $cordovaGeolocation.getCurrentPosition(options);
 
-  promise.then(function(position) {
+    promise.then(function(position) {   
+      $scope.map = {
+        center: { latitude: position.coords.latitude, longitude: position.coords.longitude},
+        zoom: 15,
+        markers: []
+      };
 
-    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-    var mapOptions = {
-      center: latLng,
-      zoom: 15
-    };
-
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    google.maps.event.addListenerOnce($scope.map, 'idle', function() {
-
-      var marker = new google.maps.Marker({
-        map: $scope.map,
-        position: latLng
-      });
+      $scope.marker = {
+        id: 1,
+        coords: { 
+          latitude: position.coords.latitude, 
+          longitude: position.coords.longitude
+        }
+      };
+    }, 
+    function(error) {
+      console.log('Could not get location');
     });
-
-  }, function(error) {
-    console.log('Could not get location');
   });
 });

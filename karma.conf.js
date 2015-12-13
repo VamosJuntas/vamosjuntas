@@ -15,13 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'www/lib/underscore/underscore-min.js',
       'www/lib/ionic/js/ionic.bundle.js',
       'www/lib/ngCordova/dist/ng-cordova.min.js',
       'www/lib/moment.min.js',
       'www/lib/angular-mocks/angular-mocks.js',
       'www/js/app.js',
       'www/js/**/*.js',
-      'www/test/unit/**/*.js'
+      'www/test/unit/**/*.js',
+      'www/lib/angular-simple-logger/dist/angular-simple-logger.min.js',
+      'www/lib/angular-google-maps/dist/angular-google-maps.min.js'
     ],
 
 
