@@ -13,14 +13,14 @@ describe('MapFactory', function() {
   it('should return current position', function() {
     var promise = {
       then : function(success) {
-          success(2);
+          success('fake-position');
       }
     };
     spyOn($cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
     var options = {timeout: 10000, enableHighAccuracy: true};
 
-    mapFactory.getCurrentPosition(options);
+    mapFactory.getPosition(options);
     expect($cordovaGeolocation.getCurrentPosition).toHaveBeenCalledWith(options);
-    expect(mapFactory.position).toBe(2);
+    expect(mapFactory.position).toBe('fake-position');
   });
 });

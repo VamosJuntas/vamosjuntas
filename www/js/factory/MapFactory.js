@@ -2,7 +2,7 @@ angular.module('vamosJuntas').factory('mapFactory', function($cordovaGeolocation
   var map = {};
   map.position;
 
-  map.getCurrentPosition = function () {
+  map.getPosition = function () {
     var options = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation.getCurrentPosition(options).then(function(position) {
