@@ -47,10 +47,23 @@ describe('MapController', function() {
   });
 
   describe('successfully get a position', function() {
-    it('sets map', function () {
+    beforeEach(function() {
       createController();
       successCallback(position);
+    });
+
+    it('sets map', function () {
       expect(scope.map).toEqual({zoom:15,center:{latitude:2, longitude:3}});
+    });
+
+    it('sets marker', function() {
+      expect(scope.marker).toEqual({
+        id: 1,
+        coords: {
+          latitude: 2,
+          longitude: 3
+        }
+      });
     });
   });
 
