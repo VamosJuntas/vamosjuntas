@@ -1,13 +1,18 @@
 describe('MapController', function() {
 
-  var cordovaGeolocation, createController;
+  var cordovaGeolocation,
+      createController,
+      scope,
+      successCallback,
+      position,
+      promise;
 
   beforeEach(function() {
     module('vamosJuntas');
 
     inject(function ($rootScope, $controller, $injector, $cordovaGeolocation, $httpBackend) {
       $httpBackend.whenGET('templates/map.html').respond({});
-        var scope = $injector.get('$rootScope');
+        scope = $injector.get('$rootScope');
         cordovaGeolocation = $cordovaGeolocation;
 
         createController = function() {
@@ -18,14 +23,45 @@ describe('MapController', function() {
           });
           scope.$root.$digest();
         };
-    })
+    });
+    position = {
+      coords: {
+        latitude: 2,
+        longitude: 3
+      }
+    };
+
+    promise = {
+      then: function(success, failure) {
+            successCallback = success;
+            failureCallback = failure;
+      }
+    };
+    spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
   });
 
-  it('should get current position', function() {
-    var promise = {then:function(){}};
-    spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
+  it('gets current position', function() {
     createController();
 
     expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalled();
+  });
+
+  describe('successfully get a position', function() {
+    it('sets map', function () {
+      createController();
+      successCallback(position);
+      expect(scope.map).toEqual({zoom:15,center:{latitude:2, longitude:3}});
+    });
+  });
+
+  describe('fail successfully to get a position', function() {
+    it('logs error message', function() {
+      spyOn(console, 'log');
+
+      createController();
+      failureCallback();
+
+      expect(console.log).toHaveBeenCalledWith('Could not get location');
+    });
   });
 });

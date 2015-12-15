@@ -6,8 +6,7 @@ angular.module('vamosJuntas').controller('MapController', function($scope, $stat
   promise.then(function(position) {   
     $scope.map = {
       center: { latitude: position.coords.latitude, longitude: position.coords.longitude},
-      zoom: 15,
-      markers: []
+      zoom: 15
     };
 
     $scope.marker = {
@@ -18,7 +17,7 @@ angular.module('vamosJuntas').controller('MapController', function($scope, $stat
       }
     };
   }, 
-  function(error) {
+  function() {
     console.log('Could not get location');
   });
 });
