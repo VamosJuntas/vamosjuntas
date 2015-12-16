@@ -16,13 +16,13 @@ describe('MapController', function() {
       cordovaGeolocation = $cordovaGeolocation;
 
       createController = function() {
-          $controller('MapController', {
-            '$scope': scope,
-            '$state': {},
-            '$cordovaGeolocation': cordovaGeolocation
-          });
-          scope.$root.$digest();
-        };
+        $controller('MapController', {
+          '$scope': scope,
+          '$state': {},
+          '$cordovaGeolocation': cordovaGeolocation
+        });
+        scope.$root.$digest();
+      };
     });
     position = {
       coords: {

@@ -1,13 +1,12 @@
 describe('MapFactory', function() {
-  var mapFactory,
-    $cordovaGeolocation;
+  var mapFactory, $cordovaGeolocation;
 
   beforeEach(function() {
     module('vamosJuntas');
     inject(function(_mapFactory_, _$cordovaGeolocation_) {
-        $cordovaGeolocation = _$cordovaGeolocation_;
-        mapFactory = _mapFactory_;
-      });
+      $cordovaGeolocation = _$cordovaGeolocation_;
+      mapFactory = _mapFactory_;
+    });
   });
 
   it('should return current position', function() {
