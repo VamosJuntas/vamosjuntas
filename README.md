@@ -13,6 +13,12 @@ npm run setup
 
 ## Run on Android
 
+To enable android emulator to get position is necessary to update the file platforms/android/AndroidManifest.xml with the following code:
+
+```
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
 ```
 ionic emulate android
 ```
@@ -55,7 +61,7 @@ ionic state restore
 ```
 
 ----------------------------------------------------
-## Manual Setup Instructios
+## Manual Setup Instructions
 
 `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
 

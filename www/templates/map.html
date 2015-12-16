@@ -1,5 +1,8 @@
 <ion-view>
     <ion-content>
-        <div id="map" data-tap-disabled="true"></div>
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        	<ui-gmap-marker coords="marker.coords" idkey="marker.id">
+        	</ui-gmap-marker>
+    	</ui-gmap-google-map>
     </ion-content>
 </ion-view>

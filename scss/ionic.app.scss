@@ -25,7 +25,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     height: 100%;
 }
 
-#map {
-    width: 100%;
+.angular-google-map-container {
     height: 100%;
+    width: 100%;
+    position: absolute;
 }
+
+
