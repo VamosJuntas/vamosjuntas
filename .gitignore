@@ -11,3 +11,5 @@ plugins/
 *.swo
 *.log
 *.DS_Store
+www/ionic.app.css
+www/ionic.app.min.css
