@@ -50,6 +50,4 @@ angular.module('vamosJuntas').controller('MapController', function(
   function() {
     console.log('Could not get location');
   });
-
-
 });
