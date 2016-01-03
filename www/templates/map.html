@@ -1,6 +1,10 @@
 <ion-view>
     <ion-content>
+    	<script type="text/ng-template" id="searchbox.tpl.html">
+	        <input type="text" id="searchbox" placeholder="Digite aqui sua busca" style="width: 50%; padding: 5px; margin: 10px;">
+	    </script>
         <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+	        <ui-gmap-search-box options="searchbox.options" template="searchbox.template" events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
         	<ui-gmap-marker coords="marker.coords" idkey="marker.id">
         	</ui-gmap-marker>
     	</ui-gmap-google-map>
