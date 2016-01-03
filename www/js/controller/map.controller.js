@@ -30,8 +30,6 @@ angular.module('vamosJuntas').controller('MapController', function(
             longitude: place.geometry.location.lng()
           }
         };
-        
-        console.log(place);
       }
     }
   };

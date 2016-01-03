@@ -67,6 +67,17 @@ describe('MapController', function() {
     });
   });
 
+  it('sets searchbox', function() {
+    createController();
+    expect(scope.searchbox.template).toEqual('searchbox.tpl.html');
+    expect(scope.searchbox.position).toEqual('top-right');
+    expect(scope.searchbox.options).toEqual({
+      bounds: {},
+      visible: true
+    });
+    expect(scope.searchbox.events).not.toBeUndefined();
+  });
+
   describe('fail successfully to get a position', function() {
     it('logs error message', function() {
       spyOn(console, 'log');
