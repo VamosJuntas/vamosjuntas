@@ -1,6 +1,16 @@
 angular.module('vamosJuntas').controller('MapController', function(
   $scope, $state, $cordovaGeolocation, uiGmapGoogleMapApi) {
 
+  function createMarker(id, latitude, longitude) {
+    return {
+          id: id,
+          coords: { 
+            latitude: latitude, 
+            longitude: longitude
+          }
+        };
+  }
+
   var options = {timeout: 10000, enableHighAccuracy: true};
   var promise = $cordovaGeolocation.getCurrentPosition(options);
 
@@ -23,13 +33,10 @@ angular.module('vamosJuntas').controller('MapController', function(
           zoom: 15
         };
 
-        $scope.marker = {
-          id: place.place_id,
-          coords: { 
-            latitude: place.geometry.location.lat(), 
-            longitude: place.geometry.location.lng()
-          }
-        };
+        $scope.marker = createMarker(
+          place.place_id, 
+          place.geometry.location.lat(),
+          place.geometry.location.lng());
       }
     }
   };
@@ -39,13 +46,10 @@ angular.module('vamosJuntas').controller('MapController', function(
       zoom: 15
     };
     
-    $scope.marker = {
-      id: 1,
-      coords: { 
-        latitude: position.coords.latitude, 
-        longitude: position.coords.longitude
-      }
-    };
+    $scope.marker = createMarker(
+          1, 
+          position.coords.latitude,
+          position.coords.longitude);
   }, 
   function() {
     console.log('Could not get location');
