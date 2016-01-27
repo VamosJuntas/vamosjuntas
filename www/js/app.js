@@ -43,6 +43,11 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     url: '/report',
     templateUrl: 'templates/report-address.html',
     controller: 'ReportAddressController'
+  })
+  .state('home', {
+    url: '/',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeController'
   });
 
   $urlRouterProvider.otherwise('/');
