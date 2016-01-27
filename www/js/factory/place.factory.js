@@ -1,11 +1,13 @@
 angular.module('vamosJuntas').factory('placeFactory', [function(){
-	var places;
+	var places = {
+		myPlaces: ['initialPlace']
+	};
 
 	return {
 		fetchPlaces: function () {
-			places = ['teste1', 'teste2'];
+			places.myPlaces = ['teste1', 'teste2'];
 			console.log('fetch');
 		},
-		myPlaces: places
+		places: places
 	};
 }]);
