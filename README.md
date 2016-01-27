@@ -3,6 +3,24 @@
 
 VamosJuntas mobile application.
 
+## To use docker
+
+Docker [installation](https://docs.docker.com/engine/installation/) is mandatory
+
+First, inside project root folder build the image:
+
+```
+docker build -t vamosjuntas .
+````
+
+To test the code in development environment, use that command:
+
+```
+docker run -it -v $PWD:/code -p 8100:8100 vamosjuntas
+```
+
+Now access 8100 port on your docker host. If you use MAC, please try 192.168.99.100:8100 in your browser. If you use linux, please try localhost:8100.
+
 
 ## Automatic setup
 
