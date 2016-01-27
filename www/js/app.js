@@ -38,15 +38,11 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     url: '/report',
     templateUrl: 'templates/report-address.html',
     controller: 'ReportAddressController'
+  })
   .state('home', {
     url: '/',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
-  })
-  .state('map', {
-    url: '/map',
-    templateUrl: 'templates/map.html',
-    controller: 'MapController'
   });
 
   $urlRouterProvider.otherwise('/');
