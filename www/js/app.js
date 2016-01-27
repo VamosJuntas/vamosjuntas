@@ -21,10 +21,10 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
 .config(function($stateProvider, $urlRouterProvider,uiGmapGoogleMapApiProvider) {
 
   $stateProvider
-  .state('map', {
+  .state('home', {
     url: '/',
-    templateUrl: 'templates/map.html',
-    controller: 'MapController'
+    templateUrl: 'templates/home.html',
+    controller: 'HomeController'
   });
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
