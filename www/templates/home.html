@@ -1,9 +1,18 @@
 <ion-view>
 	<ion-content class="has-header">
+		<h1>Vamos Juntas!</h1>
+		<label class="item item-input">
+		    <i class="icon ion-search placeholder-icon"></i>
+		    <input type="text" placeholder="Procurar um lugar">
+		</label>
+		<button class="button button-royal">
+		  Buscar
+		</button>
+		<h3>Localidades de risco proximos a você</h3>
 		<div class="list list-inset" ng-repeat="report in places">
 		    <a class="item" href="#">
-		      <h2>{{report}} felipe</h2>
-		      <p>Nine Inch Nails</p>
+		      <h2>{{report.title}}</h2>
+		      <p>{{report.quantity}} denúncias</p>
 		    </a>
 		</div>
 	</ion-content>
