@@ -4,21 +4,25 @@
   "description": "vamosjuntas: An Ionic project",
   "devDependencies": {
     "bower": "^1.3.3",
+    "cordova": "*",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.14.0",
     "eslint-plugin-react": "^3.11.2",
     "gulp": "^3.9.0",
-    "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
-    "gulp-minify-css": "^0.3.0",
+    "gulp-cssnano": "*",
     "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
     "gulp-util": "^2.2.14",
+    "ionic": "*",
+    "ios-sim": "*",
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
+    "karma-cli": "*" ,
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18",
@@ -38,9 +42,13 @@
     "android"
   ],
   "scripts": {
-    "setup": "cp .commit-msg .git/hooks/commit-msg; npm install node; npm install -g bower karma-cli phantomjs cordova ionic ios-sim; cordova platform add android; cordova platform add ios",
+    "setup": "npm install; npm run commit-msg; npm run android; npm run ios",
     "test": "./node_modules/karma/bin/karma start karma.conf.js",
     "lint": "./node_modules/eslint/bin/eslint.js www/js/**/*.js www/test/**/*.js",
-    "ci": "./node_modules/karma/bin/karma start karma.conf.js --single-run"
+    "ci": "./node_modules/karma/bin/karma start karma.conf.js --single-run",
+    "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
+    "android": "./node_modules/cordova/bin/cordova platform add android",
+    "ios": "./node_modules/cordova/bin/cordova platform add ios",
+    "serve": "./node_modules/ionic/bin/ionic serve"
   }
 }
