@@ -29,6 +29,11 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     url: '/map',
     templateUrl: 'templates/map.html',
     controller: 'MapController'
+  })
+  .state('confirmation', {
+    url: '/',
+    templateUrl: 'templates/confirmation.html',
+    controller: 'ConfirmationController'
   });
 
   $urlRouterProvider.otherwise('/');
