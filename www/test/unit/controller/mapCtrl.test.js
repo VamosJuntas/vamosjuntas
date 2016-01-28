@@ -1,28 +1,28 @@
 describe('MapController', function() {
 
   var cordovaGeolocation,
-      createController,
-      scope,
-      successCallback,
-      position,
-      promise;
+    createController,
+    scope,
+    successCallback,
+    position,
+    promise;
 
   beforeEach(function() {
     module('vamosJuntas');
 
-    inject(function ($rootScope, $controller, $injector, $cordovaGeolocation, $httpBackend) {
+    inject(function($rootScope, $controller, $injector, $cordovaGeolocation, $httpBackend) {
       $httpBackend.whenGET('templates/map.html').respond({});
-        scope = $injector.get('$rootScope');
-        cordovaGeolocation = $cordovaGeolocation;
+      scope = $injector.get('$rootScope');
+      cordovaGeolocation = $cordovaGeolocation;
 
-        createController = function() {
-          $controller('MapController', {
-              '$scope': scope,
-              '$state': {},
-              '$cordovaGeolocation': cordovaGeolocation
-          });
-          scope.$root.$digest();
-        };
+      createController = function() {
+        $controller('MapController', {
+          '$scope': scope,
+          '$state': {},
+          '$cordovaGeolocation': cordovaGeolocation
+        });
+        scope.$root.$digest();
+      };
     });
     position = {
       coords: {
@@ -33,8 +33,8 @@ describe('MapController', function() {
 
     promise = {
       then: function(success, failure) {
-            successCallback = success;
-            failureCallback = failure;
+        successCallback = success;
+        failureCallback = failure;
       }
     };
     spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
@@ -52,8 +52,8 @@ describe('MapController', function() {
       successCallback(position);
     });
 
-    it('sets map', function () {
-      expect(scope.map).toEqual({zoom:15,center:{latitude:2, longitude:3}});
+    it('sets map', function() {
+      expect(scope.map).toEqual({zoom:15, center:{latitude:2, longitude:3}});
     });
 
     it('sets marker', function() {

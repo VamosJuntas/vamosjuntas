@@ -1,19 +1,18 @@
 describe('MapFactory', function() {
-  var mapFactory,
-      $cordovaGeolocation;
+  var mapFactory, $cordovaGeolocation;
 
   beforeEach(function() {
-      module('vamosJuntas');
-      inject(function (_mapFactory_, _$cordovaGeolocation_) {
-        $cordovaGeolocation = _$cordovaGeolocation_;
-        mapFactory = _mapFactory_;
-      });
+    module('vamosJuntas');
+    inject(function(_mapFactory_, _$cordovaGeolocation_) {
+      $cordovaGeolocation = _$cordovaGeolocation_;
+      mapFactory = _mapFactory_;
+    });
   });
 
   it('should return current position', function() {
     var promise = {
       then : function(success) {
-          success('fake-position');
+        success('fake-position');
       }
     };
     spyOn($cordovaGeolocation, 'getCurrentPosition').and.returnValue(promise);
