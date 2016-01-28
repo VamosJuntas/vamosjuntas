@@ -42,14 +42,13 @@
     "android"
   ],
   "scripts": {
-    "setup": "npm install; npm run commit-msg; npm run android; npm run ios",
-    "test": "./node_modules/karma/bin/karma start karma.conf.js",
-    "lint": "./node_modules/eslint/bin/eslint.js www/js/**/*.js www/test/**/*.js",
-    "ci": "./node_modules/karma/bin/karma start karma.conf.js --single-run",
+    "setup": "npm install && npm run commit-msg && npm run android && npm run ios",
+    "test": "karma start karma.conf.js",
+    "lint": "eslint www/js/**/*.js www/test/**/*.js",
+    "ci": "karma start karma.conf.js --single-run",
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
-    "android": "./node_modules/cordova/bin/cordova platform add android",
-    "ios": "./node_modules/cordova/bin/cordova platform add ios",
-    "serve": "npm run gulp; ./node_modules/ionic/bin/ionic serve",
-    "gulp": "./node_modules/gulp/bin/gulp.js"
+    "android": "cordova platform add android",
+    "ios": "cordova platform add ios",
+    "serve": "gulp && ionic serve"
   }
 }
