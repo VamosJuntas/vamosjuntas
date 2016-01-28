@@ -29,6 +29,10 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   .state('confirmation', {
     url: '/confirmation',
     templateUrl: 'templates/confirmation.html'
+  })
+  .state('report', {
+    url: '/report',
+    templateUrl: 'templates/report-address.html'
   });
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
