@@ -21,7 +21,6 @@ describe('MapController', function() {
               '$state': {},
               '$cordovaGeolocation': cordovaGeolocation
           });
-          scope.$root.$digest();
         };
     });
     position = {

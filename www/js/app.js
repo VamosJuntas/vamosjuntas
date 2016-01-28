@@ -19,18 +19,23 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
 })
 
 .config(function($stateProvider, $urlRouterProvider,uiGmapGoogleMapApiProvider) {
-
   $stateProvider
   .state('home', {
     url: '/',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
+  })
+  .state('map', {
+    url: '/map',
+    templateUrl: 'templates/map.html',
+    controller: 'MapController'
   });
+
+  $urlRouterProvider.otherwise('/');
+
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization,places'
     });
-  $urlRouterProvider.otherwise('/');
-
 });
