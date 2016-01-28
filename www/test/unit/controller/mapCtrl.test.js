@@ -15,7 +15,6 @@ describe('MapController', function() {
       $httpBackend.whenGET('templates/confirmation.html').respond({});
       $httpBackend.whenGET('templates/map.html').respond({});
       $httpBackend.whenGET('templates/report-address.html').respond({});
-
       scope = $injector.get('$rootScope');
       cordovaGeolocation = $cordovaGeolocation;
 
@@ -27,7 +26,7 @@ describe('MapController', function() {
         });
         scope.$root.$digest();
       };
-    });
+  });
 
     position = {
       coords: {
