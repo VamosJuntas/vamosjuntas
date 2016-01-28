@@ -38,6 +38,10 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   .state('confirmation', {
     url: '/confirmation',
     templateUrl: 'templates/confirmation.html'
+  })
+  .state('report', {
+    url: '/report',
+    templateUrl: 'templates/report-address.html'
   });
 
   $urlRouterProvider.otherwise('/');
