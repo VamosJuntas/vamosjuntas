@@ -1,8 +1,7 @@
 bower_components/
 node_modules/
 www/lib/
-www/css/ionic.app.css
-www/css/ionic.app.min.css
+www/css/
 .tmp
 .sass-cache
 <%= appPath %>/bower_components
