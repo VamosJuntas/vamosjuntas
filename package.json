@@ -49,6 +49,7 @@
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "android": "./node_modules/cordova/bin/cordova platform add android",
     "ios": "./node_modules/cordova/bin/cordova platform add ios",
-    "serve": "./node_modules/ionic/bin/ionic serve"
+    "serve": "npm run gulp; ./node_modules/ionic/bin/ionic serve",
+    "gulp": "./node_modules/gulp/bin/gulp.js"
   }
 }
