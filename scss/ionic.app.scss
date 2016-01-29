@@ -31,4 +31,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     position: absolute;
 }
 
+.logo {
+    max-width: 100%;
+}
+
+.bar-transparent {
+    background: none;
+}
+.button.button-block.button-footer {
+    margin: 0;
+    width: 100%;
+}
+
 
