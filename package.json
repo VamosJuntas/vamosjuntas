@@ -49,6 +49,6 @@
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "android": "cordova platform add android",
     "ios": "cordova platform add ios",
-    "serve": "gulp && ionic serve"
+    "serve": "ionic serve"
   }
 }
