@@ -1,0 +1,42 @@
+<ion-view>
+	<ion-content class="padding">
+    <h3>Reportar risco</h3>
+    <p>Quando for escrever a denúncia, procure dar referências de onde você estava. Parque, ruas e estações de metrô podem ser grandes.</p>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <span class="input-label">Endereço*</span>
+        <input type="text" placeholder="Onde você estava?" required>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Data*</span>
+        <input type="date" required>
+      </label>
+      <div>
+        <label class="item item-input item-select">
+          <div class="input-label"> Turno* </div>
+          <select>
+            <option>Manhã</option>
+            <option>Tarde</option>
+            <option>Noite</option>
+            <option>Madrugada</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label class="item item-input item-select">
+          <div class="input-label"> Risco* </div>
+          <select>
+            <option>Local Deserto</option>
+            <option>Mal iluminado</option>
+            <option>Risco em potencial</option>
+            <option>Roubo</option>
+            <option>Abuso</option>
+            <option>Cantada Agressiva</option>
+          </select>
+        </label>
+      </div>
+      
+    </div>
+    <button class="button button-block button-positive" ng-click="submit()">Enviar</button>
+  </ion-content>
+</ion-view>

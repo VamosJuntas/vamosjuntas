@@ -44,6 +44,7 @@
   "scripts": {
     "setup": "npm install && npm run commit-msg && npm run android && npm run ios",
     "test": "karma start karma.conf.js",
+    "functional": "protractor www/test/functional/conf.js",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "ci": "karma start karma.conf.js --single-run",
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
