@@ -26,14 +26,13 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     controller: 'HomeController'
   })
   .state('map', {
-    url: '/map',
+    url: '/',
     templateUrl: 'templates/map.html',
     controller: 'MapController'
   })
   .state('confirmation', {
-    url: '/',
-    templateUrl: 'templates/confirmation.html',
-    controller: 'ConfirmationController'
+    url: '/confirmation',
+    templateUrl: 'templates/confirmation.html'
   });
 
   $urlRouterProvider.otherwise('/');
