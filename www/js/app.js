@@ -18,8 +18,7 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider,uiGmapGoogleMapApiProvider) {
-
+.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
   $stateProvider
   .state('map', {
     url: '/',
@@ -32,7 +31,8 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   })
   .state('report', {
     url: '/report',
-    templateUrl: 'templates/report-address.html'
+    templateUrl: 'templates/report-address.html',
+    controller: 'ReportAddressController'
   });
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
