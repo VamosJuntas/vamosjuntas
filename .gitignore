@@ -1,6 +1,7 @@
 bower_components/
 node_modules/
 www/lib/
+www/css/
 .tmp
 .sass-cache
 <%= appPath %>/bower_components

@@ -50,7 +50,7 @@ ionic emulate ios
 ## Run on Browser
 
 ```
-ionic serve
+npm run serve
 ```
 
 ## Debugging
@@ -85,14 +85,12 @@ ionic state restore
 
 ```
 npm install
-npm install -g bower
-npm install -g karma-cli
-npm install -g cordova ionic ios-sim
+
 ```
 
 #### Adding platforms
 
 ```
-cordova platform add ios
-cordova platform add android
+npm run ios
+npm run android
 ```
