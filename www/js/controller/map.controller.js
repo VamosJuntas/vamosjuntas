@@ -3,7 +3,7 @@ angular.module('vamosJuntas').controller('MapController', function($scope, $stat
   var options = {timeout: 10000, enableHighAccuracy: true};
   var promise = $cordovaGeolocation.getCurrentPosition(options);
 
-  promise.then(function(position) {   
+  promise.then(function(position) {
     $scope.map = {
       center: { latitude: position.coords.latitude, longitude: position.coords.longitude},
       zoom: 15
@@ -11,12 +11,12 @@ angular.module('vamosJuntas').controller('MapController', function($scope, $stat
 
     $scope.marker = {
       id: 1,
-      coords: { 
-        latitude: position.coords.latitude, 
+      coords: {
+        latitude: position.coords.latitude,
         longitude: position.coords.longitude
       }
     };
-  }, 
+  },
   function() {
     console.log('Could not get location');
   });
