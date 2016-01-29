@@ -21,12 +21,17 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
 .config(function($stateProvider, $urlRouterProvider,uiGmapGoogleMapApiProvider) {
   $stateProvider
   .state('home', {
-    url: '/',
+    url: '/home',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
   })
-  .state('map', {
+  .state('splash', {
     url: '/',
+    templateUrl: 'templates/splash.html',
+    controller: 'SplashController'
+  })
+  .state('map', {
+    url: '/map',
     templateUrl: 'templates/map.html',
     controller: 'MapController'
   })

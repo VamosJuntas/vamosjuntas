@@ -1,4 +1,4 @@
-describe('MapController', function() {
+  describe('MapController', function() {
 
   var cordovaGeolocation,
       createController,
@@ -11,18 +11,22 @@ describe('MapController', function() {
     module('vamosJuntas');
 
     inject(function ($rootScope, $controller, $injector, $cordovaGeolocation, $httpBackend) {
+      $httpBackend.whenGET('templates/splash.html').respond({});
       $httpBackend.whenGET('templates/map.html').respond({});
-        scope = $injector.get('$rootScope');
-        cordovaGeolocation = $cordovaGeolocation;
 
-        createController = function() {
-          $controller('MapController', {
-              '$scope': scope,
-              '$state': {},
-              '$cordovaGeolocation': cordovaGeolocation
-          });
-        };
+      scope = $injector.get('$rootScope');
+      cordovaGeolocation = $cordovaGeolocation;
+
+      createController = function() {
+        $controller('MapController', {
+            '$scope': scope,
+            '$state': {},
+            '$cordovaGeolocation': cordovaGeolocation
+        });
+        scope.$root.$digest();
+      };
     });
+
     position = {
       coords: {
         latitude: 2,

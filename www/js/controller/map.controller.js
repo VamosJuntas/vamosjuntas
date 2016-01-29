@@ -16,7 +16,7 @@ angular.module('vamosJuntas').controller('MapController', function(
         var place = searchBox.getPlaces()[0];
 
         $scope.map = {
-          center: { 
+          center: {
             latitude: place.geometry.location.lat(),
             longitude: place.geometry.location.lng()
           },
@@ -25,31 +25,31 @@ angular.module('vamosJuntas').controller('MapController', function(
 
         $scope.marker = {
           id: place.place_id,
-          coords: { 
-            latitude: place.geometry.location.lat(), 
+          coords: {
+            latitude: place.geometry.location.lat(),
             longitude: place.geometry.location.lng()
           }
         };
       }
     }
   };
-  promise.then(function(position) {   
+  promise.then(function(position) {
     $scope.map = {
       center: { latitude: position.coords.latitude, longitude: position.coords.longitude},
       zoom: 15
     };
-    
+
     $scope.marker = {
       id: 1,
-      coords: { 
-        latitude: position.coords.latitude, 
+      coords: {
+        latitude: position.coords.latitude,
         longitude: position.coords.longitude
       }
     };
-  }, 
+  },
   function() {
     console.log('Could not get location');
   });
 
-  
+
 });
