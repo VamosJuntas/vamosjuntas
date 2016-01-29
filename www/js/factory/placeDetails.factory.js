@@ -7,12 +7,12 @@ angular.module('vamosJuntas').factory('placeDetailsFactory', function() {
 				{ category: 'Local deserto', occurrences: 3 },
 				{ category: 'Mal iluminado', occurrences: 6 },
 				{ category: 'Roubo', occurrences: 12 },
-			],
+			]
 		};
 	}
 
 	return {
 		fetchPlace: fetchPlace,
-		place: place,
+		place: place
 	};
 });
