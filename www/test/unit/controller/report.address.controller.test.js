@@ -20,22 +20,16 @@ describe('ReportAddressController', function() {
   describe('when submit form', function() {
     describe('and form is valid', function() {
       it('should redirect to the success page', function() {
-        var reportForm = {
-          $valid: true
-        };
         var controller = createController();
-        scope.submit(reportForm);
+        scope.submit(true);
         expect($location.path).toHaveBeenCalledWith('/confirmation');
       });
     });
 
     describe('and form is not valid', function() {    
       it('should not redirect to the success page if address is empty', function() {
-        var reportForm = {
-          $valid: false
-        };
         var controller = createController();
-        scope.submit(reportForm);
+        scope.submit(false);
         expect($location.path).not.toHaveBeenCalled();
       });
     });
