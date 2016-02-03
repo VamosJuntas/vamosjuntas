@@ -40,6 +40,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     max-width: 100%;
 }
 
+#terms-check {
+  padding: 0 10px;
+  display: block;
+
+  button {
+    with: 100%
+    background: blue;
+    margin-top: 10px;
+  }
+}
+
 .bar-transparent {
     background: none;
 }
