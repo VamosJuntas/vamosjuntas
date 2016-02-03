@@ -37,7 +37,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .logo {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 #terms-check {
@@ -45,7 +45,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   display: block;
 
   button {
-    with: 100%
+    with: 100%;
     background: blue;
     margin-top: 10px;
   }
@@ -54,6 +54,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .bar-transparent {
     background: none;
 }
+
 .button.button-block.button-footer {
     margin: 0;
     width: 100%;
