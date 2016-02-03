@@ -4,7 +4,7 @@ angular.module('vamosJuntas').factory('placeDetailsFactory', function() {
 
 	function fetchPlace() {
 		place = {
-			title: 'Parada da João Pessoa'
+			title: 'Parada da João Pessoa',
 			reports: {
 				{ category: 'Local deserto', noOfOccurrences: 3 },
 				{ category: 'Mal iluminado', noOfOccurrences: 6 },
