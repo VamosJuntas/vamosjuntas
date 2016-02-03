@@ -11,6 +11,7 @@ describe('placeDetailsController', function() {
         $location = _$location_;
         placeDetailsFactory = $injector.get('placeDetailsFactory');
         spyOn($location, 'path');
+
         createController = function() {
           $controller('placeDetailsController', {
               '$scope': scope,
