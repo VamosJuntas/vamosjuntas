@@ -4,8 +4,7 @@ describe('Report address form', function() {
     element(by.className("address")).sendKeys("My address");
     element(by.className("date")).sendKeys("01/30/2015");
     element(by.cssContainingText('option', 'Madrugada')).click();
-    element(by.buttonText("Enviar")).click();
-	expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/report');
+    expect(element(by.buttonText("Enviar")).isEnabled()).toBe(false);
   });
 
   it('should send to confirmation page', function() {
@@ -15,6 +14,6 @@ describe('Report address form', function() {
     element(by.cssContainingText('option', 'Madrugada')).click();
     element(by.cssContainingText('option', 'Roubo')).click();
     element(by.buttonText("Enviar")).click();
-	expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/confirmation');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/confirmation');
   });
 });
