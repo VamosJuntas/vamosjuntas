@@ -1,16 +1,10 @@
 <ion-view>
     <ion-content class="padding">
-        <h2>Parada da João Pessoa</h2>
+        <h2>{{placeDetails.title}}</h2>
         <h3>Este local tem os seguintes reportes<h3>
         <ul class="list list-inset">
-            <li class="item">
-                Local deserto (3 ocorrências)
-            </li>
-            <li class="item">
-                Mal iluminado (6 ocorrências)
-            </li>
-            <li class="item">
-                Roubo (12 ocorrências)
+            <li class="item" ng-repeat="detail in placeDetails.reports">
+                {{detail.category}} ({{detail.noOfOccurrences}})
             </li>
         </ul>
         <button class="button button-block button-positive">Reportar risco nesse endereço</button>
