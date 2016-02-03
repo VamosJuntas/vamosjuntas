@@ -51,6 +51,17 @@ ion-content {
 .vamosjuntas-search-button {
     margin-top: 20px;
 }
+#terms-check {
+  padding: 0 10px;
+  display: block;
+
+  button {
+    with: 100%
+    background: blue;
+    margin-top: 10px;
+  }
+}
+
 .bar-transparent {
 	background: none;
 }
