@@ -1,17 +1,19 @@
 describe('placeDetailsController', function() {
-  var scope, placeDetailsFactory, state;
+  var scope, placeDetailsFactory, state, $location;
 
   beforeEach(function() {
     module('vamosJuntas');
 
-    inject(function ($rootScope, $controller, $injector, $httpBackend) {
+    inject(function ($rootScope, $controller, $injector, $httpBackend, _$location_) {
         scope = $rootScope.$new();
+        $location = _$location_;
         placeDetailsFactory = $injector.get('placeDetailsFactory');
-
+        spyOn($location, 'path');
         createController = function() {
           $controller('placeDetailsController', {
               '$scope': scope,
               'placeDetailsFactory': placeDetailsFactory,
+              '$location': $location
           });
         };
     });
@@ -29,6 +31,12 @@ describe('placeDetailsController', function() {
     createController();
     expect(scope.placeDetails.title).toBe('Parada da João Pessoa');
 
+  });
+
+  it('should redirect to report page', function() {
+    var placeDetailsController = createController();
+    scope.submit();
+    expect($location.path).toHaveBeenCalledWith('/report');
   });
 
 });
