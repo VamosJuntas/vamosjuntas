@@ -6,19 +6,18 @@ describe('placeDetailsController', function() {
   beforeEach(function() {
     module('vamosJuntas');
 
-    inject(function ($rootScope, $controller, $injector, $httpBackend, _$location_) {
-        scope = $rootScope.$new();
-        $location = _$location_;
-        placeDetailsFactory = $injector.get('placeDetailsFactory');
-        spyOn($location, 'path');
-
-        createController = function() {
-          $controller('placeDetailsController', {
-              '$scope': scope,
-              'placeDetailsFactory': placeDetailsFactory,
-              '$location': $location
-          });
-        };
+    inject(function($rootScope, $controller, $injector, $httpBackend, _$location_) {
+      scope = $rootScope.$new();
+      $location = _$location_;
+      placeDetailsFactory = $injector.get('placeDetailsFactory');
+      spyOn($location, 'path');
+      createController = function() {
+        $controller('placeDetailsController', {
+          '$scope': scope,
+          'placeDetailsFactory': placeDetailsFactory,
+          '$location': $location
+        });
+      };
     });
 
   });
