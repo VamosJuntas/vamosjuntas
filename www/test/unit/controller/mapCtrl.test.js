@@ -1,4 +1,4 @@
-  describe('MapController', function() {
+describe('MapController', function() {
 
   var cordovaGeolocation,
       createController,
