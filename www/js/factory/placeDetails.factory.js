@@ -1,7 +1,5 @@
 angular.module('vamosJuntas').factory('placeDetailsFactory', function() {
-
-	var place = {report: 'Initial'};
-
+	var place = { report: { title : 'Initial' }};
 	function fetchPlace() {
 		place.report = {
 			title: 'Parada da João Pessoa',
