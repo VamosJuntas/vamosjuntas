@@ -42,7 +42,7 @@
     "android"
   ],
   "scripts": {
-    "setup": "npm install && npm run commit-msg && npm run android && npm run ios",
+    "setup": "npm install && npm run commit-msg && npm run android && npm run ios && bower install",
     "test": "karma start karma.conf.js",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "ci": "karma start karma.conf.js --single-run",
