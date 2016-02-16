@@ -1,5 +1,7 @@
 describe('placeDetailsController', function() {
-  var scope, placeDetailsFactory, state, $location;
+  var scope;
+  var placeDetailsFactory;
+  var $location;
 
   beforeEach(function() {
     module('vamosJuntas');
