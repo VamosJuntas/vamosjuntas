@@ -81,6 +81,10 @@ ionic state restore
 ## Functional Test
 
 ```
+npm run setup-functional
+```
+
+```
 npm run functional
 ```
 ----------------------------------------------------
