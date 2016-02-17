@@ -24,22 +24,39 @@ $error: #FA787E;
 @import "scss/report.risk";
 
 .scroll {
-    height: 100%;
+  height: 100%;
 }
 
 .angular-google-map-container {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#splash-logo {
+  max-width: 100%;
+  display: block;
 }
 
 .logo {
-    max-width: 100%;
+  max-width: 100%;
+}
+
+#terms-check {
+  padding: 0 10px;
+  display: block;
+
+  button {
+    with: 100%;
+    background: blue;
+    margin-top: 10px;
+  }
 }
 
 .bar-transparent {
     background: none;
 }
+
 .button.button-block.button-footer {
     margin: 0;
     width: 100%;
