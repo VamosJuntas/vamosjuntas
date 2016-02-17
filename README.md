@@ -78,6 +78,15 @@ Restore plugins in case of problems
 ionic state restore
 ```
 
+## Functional Test
+
+```
+npm run setup-functional
+```
+
+```
+npm run functional
+```
 ----------------------------------------------------
 ## Manual Setup Instructions
 
