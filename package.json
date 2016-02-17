@@ -45,6 +45,7 @@
   "scripts": {
     "setup": "npm install && npm run commit-msg && npm run android && npm run ios",
     "test": "karma start karma.conf.js",
+    "setup-functional": "webdriver-manager update && webdriver-manager start",
     "functional": "protractor www/test/functional/conf.js",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "ci": "karma start karma.conf.js --single-run",
