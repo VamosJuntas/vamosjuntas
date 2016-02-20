@@ -25,11 +25,6 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     templateUrl: 'templates/splash.html',
     controller: 'SplashController'
   })
-  .state('map', {
-    url: '/map',
-    templateUrl: 'templates/map.html',
-    controller: 'MapController'
-  })
   .state('confirmation', {
     url: '/confirmation',
     templateUrl: 'templates/confirmation.html'
