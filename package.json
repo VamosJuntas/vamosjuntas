@@ -10,6 +10,7 @@
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.14.0",
     "eslint-plugin-react": "^3.11.2",
+    "express": "^4.13.4",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.2.0",
     "gulp-cssnano": "*",
@@ -52,6 +53,7 @@
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "android": "cordova platform add android",
     "ios": "cordova platform add ios",
+    "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "serve": "ionic serve"
   }
 }
