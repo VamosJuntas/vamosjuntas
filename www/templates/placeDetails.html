@@ -4,7 +4,7 @@
         <h3>Este local tem os seguintes reportes<h3>
         <ul class="list list-inset">
             <li class="item" ng-repeat="detail in placeDetails.reports">
-                {{detail.category}} ({{detail.noOfOccurrences}})
+                {{detail.category}} ({{detail.occurrences}})
             </li>
         </ul>
         <button class="button button-block button-positive" ng-click="submit()">Reportar risco nesse endereço</button>
