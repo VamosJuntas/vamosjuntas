@@ -1,17 +1,10 @@
 [
   {
-    "title": "Parada da João Pessoa",
-    "reports": [
-      {
-      "category": "Local deserto",
-      "occurrences": 3
-    }, {
-      "category": "Mal iluminado",
-      "occurrences": 6
-    }, {
-      "category": "Roubo",
-      "occurrences": 12
-    } 
-    ]
+    "title": "Chafariz da Rendenção",
+    "quantity": 5
+  },
+  {
+    "title": "Parada João Pessoa",
+    "quantity": 3
   }
 ]
