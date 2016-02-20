@@ -38,12 +38,18 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     url: '/report',
     templateUrl: 'templates/report-address.html',
     controller: 'ReportAddressController'
+  })
+  .state('home', {
+    url: '/home',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeController'
   });
+
+  $urlRouterProvider.otherwise('/');
+
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
-  $urlRouterProvider.otherwise('/');
-
 });
