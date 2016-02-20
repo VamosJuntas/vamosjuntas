@@ -16,8 +16,13 @@ angular.module('vamosJuntas').factory('placeFactory', [function() {
     ];
   }
 
+  function getPlace() {
+    return places.report[0];
+  }
+
   return {
     fetchPlaces: fetchPlaces,
-    places: places
+    places: places,
+    getPlace: getPlace
   };
 }]);
