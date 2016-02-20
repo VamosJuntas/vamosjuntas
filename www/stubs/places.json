@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Parada da João Pessoa",
+    "reports": [
+      {
+      "category": "Local deserto",
+      "occurrences": 3
+    }, {
+      "category": "Mal iluminado",
+      "occurrences": 6
+    }, {
+      "category": "Roubo",
+      "occurrences": 12
+    } 
+    ]
+  }
+]
