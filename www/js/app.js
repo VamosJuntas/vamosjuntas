@@ -45,7 +45,7 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     controller: 'ReportAddressController'
   })
   .state('home', {
-    url: '/',
+    url: '/home',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
   });
