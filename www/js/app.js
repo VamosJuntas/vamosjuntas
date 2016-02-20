@@ -25,11 +25,6 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     templateUrl: 'templates/splash.html',
     controller: 'SplashController'
   })
-  .state('map', {
-    url: '/map',
-    templateUrl: 'templates/map.html',
-    controller: 'MapController'
-  })
   .state('confirmation', {
     url: '/confirmation',
     templateUrl: 'templates/confirmation.html'
@@ -43,13 +38,17 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     url: '/home',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
+  })
+  .state('placeDetails', {
+    url: '/placeDetails',
+    templateUrl: 'templates/placeDetails.html',
+    controller: 'placeDetailsController'
   });
-
-  $urlRouterProvider.otherwise('/');
-
   uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
+  $urlRouterProvider.otherwise('/');
+
 });
