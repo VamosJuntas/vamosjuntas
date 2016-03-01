@@ -54,7 +54,7 @@ describe('Report address form', function() {
     splash.joinApp();
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/home');
 
-    home.ReportRisk();
+    home.reportRisk();
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/report');
 
     report.fillAddress('My address');

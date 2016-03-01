@@ -1,7 +1,7 @@
 var Home = function() {
 
-  this.ReportRisk = function () {
-    element(by.buttonText('Reportar risco')).click();
+  this.reportRisk = function () {
+    return element(by.buttonText('Reportar risco')).click();
   };
 
 };
