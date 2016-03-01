@@ -62,7 +62,7 @@ ionic emulate -lc ios
 ## Testing
 
 ```
-npm run test -- running tests with watcher
+npm run test -- running  unittests with watcher
 npm run ci -- running tests once
 ```
 ## Linter
@@ -80,10 +80,12 @@ ionic state restore
 
 ## Functional Test
 
+To setup the functional tests to run local, please run:
 ```
 npm run setup-functional
 ```
 
+To run the functional tests, please run:
 ```
 npm run functional
 ```

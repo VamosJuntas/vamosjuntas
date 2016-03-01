@@ -21,7 +21,7 @@ describe('splash controller', function () {
     it('redirects to the success page', function() {
       var controller = createController();
       scope.submit();
-      expect($location.path).toHaveBeenCalledWith('/placeDetails');
+      expect($location.path).toHaveBeenCalledWith('/home');
     });
   });
 });
