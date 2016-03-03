@@ -54,6 +54,7 @@
     "android": "cordova platform add android",
     "ios": "cordova platform add ios",
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
-    "serve": "ionic serve"
+    "serve": "ionic serve",
+    "serve-background": "screen -d -m -L ionic serve --nolivereload --nobrowser"
   }
 }
