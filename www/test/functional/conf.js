@@ -3,7 +3,7 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome'
   },
-  framework: 'jasmine',
+  framework: 'jasmine2',
   specs: ['report.spec.js'],
 };
 
