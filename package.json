@@ -44,7 +44,7 @@
     "android"
   ],
   "scripts": {
-    "setup": "npm install && npm run commit-msg && npm run android && npm run ios && bower install",
+    "setup": "npm install -g cordova && npm install -g bower && npm install && npm run commit-msg && bower install && npm run android && npm run ios",
     "test": "karma start karma.conf.js",
     "setup-functional": "webdriver-manager update && webdriver-manager start",
     "functional": "protractor www/test/functional/conf.js",
@@ -56,5 +56,8 @@
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "serve": "ionic serve",
     "serve-background": "screen -d -m -L ionic serve --nolivereload --nobrowser"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
