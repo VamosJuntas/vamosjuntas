@@ -43,8 +43,8 @@
     "ios",
     "android"
   ],
-  "scripts":
-    "postinstall":"node node_modules/bower/bin/bower install",
+  "scripts": {
+    "postinstall": "bower install",
     "setup": "npm install -g cordova && npm install -g bower && npm install && npm run commit-msg && bower install && npm run android && npm run ios",
     "test": "karma start karma.conf.js",
     "setup-functional": "webdriver-manager update && webdriver-manager start",
