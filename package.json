@@ -5,23 +5,28 @@
   "engines": {
     "node": "4.3.1"
   },
-  "devDependencies": {
+
+  "dependencies": {
     "bower": "^1.3.3",
     "cordova": "*",
+    "ionic": "*",
+    "ios-sim": "*",
+    "express": "^4.13.4",
+    "shelljs": "^0.3.0"
+  },
+
+  "devDependencies": {
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.14.0",
     "eslint-plugin-react": "^3.11.2",
-    "express": "^4.13.4",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.2.0",
     "gulp-cssnano": "*",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-util": "^2.2.14",
-    "ionic": "*",
-    "ios-sim": "*",
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
@@ -30,8 +35,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18",
-    "protractor": "^3.1.1",
-    "shelljs": "^0.3.0"
+    "protractor": "^3.1.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -60,8 +64,5 @@
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "serve": "ionic serve",
     "serve-background": "screen -d -m -L ionic serve --nolivereload --nobrowser"
-  },
-  "dependencies": {
-    "express": "^4.13.4"
   }
 }
