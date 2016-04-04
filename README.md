@@ -22,11 +22,11 @@ docker run -it -v $PWD:/code -p 8100:8100 vamosjuntas
 Now access 8100 port on your docker host. If you use MAC, please try 192.168.99.100:8100 in your browser. If you use linux, please try localhost:8100.
 
 
-## Automatic setup
+## Setup NOT USING DOCKER
 
 ```
 `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
-npm run setup
+npm run dev-setup
 ```
 
 ## Run on Android
