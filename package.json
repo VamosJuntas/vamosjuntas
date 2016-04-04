@@ -46,7 +46,7 @@
   ],
   "scripts": {
     "postinstall": "bower install && npm run build-css",
-    "build-css": "node-sass --include-path scss scss/ionic.app.scss www/css/ionic.app.css && ./node_modules/node-sass/bin/node-sass --include-path scss --output-style compressed scss/ionic.app.scss www/css/ionic.app.min.css",
+    "build-css": "node-sass --include-path scss scss/ionic.app.scss www/css/ionic.app.css && node-sass --include-path scss --output-style compressed scss/ionic.app.scss www/css/ionic.app.min.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "setup": "npm install -g cordova && npm install -g bower && npm install && npm run commit-msg && bower install && npm run android && npm run ios",
     "test": "karma start karma.conf.js",
