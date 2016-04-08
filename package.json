@@ -44,7 +44,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "bower install && npm run build-css",
+    "postinstall": "bower install && npm run build-css && npm run commit-msg",
     "ionic": "ionic serve -s -c",
     "ionic-test": "screen -d -m -L ionic serve --nolivereload --nobrowser",
     "kill-ionic": "killall ionic",
@@ -56,11 +56,13 @@
     "unit-test": "npm run build-css && karma start karma.conf.js --single-run",
     "watch-unit-test": "npm run build-css && karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
-    "dev-setup": "npm install && npm run commit-msg && npm run add-android-support && npm run add-ios-support",
-    "add-android-support": "cordova platform add android",
-    "add-ios-support": "cordova platform add ios",
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
-    "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &"
+    "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
+    "ionic-emulate-android": "ionic emulate android",
+    "ionic-emulate-android-debugger": "ionic emulate -lc android",
+    "ionic-emulate-ios": "ionic emulate ios",
+    "ionic-emulate-ios-debugger": "ionic emulate -lc ios",
+    "ionic-state-restore": "ionic state restore"
   }
 }
