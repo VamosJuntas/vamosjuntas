@@ -3,8 +3,19 @@
 
 VamosJuntas mobile application.
 
-## To use docker
+## Setup
 
+
+
+### Normal Setup
+
+
+Run `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/)).
+
+Run `npm install`
+
+
+### To use docker <not working>
 Docker [installation](https://docs.docker.com/engine/installation/) is mandatory
 
 First, inside project root folder build the image:
@@ -21,15 +32,17 @@ docker run -it -v $PWD:/code -p 8100:8100 vamosjuntas
 
 Now access 8100 port on your docker host. If you use MAC, please try 192.168.99.100:8100 in your browser. If you use linux, please try localhost:8100.
 
+## Run on browser
 
-## Setup NOT USING DOCKER
+
+It can be run with laptop's browser.
+It will run with debug output.
 
 ```
-`brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
-npm run dev-setup
+npm run ionic
 ```
 
-## Run on Android
+##Run on Mobile Devices
 
 To enable android emulator to get position is necessary to update the file platforms/android/AndroidManifest.xml with the following code:
 
@@ -38,70 +51,76 @@ To enable android emulator to get position is necessary to update the file platf
 ```
 
 ```
-ionic emulate android
+npm run ionic-emulate-android
 ```
 
-## Run on IOS
+To run on IOS:
 
 ```
-ionic emulate ios
+npm run ionic-emulate-ios
 ```
 
-## Run on Browser
+
+##Testing
+
+To run both unit and functional test:
 
 ```
-npm run serve
+npm run ci
 ```
 
-## Debugging
+
+Run **only** functional test:
 
 ```
-ionic emulate -lc ios
+npm run functional-test
 ```
 
-## Testing
+Run **only** unit test:
 
 ```
-npm run test -- running  unittests with watcher
-npm run ci -- running tests once
+npm run unit-test
 ```
+
+If you want to **watch** unit test changes you can also run:
+
+```
+npm run watch-unit-test
+```
+
+
+##CSS
+
+Compile css:
+
+```
+npm run build-css
+```
+Watch CSS:
+
+```
+npm run watch-css
+```
+
 ## Linter
 
 ```
-npm run lint -- running eslint
+npm run lint
 ```
 ## Troubleshooting
 
 Restore plugins in case of problems
 
 ```
-ionic state restore
+npm run ionic-state-restore
 ```
 
-## Functional Test
-
-To setup the functional tests to run local, please run:
-```
-npm run setup-functional
-```
-
-To run the functional tests, please run:
-```
-npm run functional
-```
-----------------------------------------------------
-## Manual Setup Instructions
-
-`brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/))
+Run in devices on debug mode:
 
 ```
-npm install
-
+npm run ionic-emulate-android
 ```
 
-#### Adding platforms
-
 ```
-npm run ios
-npm run android
+npm run ionic-emulate-android
 ```
