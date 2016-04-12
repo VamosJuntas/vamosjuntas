@@ -46,7 +46,7 @@
   "scripts": {
     "postinstall": "bower install && npm run build-css && npm run commit-msg",
     "ionic": "ionic serve -s -c",
-    "ionic-test": "ionic serve --nolivereload --nobrowser &",
+    "ionic-test": "ionic serve --nolivereload --nobrowser --address 127.0.0.1 &",
     "kill-ionic": "killall ionic",
     "build-css": "node-sass --include-path scss scss/ionic.app.scss www/css/ionic.app.css && node-sass --include-path scss --output-style compressed scss/ionic.app.scss www/css/ionic.app.min.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
