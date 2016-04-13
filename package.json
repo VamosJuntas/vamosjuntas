@@ -52,7 +52,7 @@
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "webdriver-update": "webdriver-manager update",
     "protractor": "npm run webdriver-update && protractor www/test/functional/conf.js && npm run kill-ionic",
-    "functional-test": "npm run build-css && npm run ionic-test && npm run protractor",
+    "functional-test": "npm run build-css && npm run ionic-test && sleep 30 && npm run protractor",
     "unit-test": "npm run build-css && karma start karma.conf.js --single-run",
     "watch-unit-test": "npm run build-css && karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
