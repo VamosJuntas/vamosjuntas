@@ -15,7 +15,7 @@ describe('Report address form', function() {
   });
 
   it('should not send to confirmation page without address', function() {
-    browser.get('http://localhost:8100/#/report');
+    browser.get('/#/report');
     report.fillDate('01/30/2015');
     report.fillPeriod('Madrugada');
     report.fillPeriod('Roubo');
@@ -23,7 +23,7 @@ describe('Report address form', function() {
   });
 
   it('should not send to confirmation page without date', function() {
-    browser.get('http://localhost:8100/#/report');
+    browser.get('/#/report');
     report.fillDate('01/30/2015');
     report.fillPeriod('Madrugada');
     report.fillPeriod('Roubo');
@@ -31,7 +31,7 @@ describe('Report address form', function() {
   });
 
   it('should not send to confirmation page without period', function() {
-    browser.get('http://localhost:8100/#/report');
+    browser.get('/#/report');
     element(by.className('address')).sendKeys('My address');
     element(by.className('date')).sendKeys('01/30/2015');
     report.fillPeriod('Roubo');
@@ -39,7 +39,7 @@ describe('Report address form', function() {
   });
 
   it('should not send to confirmation page without risk', function() {
-    browser.get('http://localhost:8100/#/report');
+    browser.get('/#/report');
 
     report.fillAddress('My address');
     report.fillDate('01/30/2015');
@@ -48,14 +48,14 @@ describe('Report address form', function() {
   });
 
   it('should go through whole report flow and go back to home', function() {
-    browser.get('http://localhost:8100/');
+    browser.get('/');
 
     splash.confirmTerms();
     splash.joinApp();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/home');
+    expect(browser.getCurrentUrl()).toContain('/home');
 
     home.reportRisk();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/report');
+    expect(browser.getCurrentUrl()).toContain('/report');
 
     report.fillAddress('My address');
     report.fillDate('01/30/2015');
@@ -63,10 +63,10 @@ describe('Report address form', function() {
     report.fillPeriod('Roubo');
     report.submitButtonClick();
 
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/confirmation');
+    expect(browser.getCurrentUrl()).toContain('/confirmation');
 
     confirmation.backToHome();
 
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8100/#/home');
+    expect(browser.getCurrentUrl()).toContain('/home');
   });
 });
