@@ -44,7 +44,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "bower install && npm run build-css && npm run commit-msg",
+    "postinstall": "bower install && npm run build-css",
     "ionic": "ionic serve -s -c",
     "ionic-test": "screen -d -m -L ionic serve --address localhost",
     "kill-ionic": "killall ionic",
@@ -56,7 +56,6 @@
     "unit-test": "npm run build-css && karma start karma.conf.js --single-run",
     "watch-unit-test": "npm run build-css && karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
-    "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-android": "ionic emulate android",

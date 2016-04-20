@@ -10,7 +10,7 @@ VamosJuntas mobile application.
 
 
 
-### Normal Setup
+### Normal Setup Without Docker
 
 
 Run `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/)).
@@ -18,7 +18,7 @@ Run `brew install node` (for mac, other platforms: [nodejs downloads](https://no
 Run `npm install`
 
 
-### To use docker <not working>
+### Setup With Docker <not working>
 Docker [installation](https://docs.docker.com/engine/installation/) is mandatory
 
 First, inside project root folder build the image:
