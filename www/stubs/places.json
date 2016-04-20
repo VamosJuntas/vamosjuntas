@@ -1,10 +1,29 @@
-[
-  {
-    "title": "Chafariz da Rendenção",
-    "quantity": 5
-  },
-  {
-    "title": "Parada João Pessoa",
-    "quantity": 3
-  }
-]
+[{
+  "title": "Chafariz da Rendenção",
+  "occurrences": [{
+      "type": "Local Deserto",
+      "numberOfOccurrences": 3
+    }, {
+      "type": "Mal Iluminado",
+      "numberOfOccurrences": 6
+    }, {
+      "type": "roubo",
+      "numberOfOccurrences": 6
+    }
+
+  ]
+}, {
+  "title": "Parada João Pessoa",
+  "occurrences": [{
+      "type": "Local Deserto",
+      "numberOfOccurrences": 3
+    }, {
+      "type": "Mal Iluminado",
+      "numberOfOccurrences": 6
+    }, {
+      "type": "roubo",
+      "numberOfOccurrences": 6
+    }
+
+  ]
+}]
