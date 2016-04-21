@@ -1,30 +1,66 @@
 describe('AddressFactory', function() {
-  var addressFactory, $httpBackend;
+  var addressFactory, httpBackend;
+  var key = 'AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4';
 
   beforeEach(function() {
       module('vamosJuntas');
 
       inject(function ($injector, $httpBackend) {
-        $httpBackend = $injector.get('$httpBackend');
+        httpBackend = $injector.get('$httpBackend');
         addressFactory = $injector.get('addressFactory');
-
-        googleApiHandler = $httpBackend.when('GET', 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Av.%20Ipiranga&key=AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4')
-                            .respond({id: '1'});
+        httpBackend.whenGET(/templates.*/).respond('');
       });
     }
   );
 
-  it('should return id from Place', function() {
-    var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Av.%20Ipiranga&key=AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4';
+  it('should return id from a address', function() {
+    var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Av. Ipiranga&key=' + key;
     var httpResponse = {id: '1' };
     var result;
-    $httpBackend.expectGET(url);
-    addressFactory.getIdFromPlace('Av. Ipiranga').then(function(data){
+
+    httpBackend.whenGET(url).respond(httpResponse);
+
+    addressFactory.getIdFromAddress('Av. Ipiranga').then(function (data){
       result = data;
     });
-
-    $httpBackend.flush();
-    expect(result).toBe(httpResponse);
+    httpBackend.expectGET(url);
+    httpBackend.flush();
+    expect(result.data.id).toBe('1');
   });
 
+  it('should return coord from a address id', function() {
+    var url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + key;
+    var httpResponse = { geometry: {
+         location: {
+            lat: -30.0556739,
+            lng: -51.1881215
+         }
+      }
+    };
+    var result;
+
+    httpBackend.whenGET(url).respond(httpResponse);
+
+    addressFactory.getCoordFromAddress('EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA').then(function (data){
+      result = data;
+    });
+    httpBackend.expectGET(url);
+    httpBackend.flush();
+    expect(result.data.geometry.location.lat).toBe(-30.0556739);
+  });
+
+  it('should return places near address from coords', function() {
+    var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-30.0556739,-51.1881215&radius=300&language=pt-PT&key=' + key;
+    var httpResponse = {name: 'Bourbon Shopping'};
+    var result;
+
+    httpBackend.whenGET(url).respond(httpResponse);
+
+    addressFactory.getNearbyAddresses(-30.0556739, -51.1881215).then(function (data){
+      result = data;
+    });
+    httpBackend.expectGET(url);
+    httpBackend.flush();
+    expect(result.data.name).toBe('Bourbon Shopping');
+  });
 });
