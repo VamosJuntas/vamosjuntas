@@ -1,7 +1,8 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', function($scope, placeFactory) {
-   $scope.places = [];
- 	$scope.places =	placeFactory.fetchPlaces();
+ 	$scope.places =	placeFactory.fetchPlaces().then(function (response) {
+    $scope.places = response.data;
+  });
 
   $scope.getTotalOfOccurrences = function (place) {
     var numberOfOccurrences = 0;
