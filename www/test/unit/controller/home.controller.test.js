@@ -1,19 +1,25 @@
 describe('HomeController', function() {
-  var scope, placeFactory, state, place;
+  var scope, placeFactory, state, place, addressFactory, q, deferred;
 
   beforeEach(function() {
     module('vamosJuntas');
 
-    inject(function($rootScope, $controller, $injector, $httpBackend) {
-      scope = $rootScope.$new();
-      placeFactory = $injector.get('placeFactory');
+    inject(function ($rootScope, $controller, $injector, $q, $httpBackend) {
+        scope = $rootScope.$new();
+        httpBackend = $injector.get('$httpBackend');
+        placeFactory = $injector.get('placeFactory');
+        addressFactory = $injector.get('addressFactory');
+        q = $q;
+        deferred = $q.defer();
+        httpBackend.whenGET(/templates.*/).respond('');
 
-      createController = function() {
-        $controller('HomeController', {
-          '$scope': scope,
-          'placeFactory': placeFactory,
-        });
-      };
+        createController = function() {
+          $controller('HomeController', {
+              '$scope': scope,
+              'placeFactory': placeFactory,
+              'addressFactory': addressFactory
+          });
+        };
     });
 
     place = {
@@ -56,6 +62,18 @@ describe('HomeController', function() {
   it('should get a total of occurrences from a specific place', function() {
     createController();
     expect(scope.getTotalOfOccurrences(place)).toBe(17);
+  });
+
+  it('should search the address', function() {
+    spyOn(addressFactory, 'getAutocomleteFromAddress').and.returnValue(deferred.promise);
+    deferred.resolve([{ id: 1 }, { id: 2 }]);
+    scope.$apply();
+
+    createController();
+    scope.search.text = 'Rua Dom Pedro';
+    scope.searchAddress();
+    expect(addressFactory.getAutocomleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
+    //expect(scope.addresses).toHaveBeenCalledWith('Rua Dom Pedro');
   });
 
 });

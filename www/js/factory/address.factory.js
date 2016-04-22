@@ -3,7 +3,7 @@ angular.module('vamosJuntas').factory('addressFactory', function($http) {
   var url = "";
   return {
     //https://developers.google.com/places/web-service/autocomplete#place_autocomplete_responses
-    getIdFromAddress: function(name) {
+    getAutocomleteFromAddress: function(name) {
       url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + name + "&key=" + api_key;
       return $http.get(url);
     },
