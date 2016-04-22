@@ -13,19 +13,19 @@ describe('AddressFactory', function() {
     }
   );
 
-  it('should return id from a address', function() {
+  it('should return autocomplete address from an address', function() {
     var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Av. Ipiranga&key=' + key;
-    var httpResponse = {id: '1' };
+    var httpResponse = {id: '1', description: 'Av Ipiranga, Porto Alegre' };
     var result;
 
     httpBackend.whenGET(url).respond(httpResponse);
 
-    addressFactory.getIdFromAddress('Av. Ipiranga').then(function (data){
+    addressFactory.getAutocomleteFromAddress('Av. Ipiranga').then(function (data){
       result = data;
     });
     httpBackend.expectGET(url);
     httpBackend.flush();
-    expect(result.data.id).toBe('1');
+    expect(result.data.description).toBe('Av Ipiranga, Porto Alegre');
   });
 
   it('should return coord from a address id', function() {
