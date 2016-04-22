@@ -32,14 +32,27 @@ describe('HomeController', function() {
 
   it('should search the address', function() {
     spyOn(addressFactory, 'getAutocomleteFromAddress').and.returnValue(deferred.promise);
-    deferred.resolve([{ id: 1 }, { id: 2 }]);
-    scope.$apply();
+
+    deferred.resolve({
+      data: {
+        predictions: [
+          {
+            description: 'Rua Dom Pedro I - São Paulo'
+          },
+          {
+            description: 'Rua Dom Pedro II - Porto Alegre'
+          }
+        ]
+      }
+    });
 
     createController();
     scope.search.text = 'Rua Dom Pedro';
     scope.searchAddress();
+
+    scope.$apply();
     expect(addressFactory.getAutocomleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
-    //expect(scope.addresses).toHaveBeenCalledWith('Rua Dom Pedro');
+    expect(scope.addresses[0].description).toBe('Rua Dom Pedro I - São Paulo');
   });
 
 });
