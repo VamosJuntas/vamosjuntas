@@ -44,7 +44,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "bower install && npm run build-css && npm run commit-msg",
+    "postinstall": "bower install && npm run build-css",
     "serve": "ionic serve -s -c",
     "ionic-test": "ionic serve --nolivereload --nobrowser --address localhost &",
     "kill-ionic": "killall ionic",
