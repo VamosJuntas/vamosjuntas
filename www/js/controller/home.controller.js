@@ -12,4 +12,8 @@ angular.module('vamosJuntas').controller('HomeController',
     return numberOfOccurrences;
   };
 
+  $scope.getSpecificPlace = function (place) {
+     placeFactory.addPlace(place);
+  };
+
 }]);
