@@ -1,13 +1,19 @@
 [{
   "title": "Chafariz da Rendenção",
   "occurrences": [{
-      "type": "Local Deserto",
+      "risk": "Local Deserto",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 3
     }, {
-      "type": "Mal Iluminado",
+      "risk": "Mal Iluminado",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 6
     }, {
-      "type": "roubo",
+      "risk": "roubo",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 6
     }
 
@@ -15,13 +21,19 @@
 }, {
   "title": "Parada João Pessoa",
   "occurrences": [{
-      "type": "Local Deserto",
+      "risk": "Local Deserto",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 3
     }, {
-      "type": "Mal Iluminado",
+      "risk": "Mal Iluminado",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 4
     }, {
-      "type": "roubo",
+      "risk": "roubo",
+      "date": "10/10/2015",
+      "period":"Manhã",
       "numberOfOccurrences": 10
     }
 
