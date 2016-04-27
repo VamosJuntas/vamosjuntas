@@ -17,7 +17,7 @@ describe('HomeController', function() {
     });
 
     place = {
-      "title": "Chafariz da Rendenção",
+      "title": "Chafariz da Redenção",
       "occurrences": [{
           "risk": "Local Deserto",
           "date": "10/10/2015",
