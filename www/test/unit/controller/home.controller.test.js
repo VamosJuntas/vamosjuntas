@@ -31,7 +31,7 @@ describe('HomeController', function() {
   });
 
   it('should search the address', function() {
-    spyOn(addressFactory, 'getAutocomleteFromAddress').and.returnValue(deferred.promise);
+    spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
 
     deferred.resolve({
       data: {
@@ -47,11 +47,11 @@ describe('HomeController', function() {
     });
 
     createController();
-    scope.search.text = 'Rua Dom Pedro';
+    scope.searchText = 'Rua Dom Pedro';
     scope.searchAddress();
 
     scope.$apply();
-    expect(addressFactory.getAutocomleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
+    expect(addressFactory.getAutoCompleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
     expect(scope.addresses[0].description).toBe('Rua Dom Pedro I - São Paulo');
   });
 
