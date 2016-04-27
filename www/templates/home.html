@@ -4,15 +4,18 @@
         <form ng-submit="searchAddress()">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Procurar um lugar" ng-model="search.text">
+                <input type="text" placeholder="Procurar um lugar" ng-model="searchText">
             </label>
             <button class="button button-small button-royal vamosjuntas-search-button" type="submit">
               Buscar
             </button>
          </form>
-      <ul ng-repeat="place in addresses track by $index">
-          <li>
+      <ul>
+          <li ng-repeat="place in addresses track by $index">
             {{place.description}}
+          </li>
+          <li ng-if= "addresses !== undefined && !addresses.length">
+            Nenhum resultado encontrado.
           </li>
       </ul>
 

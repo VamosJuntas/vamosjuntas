@@ -1,8 +1,11 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory',  function($scope, placeFactory, addressFactory) {
-    $scope.places = placeFactory.fetchPlaces().then(function(response) {
+    placeFactory.fetchPlaces();
+        $scope.places = placeFactory.fetchPlaces().then(function(response) {
         $scope.places = response.data;
     });
+    $scope.searchText = '';
+    $scope.addresses;
 
     $scope.getTotalOfOccurrences = function(place) {
         var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
@@ -16,15 +19,11 @@ angular.module('vamosJuntas').controller('HomeController',
         placeFactory.addPlace(place);
     };
 
-    $scope.search = {};
-    $scope.addresses = [];
-
     $scope.searchAddress = function() {
-        if ($scope.addresses.length > 0) {
-            $scope.addresses = [];
-        }
-        addressFactory.getAutocomleteFromAddress($scope.search.text).then(function(response) {
-            $scope.addresses = response.data.predictions;
-        });
+      addressFactory.getAutoCompleteFromAddress(this.searchText).then(function(response) {
+        $scope.addresses = response.data.predictions;
+      });
     };
+
+
 }]);

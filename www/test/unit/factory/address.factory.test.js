@@ -14,13 +14,13 @@ describe('AddressFactory', function() {
   );
 
   it('should return autocomplete address from an address', function() {
-    var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Av. Ipiranga&key=' + key;
+    var url = '/maps/api/place/autocomplete/json?input=Av. Ipiranga&key=' + key;
     var httpResponse = {id: '1', description: 'Av Ipiranga, Porto Alegre' };
     var result;
 
     httpBackend.whenGET(url).respond(httpResponse);
 
-    addressFactory.getAutocomleteFromAddress('Av. Ipiranga').then(function (data){
+    addressFactory.getAutoCompleteFromAddress('Av. Ipiranga').then(function (data){
       result = data;
     });
     httpBackend.expectGET(url);
@@ -29,7 +29,7 @@ describe('AddressFactory', function() {
   });
 
   it('should return coord from a address id', function() {
-    var url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + key;
+    var url = '/maps/api/place/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + key;
     var httpResponse = { geometry: {
          location: {
             lat: -30.0556739,
@@ -50,7 +50,7 @@ describe('AddressFactory', function() {
   });
 
   it('should return places near address from coords', function() {
-    var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-30.0556739,-51.1881215&radius=300&language=pt-PT&key=' + key;
+    var url = '/maps/api/place/nearbysearch/json?location=-30.0556739,-51.1881215&radius=300&language=pt-PT&key=' + key;
     var httpResponse = {name: 'Bourbon Shopping'};
     var result;
 
