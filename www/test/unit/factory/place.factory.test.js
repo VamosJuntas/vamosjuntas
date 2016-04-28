@@ -2,44 +2,45 @@ describe('Place Factory', function() {
   var placeFactory, httpBackend, httpResponse;
 
   beforeEach(function() {
-      module('vamosJuntas');
+    module('vamosJuntas');
 
-      inject(function ($injector, $httpBackend) {
-        httpBackend = $injector.get('$httpBackend');
-        placeFactory = $injector.get('placeFactory');
-        httpBackend.whenGET(/templates.*/).respond('');
-      });
+    inject(function($injector, $httpBackend) {
+      httpBackend = $injector.get('$httpBackend');
+      placeFactory = $injector.get('placeFactory');
+      httpBackend.whenGET(/templates.*/).respond('');
+    });
 
-      httpResponse = place = {
-        "title": "Chafariz da Redenção",
-        "occurrences": [{
-            "risk": "Local Deserto",
-            "date": "10/10/2015",
-            "period":"Manhã",
-            "numberOfOccurrences": 3
-          }, {
-            "risk": "Mal Iluminado",
-            "date": "10/10/2015",
-            "period":"Manhã",
-            "numberOfOccurrences": 6
-          }, {
-            "risk": "roubo",
-            "date": "10/10/2015",
-            "period":"Manhã",
-            "numberOfOccurrences": 6
-          }
-        ]
-      };
-    }
-  );
+    httpResponse = {
+      "title": "Chafariz da Redenção",
+      "occurrences": [{
+        "address": "Avenida Ipiranga",
+        "risk": "Local Deserto",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 3
+      }, {
+        "address": "Avenida Ipiranga",
+        "risk": "Mal Iluminado",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 4
+      }, {
+        "address": "Avenida Ipiranga",
+        "risk": "roubo",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 10
+      }]
+    };
+  });
 
   it('should return places', function() {
-    var url = 'http://localhost:3000/places';
-    var result;
+    var url, result;
+    url = 'http://localhost:3000/places';
 
     httpBackend.whenGET(url).respond(httpResponse);
 
-    placeFactory.fetchPlaces().then(function (response) {
+    placeFactory.fetchPlaces().then(function(response) {
       result = response.data;
     });
 

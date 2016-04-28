@@ -1,13 +1,13 @@
 angular.module('vamosJuntas').factory('placeFactory', ['$http', function($http) {
-var placeObject = this;
+  var placeObject = this;
   return {
-    fetchPlaces : function () {
+    fetchPlaces: function() {
       return $http.get('http://localhost:3000/places');
     },
-    addPlace : function (place) {
+    addPlace: function(place) {
       placeObject = place;
     },
-    getPlace : function () {
+    getPlace: function() {
       return placeObject;
     }
   };

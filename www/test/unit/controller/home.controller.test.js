@@ -19,22 +19,24 @@ describe('HomeController', function() {
     place = {
       "title": "Chafariz da Redenção",
       "occurrences": [{
-          "risk": "Local Deserto",
-          "date": "10/10/2015",
-          "period":"Manhã",
-          "numberOfOccurrences": 3
-        }, {
-          "risk": "Mal Iluminado",
-          "date": "10/10/2015",
-          "period":"Manhã",
-          "numberOfOccurrences": 6
-        }, {
-          "risk": "roubo",
-          "date": "10/10/2015",
-          "period":"Manhã",
-          "numberOfOccurrences": 6
-        }
-      ]
+        "address": "Avenida Ipiranga",
+        "risk": "Local Deserto",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 3
+      }, {
+        "address": "Avenida Ipiranga",
+        "risk": "Mal Iluminado",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 4
+      }, {
+        "address": "Avenida Ipiranga",
+        "risk": "roubo",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 10
+      }]
     };
 
     spyOn(placeFactory, 'fetchPlaces').and.callFake(function() {
@@ -54,7 +56,6 @@ describe('HomeController', function() {
   it('should get a total of occurrences from a specific place', function() {
     createController();
     expect(scope.getTotalOfOccurrences(place)).toBe(15);
-
   });
 
 });
