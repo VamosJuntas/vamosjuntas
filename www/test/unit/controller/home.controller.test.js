@@ -55,7 +55,7 @@ describe('HomeController', function() {
 
   it('should get a total of occurrences from a specific place', function() {
     createController();
-    expect(scope.getTotalOfOccurrences(place)).toBe(15);
+    expect(scope.getTotalOfOccurrences(place)).toBe(17);
   });
 
 });
