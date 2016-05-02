@@ -1,27 +1,29 @@
 <ion-view view-title="Lista">
-	<ion-content class="has-header">
+  <ion-content class="has-header">
 
-		<h1 class="vamosjuntas-home-header">Vamos Juntas!</h1>
-		<label class="item item-input">
-		    <i class="icon ion-search placeholder-icon"></i>
-		    <input type="text" placeholder="Procurar um lugar">
-		</label>
-		<button class="button button-small button-royal vamosjuntas-search-button">
-		  Buscar
-		</button>
+    <h1 class="vamosjuntas-home-header">Vamos Juntas!</h1>
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Procurar um lugar">
+    </label>
+    <button class="button button-small button-royal vamosjuntas-search-button">
+      Buscar
+    </button>
 
-		<h4>Localidades de risco próximos a você</h4>
-		<div class="list">
-		    <a class="item item-thumbnail-left" href="#" ng-repeat="report in places.reports">
-				<img src="http://lorempixel.com/80/80"/>
-				<h2>{{ report.title }}</h2>
-				<p>{{ report.quantity }} denúncias</p>
-		    </a>
-		</div>
+    <h4>Localidades de risco próximos a você</h4>
+    <div ng-repeat="place in places">
+      <div class="list">
+        <a class="item item-thumbnail-left" ng-click="getSpecificPlace(place)" ui-sref="placeDetails">
+          <img src="http://lorempixel.com/80/80"/>
+          <h2>{{ place.title }}</h2>
+          <p>{{ getTotalOfOccurrences(place) }}
+            denúncias</p>
+        </a>
+      </div>
+    </div>
+    <button class="button button-block button-positive" ui-sref="report">
+      Reportar risco
+    </button>
 
-		<button class="button button-block button-positive" ui-sref="report">
-			Reportar risco
-		</button>
-
-	</ion-content>
+  </ion-content>
 </ion-view>

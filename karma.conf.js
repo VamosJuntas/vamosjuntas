@@ -74,5 +74,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultanous
     concurrency: Infinity
-  })
-}
+  });
+};

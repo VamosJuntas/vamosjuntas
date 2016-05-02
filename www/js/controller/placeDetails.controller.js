@@ -5,4 +5,5 @@ angular.module('vamosJuntas').controller('placeDetailsController', ['$scope', 'p
   $scope.submit = function() {
     $location.path('/report');
   };
+  
 }]);
