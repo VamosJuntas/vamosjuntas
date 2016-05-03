@@ -64,14 +64,41 @@ npm run ionic-emulate-ios
 
 ##Testing
 
-To run both unit and functional test:
+
+####Dev Testing
+
+
+If you want to **watch** unit test changes you can also run:
+
+```
+npm run watch-unit-test
+```
+
+If you want to run functional-test faster do:
+
+```
+npm run ionic
+```
+
+This will keep ionic running in your console, open another console and run:
+
+
+```
+npm run dev-functional-test
+```
+
+
+####More complete testing (CI...)
+
+
+Run both unit and functional test (separated commands bellow):
 
 ```
 npm run ci
 ```
 
 
-Run **only** functional test:
+Run **only** functional test (this will also update webdrivers and compile css):
 
 ```
 npm run functional-test
@@ -81,12 +108,6 @@ Run **only** unit test:
 
 ```
 npm run unit-test
-```
-
-If you want to **watch** unit test changes you can also run:
-
-```
-npm run watch-unit-test
 ```
 
 
