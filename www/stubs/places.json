@@ -1,54 +1,49 @@
-[
-  {
-    "title": "Chafariz da Redenção",
-    "occurrences": [
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 6
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 6
-      }
-    ]
-  },
-  {
-    "title": "Parada João Pessoa",
-    "occurrences": [
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 4
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 10
-      }
-    ]
-  }
-]
+[{
+  "title": "Chafariz da Redenção",
+  "occurrences": [{
+    "address": "Avenida Ipiranga",
+    "risk": "Local Deserto",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Local Deserto",
+    "date": "10/10/2015",
+    "period": "Tarde"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Local Deserto",
+    "date": "10/10/2015",
+    "period": "Noite"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Mal Iluminado",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Roubo",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }],
+  "numberOfOccurrences": 5
+}, {
+  "title": "Parada João Pessoa",
+  "occurrences": [{
+    "address": "Avenida Ipiranga",
+    "risk": "Local Deserto",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Mal Iluminado",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }, {
+    "address": "Avenida Ipiranga",
+    "risk": "Roubo",
+    "date": "10/10/2015",
+    "period": "Manhã"
+  }],
+  "numberOfOccurrences": 3
+}]
