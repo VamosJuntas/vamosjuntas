@@ -17,28 +17,36 @@ describe('HomeController', function() {
     });
 
     place = {
-      "title": "Parada João Pessoa",
-      "occurrences": [
-        {
-          "address": "Avenida Ipiranga",
-          "risk": "Local Deserto",
-          "date": "10/10/2015",
-          "period": "Manhã",
+      "address": "Av. Ipiranga",
+      "location": {
+        "latitude": 10,
+        "longitude": 20
+      },
+      "occurrences": [{
+        "risk": "Roubo",
+        "count": 5,
+        "reports": [
+          {
+          "date": "10/10/2016",
+          "period": "Manhã"
         },
         {
-          "address": "Avenida Ipiranga",
-          "risk": "Mal Iluminado",
-          "date": "10/10/2015",
-          "period": "Manhã",
-        },
+          "date": "12/10/2016",
+          "period": "Manhã"
+        }]},
         {
-          "address": "Avenida Ipiranga",
-          "risk": "roubo",
-          "date": "10/10/2015",
-          "period": "Manhã",
-        }
-      ],
-      "numberOfOccurrences": 3
+          "risk": "Local Mal Iluminado",
+          "count": 3,
+          "reports": [
+            {
+            "date": "10/10/2016",
+            "period": "Manhã"
+          },
+          {
+            "date": "12/10/2016",
+            "period": "Manhã"
+          }]
+      }]
     };
 
     spyOn(placeFactory, 'fetchPlaces').and.callFake(function() {
@@ -54,4 +62,9 @@ describe('HomeController', function() {
     createController();
     expect(placeFactory.fetchPlaces).toHaveBeenCalled();
   });
+
+  it('get all the occurrences', function(){
+    createController();
+    expect(scope.getTotalOfOccurrences(place)).toBe(8);
+  })
 });

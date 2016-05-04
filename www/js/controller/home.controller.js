@@ -8,7 +8,7 @@ angular.module('vamosJuntas').controller('HomeController', ['$scope', 'placeFact
   };
 
   $scope.getTotalOfOccurrences = function(place) {
-   var numberOfOccurrences =   place.occurrences.reduce(function(total, occurrence) {
+   var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
       return total + occurrence.count;
     }, 0);
 
