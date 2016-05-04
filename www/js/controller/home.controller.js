@@ -7,4 +7,12 @@ angular.module('vamosJuntas').controller('HomeController', ['$scope', 'placeFact
     placeFactory.addPlace(place);
   };
 
+  $scope.getTotalOfOccurrences = function(place) {
+   var numberOfOccurrences =   place.occurrences.reduce(function(total, occurrence) {
+      return total + occurrence.count;
+    }, 0);
+
+    return numberOfOccurrences;
+  };
+
 }]);
