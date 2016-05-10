@@ -1,7 +1,6 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory',  function($scope, placeFactory, addressFactory) {
-    placeFactory.fetchPlaces();
-        $scope.places = placeFactory.fetchPlaces().then(function(response) {
+    placeFactory.fetchPlaces().then(function(response) {
         $scope.places = response.data;
     });
     $scope.searchText = '';
