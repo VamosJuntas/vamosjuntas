@@ -54,8 +54,9 @@ describe('Report address form', function() {
     splash.joinApp();
     expect(browser.getCurrentUrl()).toContain('/home');
 
-    home.fillExistingAddress();
-    home.fillNonExistentAddress();
+    home.searchExistingAddress();
+    home.searchNonExistentAddress();
+    home.selectAddress();
 
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');

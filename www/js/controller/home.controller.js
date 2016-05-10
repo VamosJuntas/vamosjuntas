@@ -3,7 +3,7 @@ angular.module('vamosJuntas').controller('HomeController',
     placeFactory.fetchPlaces().then(function(response) {
         $scope.places = response.data;
     });
-    $scope.searchText = '';
+    $scope.search = {};
     $scope.addresses;
 
     $scope.getTotalOfOccurrences = function(place) {
@@ -19,10 +19,12 @@ angular.module('vamosJuntas').controller('HomeController',
     };
 
     $scope.searchAddress = function() {
-      addressFactory.getAutoCompleteFromAddress(this.searchText).then(function(response) {
+      addressFactory.getAutoCompleteFromAddress($scope.search.text).then(function(response) {
         $scope.addresses = response.data.predictions;
       });
     };
 
-
+    $scope.confirmAddress = function (place) {
+    	$scope.search.text = place.description;
+    }
 }]);

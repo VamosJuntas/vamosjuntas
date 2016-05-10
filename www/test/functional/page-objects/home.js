@@ -1,6 +1,6 @@
 var fillAddress = function(text) {
-	element(by.model('searchText')).clear();
-	return element(by.model('searchText')).sendKeys(text);
+	element(by.model('search.text')).clear();
+	return element(by.model('search.text')).sendKeys(text);
 }
 
 var submitAddressSearch = function() {
@@ -17,7 +17,7 @@ var Home = function() {
     return element(by.buttonText('Reportar risco')).click();
   };
 
-  this.fillExistingAddress = function() {
+  this.searchExistingAddress = function() {
   	fillAddress('Dom Pedro');
     submitAddressSearch();
     getList().then(function(items){
@@ -25,11 +25,20 @@ var Home = function() {
     });
   }
 
-  this.fillNonExistentAddress = function() {
+  this.searchNonExistentAddress = function() {
   	fillAddress('invalidAddress');
     submitAddressSearch();
     getList().then(function(items){
       expect(items[0].getText()).toContain('Nenhum resultado encontrado.');
+    });
+  }
+
+  this.selectAddress = function() {
+  	fillAddress('Rua Dom Pedro II, Porto Alegre');
+  	element(by.buttonText('Buscar')).click();
+  	getList().then(function(items){
+  		items[0].click();
+      	expect(element(by.model('search.text')).getAttribute('value')).toBe('Rua Dom Pedro II, Porto Alegre - RS, Brazil');
     });
   }
 };

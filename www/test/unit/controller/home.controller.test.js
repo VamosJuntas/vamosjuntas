@@ -81,12 +81,20 @@ describe('HomeController', function() {
     });
 
     createController();
-    scope.searchText = 'Rua Dom Pedro';
+    scope.search.text = 'Rua Dom Pedro';
     scope.searchAddress();
 
     scope.$apply();
     expect(addressFactory.getAutoCompleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
     expect(scope.addresses[0].description).toBe('Rua Dom Pedro I - São Paulo');
+  });
+
+  it('should fill the search with the selected address', function() {
+    var place = {description: 'Av. Ipiranga, 123 - Porto Alegre'}
+    createController();
+    scope.confirmAddress(place);
+    scope.$apply();
+    expect(scope.search.text).toBe('Av. Ipiranga, 123 - Porto Alegre');
   });
 
 });
