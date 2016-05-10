@@ -3,7 +3,7 @@
     <h3>Reportar risco</h3>
     <p>Quando for escrever a denúncia, procure dar referências de onde você estava. Parque, ruas e estações de metrô podem ser grandes.</p>
 
-    <form name="reportForm" ng-submit="submit(reportForm.$valid)" novalidate>
+    <form name="reportForm" method="post" novalidate>
       <div class="list list-inset">
         <label class="item item-input" ng-class="{'has-errors' : reportForm.address.$invalid && !reportForm.address.$pristine}">
           <span class="input-label">Endereço*</span>
@@ -16,7 +16,7 @@
         <div>
           <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.period.$invalid && !reportForm.period.$pristine}">
             <div class="input-label">Turno*</div>
-            <select name="period" class="period" ng-model="report.period" required>
+            <select name="period" class="period" ng-model="report.period" ng-model-instant required>
               <option value="">Selecione um período</option>
               <option>Manhã</option>
               <option>Tarde</option>
@@ -28,19 +28,19 @@
         <div>
           <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.risk.$invalid && !reportForm.risk.$pristine}">
             <div class="input-label">Risco*</div>
-            <select name="risk" class="risk" ng-model="report.risk" required>
+            <select name="risk" class="risk" ng-model="report.risk" ng-model-instant required>
               <option value="">Selecione um risco</option>
               <option>Local Deserto</option>
-              <option>Mal iluminado</option>
+              <option>Local Mal Iluminado</option>
               <option>Risco em potencial</option>
               <option>Roubo</option>
               <option>Abuso</option>
               <option>Cantada Agressiva</option>
             </select>
           </label>
-        </div>  
+        </div>
       </div>
-      <button type="submit" ng-disabled="reportForm.$invalid" class="button button-block button-positive">Enviar</button>
+      <button id="submitButton" type="submit" ng-disabled="reportForm.$invalid" ng-click="submit(reportForm.$valid)" class="button button-block button-positive">Enviar</button>
     </form>
   </ion-content>
 </ion-view>

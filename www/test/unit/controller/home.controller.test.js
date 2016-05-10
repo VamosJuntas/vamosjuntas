@@ -66,5 +66,5 @@ describe('HomeController', function() {
   it('get all the occurrences', function(){
     createController();
     expect(scope.getTotalOfOccurrences(place)).toBe(8);
-  })
+  });
 });

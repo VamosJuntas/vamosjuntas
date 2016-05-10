@@ -47,7 +47,7 @@ describe('Report address form', function() {
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
-  it('should go through whole report flow and go back to home', function() {
+  xit('should go through whole report flow and go back to home', function() {
     browser.get('/');
 
     splash.confirmTerms();

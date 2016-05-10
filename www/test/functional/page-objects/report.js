@@ -17,7 +17,7 @@ var Report = function () {
   };
 
   this.submitButtonClick = function() {
-    return element(by.buttonText('Enviar')).click();
+    return element(by.id('submitButton')).click();
   };
 
   this.submitButton = function() {
