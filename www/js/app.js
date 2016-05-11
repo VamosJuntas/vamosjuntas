@@ -3,6 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
 angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
 
 .run(function($ionicPlatform) {
@@ -52,9 +53,8 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   $urlRouterProvider.otherwise('/');
 
 })
-
 .constant('PlacesApiEndpoint', {
-  autoCompleteBaseUrl: '/maps/api/place/autocomplete/json?',
-  coordinatesBaseUrl: '/maps/api/place/details/json?',
-  nearbySearchBaseUrl: '/maps/api/place/nearbysearch/json?'
+  autoCompleteBaseUrl: AppSettings.mapsApiBaseUrl + '/autocomplete/json?',
+  coordinatesBaseUrl: AppSettings.mapsApiBaseUrl + '/details/json?',
+  nearbySearchBaseUrl: AppSettings.mapsApiBaseUrl + '/nearbysearch/json?'
 });

@@ -38,7 +38,7 @@ var Home = function() {
     element(by.buttonText('Buscar')).click();
     getList().then(function(items){
       items[0].click();
-        expect(element(by.model('search.text')).getAttribute('value')).toBe('Rua Dom Pedro II - São João, Porto Alegre - RS, Brazil');
+      expect(element(by.model('search.text')).getAttribute('value')).toBe('Rua Dom Pedro II - São João, Porto Alegre - RS, Brazil');
     });
   }
 };
