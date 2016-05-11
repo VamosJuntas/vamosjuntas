@@ -15,6 +15,8 @@ Run `brew install node` (for mac, other platforms: [nodejs downloads](https://no
 
 Run `npm install`
 
+We recommend using `nvm` (Node Version Manager) if you want to install and manage different versions of node and linking local versions into specific directories ([download](https://github.com/creationix/nvm)).
+
 
 ### Setup With Docker <not working>
 Docker [installation](https://docs.docker.com/engine/installation/) is mandatory
