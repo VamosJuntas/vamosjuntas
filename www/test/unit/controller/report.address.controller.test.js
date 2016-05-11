@@ -37,7 +37,7 @@ describe('ReportAddressController', function() {
         }]
       }, {
         "risk": "Local Mal Iluminado",
-        "count": 3,
+        "count": 2,
         "reports": [{
           "date": "10/10/2016",
           "period": "Manhã"
@@ -79,7 +79,23 @@ describe('ReportAddressController', function() {
       scope.$apply();
       expect(scope.placeDetails.occurrences[0].count).toEqual(3);
     });
+
+    it('should save a new occurrence for a non existent risk', function () {
+      createController();
+      scope.placeDetails = placeFactory.getPlace();
+      scope.report = {
+        "risk" : "Abuso",
+        "date": "10/10/2016",
+        "period": "Manhã"
+      };
+      scope.submit(true);
+      scope.$apply();
+      expect(scope.placeDetails.occurrences.length).toEqual(3);
+      expect(scope.placeDetails.occurrences[2].count).toEqual(1);
+    });
   });
+
+
 
   });
 });
