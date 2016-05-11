@@ -1,15 +1,24 @@
-var fillAddress = function(text) {
+
+var clearInputAddress = function() {
   element(by.model('search.text')).clear();
-  return element(by.model('search.text')).sendKeys(text);
-}
+};
+
+var checkAddressInputContainsText = function(text) {
+  var addressInput = findAddressInput();
+  expect(addressInput.getAttribute('value')).toContain(text);
+};
 
 var submitAddressSearch = function() {
   return element(by.buttonText('Buscar')).click();
 };
 
-var getList = function() {
+var findLiElements = function() {
   return element.all(by.css('.place-list li'));
-}
+};
+
+var findAddressInput = function() {
+  return element(by.model('search.text'));
+};
 
 var Home = function() {
 
@@ -18,29 +27,39 @@ var Home = function() {
   };
 
   this.searchExistingAddress = function() {
-    fillAddress('Dom Pedro');
+    this.fillAddress('Dom Pedro');
     submitAddressSearch();
-    getList().then(function(items){
+    findLiElements().then(function(items){
       expect(items.length).toBe(5);
     });
   }
 
   this.searchNonExistentAddress = function() {
-    fillAddress('invalidAddress');
+    this.fillAddress('invalidAddress');
     submitAddressSearch();
-    getList().then(function(items){
+    findLiElements().then(function(items){
       expect(items[0].getText()).toContain('Nenhum resultado encontrado.');
     });
   }
 
-  this.selectAddress = function() {
-    fillAddress('Rua Dom Pedro II, Porto Alegre');
+  this.fillAddress = function(text) {
+    clearInputAddress();
+    var addressInput = findAddressInput();
+    return addressInput.sendKeys(text);
+  }
+
+  this.selectFirstAddress = function() {
     element(by.buttonText('Buscar')).click();
-    getList().then(function(items){
-      items[0].click();
-      expect(element(by.model('search.text')).getAttribute('value')).toBe('Rua Dom Pedro II - São João, Porto Alegre - RS, Brazil');
+    findLiElements().then(function(items) {
+      var firstPlace = items[0];
+      firstPlace.click();
+      firstPlace.getText().then(function(text) {
+        checkAddressInputContainsText(text);
+      });
+
     });
   }
+
 };
 
 module.exports = Home;

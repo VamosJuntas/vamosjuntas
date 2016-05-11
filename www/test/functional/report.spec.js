@@ -56,7 +56,8 @@ describe('Report address form', function() {
 
     home.searchExistingAddress();
     home.searchNonExistentAddress();
-    home.selectAddress();
+    home.fillAddress('Rua Dom Pedro II, Porto Alegre');
+    home.selectFirstAddress();
 
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
