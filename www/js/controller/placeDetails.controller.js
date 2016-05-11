@@ -2,6 +2,10 @@ angular.module('vamosJuntas').controller('placeDetailsController', ['$scope', 'p
 
   $scope.placeDetails = placeFactory.getPlace();
 
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
+  
   $scope.submit = function() {
     $location.path('/report');
   };

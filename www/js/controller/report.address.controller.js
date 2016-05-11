@@ -1,7 +1,11 @@
-angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', 'placeFactory', '$location', function($scope, placeFactory, $location) {
+angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', 'placeFactory', '$location','$ionicHistory', function($scope, placeFactory, $location, $ionicHistory) {
 
   $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
+
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
 
   var addPlaceFromForm = function(report) {
     return {

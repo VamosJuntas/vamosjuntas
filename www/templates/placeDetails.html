@@ -1,4 +1,9 @@
 <ion-view>
+    <ion-nav-bar ng-controller="ReportAddressController">
+      <ion-nav-back-button id="backBtn" class="button-clear" ng-click="myGoBack()">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content class="padding">
         <h2>{{placeDetails.address}}</h2>
         <h3>Este local tem os seguintes reportes<h3>
