@@ -3,6 +3,6 @@ AppSettings = {
   mapsApiBaseUrl: '/maps/api/place'
   // @endif
   // @if NODE_ENV == 'PRODUCTION'
-  mapsApiBaseUrl: 'https://maps.googleapis.com/maps/api'
+  mapsApiBaseUrl: 'https://maps.googleapis.com/maps/api/place'
   // @endif
 }
