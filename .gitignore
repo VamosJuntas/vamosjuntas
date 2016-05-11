@@ -17,3 +17,4 @@ www/ionic.app.css
 www/ionic.app.min.css
 .idea/
 screenlog.*
+config.xml
