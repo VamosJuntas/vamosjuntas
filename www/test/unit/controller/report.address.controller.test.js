@@ -51,21 +51,6 @@ describe('ReportAddressController', function() {
     spyOn(placeFactory,'getPlace').and.returnValue(place);
   });
 
-  describe('form validation', function() {
-    describe('and form is valid', function() {
-      // it('should redirect to the success page', function() {
-      //   var controller = createController();
-      //   scope.submit(true);
-      //   expect($location.path).toHaveBeenCalledWith('/confirmation');
-      // });
-
-      it('should not redirect to the success page if address is empty', function() {
-        createController();
-        scope.submit(false);
-        expect($location.path).not.toHaveBeenCalled();
-      });
-    });
-
   describe('Saving data', function() {
     it('should save a new occurrence for existent risk', function () {
       createController();
@@ -93,9 +78,11 @@ describe('ReportAddressController', function() {
       expect(scope.placeDetails.occurrences.length).toEqual(3);
       expect(scope.placeDetails.occurrences[2].count).toEqual(1);
     });
+
+    it('should not redirect to the success page if address is empty', function() {
+      createController();
+      scope.submit(false);
+      expect($location.path).not.toHaveBeenCalled();
+    });
   });
-
-
-
   });
-});

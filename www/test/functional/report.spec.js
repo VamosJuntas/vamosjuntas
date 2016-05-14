@@ -2,16 +2,19 @@ var Splash = require('./page-objects/splash.js');
 var Home = require('./page-objects/home.js');
 var Report = require('./page-objects/report.js');
 var Confirmation = require('./page-objects/confirmation');
+var PlaceDetails = require('./page-objects/placeDetails');
 
 
 describe('Report address form', function() {
-  var splash, home, report, confirmation;
+  var splash, home, report, confirmation, placeDetails;
 
   beforeEach(function() {
     splash = new Splash();
     home = new Home();
     report = new Report();
     confirmation = new Confirmation();
+    placeDetails = new PlaceDetails();
+
   });
 
   it('should not send to confirmation page without address', function() {
@@ -47,7 +50,7 @@ describe('Report address form', function() {
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
-  xit('should go through whole report flow and go back to home', function() {
+  it('should go through whole report flow and go back to home', function() {
     browser.get('/');
 
     splash.confirmTerms();

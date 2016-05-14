@@ -17,11 +17,15 @@ var Report = function () {
   };
 
   this.submitButtonClick = function() {
-    return element(by.id('submitButton')).click();
+    return element(by.css('[ng-click="submit(reportForm.$valid)"]')).click();
   };
 
   this.submitButton = function() {
     return element(by.buttonText('Enviar'));
+  };
+
+  this.backButton = function() {
+    return element(by.id('backBtn')).click();
   };
 
 };
