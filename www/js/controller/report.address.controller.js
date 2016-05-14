@@ -2,6 +2,7 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', '
 
   $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
+  $scope.report.address = $scope.placeDetails.address;
 
   $scope.myGoBack = function() {
     $ionicHistory.goBack();
