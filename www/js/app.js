@@ -52,9 +52,4 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     });
   $urlRouterProvider.otherwise('/');
 
-})
-.constant('PlacesApiEndpoint', {
-  autoCompleteBaseUrl: AppSettings.mapsApiBaseUrl + '/autocomplete/json?',
-  coordinatesBaseUrl: AppSettings.mapsApiBaseUrl + '/details/json?',
-  nearbySearchBaseUrl: AppSettings.mapsApiBaseUrl + '/nearbysearch/json?'
 });

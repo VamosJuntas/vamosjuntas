@@ -21,6 +21,7 @@ module.exports = function(config) {
       'www/lib/moment.min.js',
       'www/lib/angular-mocks/angular-mocks.js',
       'www/js/app-settings.js',
+      'www/test/unit/globals.js',
       'www/js/app.js',
       'www/js/**/*.js',
       'www/test/unit/**/*.js',
