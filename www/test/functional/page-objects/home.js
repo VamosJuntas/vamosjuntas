@@ -30,7 +30,7 @@ var Home = function() {
     this.fillAddress('Dom Pedro');
     submitAddressSearch();
     findLiElements().then(function(items){
-      expect(items.length).toBe(5);
+      expect(items[0].getText()).toContain('Dom Pedro');
     });
   }
 
