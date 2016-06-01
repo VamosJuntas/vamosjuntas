@@ -21,6 +21,8 @@ angular.module('vamosJuntas').controller('HomeController',
   $scope.searchAddress = function() {
     addressFactory.getAutoCompleteFromAddress($scope.search.text).then(function(response) {
       $scope.addresses = response.data.predictions;
+    }, function(error) {
+      $scope.addresses = [];
     });
   };
 
