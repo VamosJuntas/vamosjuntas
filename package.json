@@ -63,7 +63,7 @@
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-android": "gulp build-prod && ionic emulate android",
     "ionic-emulate-android-debugger": "gulp build-prod && ionic emulate -lc android",
-    "ionic-emulate-ios": "gulp build-prod && ionic emulate ios",
+    "ionic-emulate-ios": "gulp build-prod && ionic emulate ios && node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-ios-debugger": "gulp build-prod && ionic emulate -lc ios",
     "ionic-state-restore": "ionic state restore"
   }
