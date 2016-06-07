@@ -1,3 +1,8 @@
+var scrollIntoView = function(element) {
+  browser.executeScript(function (element) {
+    element.scrollIntoView();
+  }, element.getWebElement());
+};
 
 var clearInputAddress = function() {
   element(by.model('search.text')).clear();
@@ -23,7 +28,9 @@ var findAddressInput = function() {
 var Home = function() {
 
   this.reportRisk = function () {
-    return element(by.buttonText('Reportar risco')).click();
+    var reportRiskButton = element(by.buttonText('Reportar risco'));
+    scrollIntoView(reportRiskButton);
+    return reportRiskButton.click();
   };
 
   this.searchExistingAddress = function() {
