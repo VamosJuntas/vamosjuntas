@@ -1,4 +1,10 @@
 {
   "name": "vamosjuntas",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/maps/api",
+      "proxyUrl": "https://maps.googleapis.com/maps/api"
+    }
+  ]
 }
