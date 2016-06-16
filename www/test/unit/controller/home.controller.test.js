@@ -1,8 +1,16 @@
 describe('HomeController', function() {
-  var scope, placeFactory, state, place, addressFactory, q, deferred;
+  var scope, placeFactory, state, place, addressFactory, q, deferred, cordovaGeolocation;
 
   beforeEach(function() {
     module('vamosJuntas');
+
+    cordovaGeolocation = {
+      getCurrentPosition: function() {
+        return {
+          then: function(){}
+        }
+      }
+    };
 
     inject(function ($rootScope, $controller, $injector, $q, $httpBackend) {
         scope = $rootScope.$new();
@@ -17,7 +25,8 @@ describe('HomeController', function() {
           $controller('HomeController', {
               '$scope': scope,
               'placeFactory': placeFactory,
-              'addressFactory': addressFactory
+              'addressFactory': addressFactory,
+              '$cordovaGeolocation': cordovaGeolocation
           });
         };
     });
@@ -108,6 +117,22 @@ describe('HomeController', function() {
     scope.confirmAddress(place);
     scope.$apply();
     expect(scope.search.text).toBe('Av. Ipiranga, 123 - Porto Alegre');
+  });
+
+  it('should get the current position', function () {
+    spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(deferred.promise);
+
+     deferred.resolve({
+      coords: {
+        latitude: -30.057977,
+        longitude: -51.1755227
+      }
+    });
+
+    createController();
+    scope.$apply();
+    expect(scope.latitude).toBe(-30.057977);
+    expect(scope.longitude).toBe(-51.1755227);
   });
 
 });

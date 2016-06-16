@@ -1,10 +1,23 @@
 angular.module('vamosJuntas').controller('HomeController',
- ['$scope', 'placeFactory', 'addressFactory',  function($scope, placeFactory, addressFactory) {
+ ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', function($scope, placeFactory, addressFactory, $cordovaGeolocation) {
+
   placeFactory.fetchPlaces().then(function(response) {
     $scope.places = response.data;
   });
+
   $scope.search = {};
   $scope.addresses;
+
+  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+
+  $cordovaGeolocation
+    .getCurrentPosition(posOptions)
+    .then(function (position) {
+      $scope.latitude  = position.coords.latitude
+      $scope.longitude = position.coords.longitude
+    }, function(err) {
+
+    });
 
   $scope.getTotalOfOccurrences = function(place) {
     var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
