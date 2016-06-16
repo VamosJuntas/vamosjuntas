@@ -1,3 +1,5 @@
+teste
+
 [![Stories in Ready](https://badge.waffle.io/VamosJuntas/vamosjuntas.png?label=ready&title=Ready)](https://waffle.io/VamosJuntas/vamosjuntas)
 [![Build Status](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master/build_image)](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master)
 #Vamos Juntas
