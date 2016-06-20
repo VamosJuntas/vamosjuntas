@@ -1,15 +1,19 @@
 describe('AddressFactory', function() {
-  var addressFactory, httpBackend;
+  var addressFactory, httpBackend, geocoderSpy, scope;
   var key = 'AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4';
 
   beforeEach(function() {
       module('vamosJuntas');
 
-      inject(function ($injector, $httpBackend) {
+      inject(function ($injector, $httpBackend, $rootScope) {
         httpBackend = $injector.get('$httpBackend');
         addressFactory = $injector.get('addressFactory');
+        scope = $rootScope;
         httpBackend.whenGET(/templates.*/).respond('');
       });
+
+      geocoderSpy = jasmine.createSpyObj('Geocoder', ['geocode']);
+      spyOn(google.maps, 'Geocoder').and.returnValue(geocoderSpy);
     }
   );
 
@@ -62,5 +66,43 @@ describe('AddressFactory', function() {
     httpBackend.expectGET(url);
     httpBackend.flush();
     expect(result.data.name).toBe('Bourbon Shopping');
+  });
+
+  it('should return address from coords', function () {
+    var result;
+
+    geocoderSpy.geocode.and.callFake(function(request, callback) {
+        callback([{
+          formatted_address: 'Av. Ipiranga, 6681'
+        }], google.maps.GeocoderStatus.OK);
+    });
+
+    addressFactory.getAddressByCoord(-30.0556739, -51.1881215).then(function (data) {
+      result = data;
+    });
+
+    scope.$apply();
+
+    expect(result).toBe('Av. Ipiranga, 6681');
+
+  });
+
+  it('should not return address from coords', function () {
+    var result;
+
+    geocoderSpy.geocode.and.callFake(function(request, callback) {
+        callback([], google.maps.GeocoderStatus.ZERO_RESULTS);
+    });
+
+    addressFactory.getAddressByCoord(-30.0556739, -51.1881215).then(function (data) {
+      result = data;
+    }).catch(function (error) {
+      result = error;
+    });
+
+    scope.$apply();
+
+    expect(result).toBe('ZERO_RESULTS');
+
   });
 });

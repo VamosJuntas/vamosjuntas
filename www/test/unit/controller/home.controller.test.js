@@ -57,16 +57,15 @@ describe('HomeController', function() {
     spyOn(placeFactory, 'fetchPlaces').and.callFake(function() {
       return {
         then: function(callback) {
-          return callback(place);
-        }
-      };
+            return callback(place);
+          }
+        };
     });
+
+    spyOn(addressFactory, 'getAddressByCoord').and.returnValue(q.when('Av. Ipiranga, 6681'));
+
   });
 
-  it('gets the risk places', function() {
-    createController();
-    expect(placeFactory.fetchPlaces).toHaveBeenCalled();
-  });
 
   it('should get a total of occurrences from a specific place', function() {
     createController();
@@ -119,20 +118,60 @@ describe('HomeController', function() {
     expect(scope.search.text).toBe('Av. Ipiranga, 123 - Porto Alegre');
   });
 
-  it('should get the current position', function () {
-    spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(deferred.promise);
+  describe('get successfully current position', function (){
+    beforeEach(function () {
+      spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(deferred.promise);
 
-     deferred.resolve({
-      coords: {
-        latitude: -30.057977,
-        longitude: -51.1755227
-      }
+       deferred.resolve({
+        coords: {
+          latitude: -30.057977,
+          longitude: -51.1755227
+        }
+      });
     });
 
-    createController();
-    scope.$apply();
-    expect(scope.latitude).toBe(-30.057977);
-    expect(scope.longitude).toBe(-51.1755227);
+    it('should show the current position', function () {
+      createController();
+      scope.$apply();
+      expect(scope.latitude).toBe(-30.057977);
+      expect(scope.longitude).toBe(-51.1755227);
+    });
+
+    it('gets the risk places', function() {
+      createController();
+      scope.$apply();
+      expect(placeFactory.fetchPlaces).toHaveBeenCalled();
+    });
+
+    it('gets the address by coords', function() {
+      createController();
+      scope.$apply();
+      expect(addressFactory.getAddressByCoord).toHaveBeenCalledWith(-30.057977, -51.1755227);
+      expect(scope.search.text).toBe('Av. Ipiranga, 6681');
+    });
+  });
+
+
+  describe('fails to get current position', function (){
+    beforeEach(function () {
+      spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(deferred.promise);
+
+       deferred.reject();
+    });
+
+    it('should not show the current position', function () {
+      createController();
+      scope.$apply();
+      expect(scope.latitude).toBe(undefined);
+      expect(scope.longitude).toBe(undefined);
+    });
+
+    it('gets the risk places', function() {
+      createController();
+      scope.$apply();
+      expect(placeFactory.fetchPlaces).not.toHaveBeenCalled();
+      expect(addressFactory.getAddressByCoord).not.toHaveBeenCalled();
+    });
   });
 
 });

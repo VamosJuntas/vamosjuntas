@@ -1,9 +1,6 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', function($scope, placeFactory, addressFactory, $cordovaGeolocation) {
 
-  placeFactory.fetchPlaces().then(function(response) {
-    $scope.places = response.data;
-  });
 
   $scope.search = {};
   $scope.addresses;
@@ -15,6 +12,15 @@ angular.module('vamosJuntas').controller('HomeController',
     .then(function (position) {
       $scope.latitude  = position.coords.latitude
       $scope.longitude = position.coords.longitude
+
+      placeFactory.fetchPlaces($scope.latitude, $scope.longitude).then(function(response) {
+        $scope.places = response.data;
+      });
+
+      addressFactory.getAddressByCoord($scope.latitude, $scope.longitude).then(function(response){
+        $scope.search.text = response;
+      });
+
     }, function(err) {
 
     });
