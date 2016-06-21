@@ -1,5 +1,5 @@
 describe('HomeController', function() {
-  var scope, placeFactory, state, place, addressFactory, q, deferred, cordovaGeolocation;
+  var scope, placeFactory, state, place, addressFactory, q, deferred, cordovaGeolocation, ionicLoading;
 
   beforeEach(function() {
     module('vamosJuntas');
@@ -12,11 +12,12 @@ describe('HomeController', function() {
       }
     };
 
-    inject(function ($rootScope, $controller, $injector, $q, $httpBackend) {
+    inject(function ($rootScope, $controller, $injector, $q, $httpBackend, $ionicLoading) {
         scope = $rootScope.$new();
         httpBackend = $injector.get('$httpBackend');
         placeFactory = $injector.get('placeFactory');
         addressFactory = $injector.get('addressFactory');
+        ionicLoading = $injector.get('$ionicLoading');
         q = $q;
         deferred = $q.defer();
         httpBackend.whenGET(/templates.*/).respond('');
@@ -26,7 +27,8 @@ describe('HomeController', function() {
               '$scope': scope,
               'placeFactory': placeFactory,
               'addressFactory': addressFactory,
-              '$cordovaGeolocation': cordovaGeolocation
+              '$cordovaGeolocation': cordovaGeolocation,
+              '$ionicLoading': ionicLoading
           });
         };
     });
@@ -63,7 +65,6 @@ describe('HomeController', function() {
     });
 
     spyOn(addressFactory, 'getAddressByCoord').and.returnValue(q.when('Av. Ipiranga, 6681'));
-
   });
 
 
@@ -133,8 +134,8 @@ describe('HomeController', function() {
     it('should show the current position', function () {
       createController();
       scope.$apply();
-      expect(scope.latitude).toBe(-30.057977);
-      expect(scope.longitude).toBe(-51.1755227);
+      expect(scope.coordinates.latitude).toBe(-30.057977);
+      expect(scope.coordinates.longitude).toBe(-51.1755227);
     });
 
     it('gets the risk places', function() {
@@ -155,18 +156,18 @@ describe('HomeController', function() {
   describe('fails to get current position', function (){
     beforeEach(function () {
       spyOn(cordovaGeolocation, 'getCurrentPosition').and.returnValue(deferred.promise);
-
-       deferred.reject();
+      deferred.reject();
     });
 
     it('should not show the current position', function () {
       createController();
       scope.$apply();
-      expect(scope.latitude).toBe(undefined);
-      expect(scope.longitude).toBe(undefined);
+      expect(scope.errorMessage).toBe(true);
+      expect(scope.coordinates.latitude).toBe(undefined);
+      expect(scope.coordinates.longitude).toBe(undefined);
     });
 
-    it('gets the risk places', function() {
+    it('should not get the risk places', function() {
       createController();
       scope.$apply();
       expect(placeFactory.fetchPlaces).not.toHaveBeenCalled();

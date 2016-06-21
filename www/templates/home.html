@@ -1,5 +1,9 @@
 <ion-view view-title="Lista">
     <ion-content class="has-header">
+        <p ng-if="errorMessage">
+          Não foi possível encontrar sua localização. Verifique se seu GPS está ligado.
+        </p>
+
         <h1 class="vamosjuntas-home-header">Vamos Juntas!</h1>
         <form ng-submit="searchAddress()">
             <label class="item item-input">
@@ -20,8 +24,6 @@
           </li>
       </ul>
 
-      Latitude: {{latitude}}
-      Longitude: {{longitude}}
       <h4>Localidades de risco próximos a você</h4>
       <div ng-repeat="place in places">
         <div class="list">

@@ -1,28 +1,34 @@
 angular.module('vamosJuntas').controller('HomeController',
- ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', function($scope, placeFactory, addressFactory, $cordovaGeolocation) {
+ ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', '$ionicLoading', function($scope, placeFactory, addressFactory, $cordovaGeolocation, $ionicLoading) {
 
 
   $scope.search = {};
   $scope.addresses;
+  $scope.coordinates = {};
+  $scope.errorMessage = false;
+
+  $ionicLoading.show();
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
 
   $cordovaGeolocation
     .getCurrentPosition(posOptions)
     .then(function (position) {
-      $scope.latitude  = position.coords.latitude
-      $scope.longitude = position.coords.longitude
+      $scope.coordinates.latitude  = position.coords.latitude
+      $scope.coordinates.longitude = position.coords.longitude
 
-      placeFactory.fetchPlaces($scope.latitude, $scope.longitude).then(function(response) {
+      placeFactory.fetchPlaces($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response) {
         $scope.places = response.data;
       });
 
-      addressFactory.getAddressByCoord($scope.latitude, $scope.longitude).then(function(response){
+      addressFactory.getAddressByCoord($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response){
         $scope.search.text = response;
       });
 
-    }, function(err) {
-
+      $ionicLoading.hide();
+    }, function() {
+      $scope.errorMessage = true;
+      $ionicLoading.hide();
     });
 
   $scope.getTotalOfOccurrences = function(place) {
