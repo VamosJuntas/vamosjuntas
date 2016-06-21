@@ -61,7 +61,7 @@ describe('Report address form', function() {
           deferred.fulfill(!isPresent);
         });
       return deferred.promise;
-    }, 3000);
+    }, 3500);
 
 
     home.searchExistingAddress();
