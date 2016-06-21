@@ -132,8 +132,11 @@ describe('HomeController', function() {
     });
 
     it('should show the current position', function () {
+      var posOptions = {timeout: 10000, enableHighAccuracy: false};
+
       createController();
       scope.$apply();
+      expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalledWith(posOptions);
       expect(scope.coordinates.latitude).toBe(-30.057977);
       expect(scope.coordinates.longitude).toBe(-51.1755227);
     });
