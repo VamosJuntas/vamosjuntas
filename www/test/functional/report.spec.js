@@ -54,6 +54,16 @@ describe('Report address form', function() {
     splash.joinApp();
     expect(browser.getCurrentUrl()).toContain('/home');
 
+    browser.wait(function() {
+      var deferred = protractor.promise.defer();
+      element(by.css('.loading-active')).isPresent()
+        .then(function (isPresent) {
+          deferred.fulfill(!isPresent);
+        });
+      return deferred.promise;
+    });
+
+
     home.searchExistingAddress();
     home.searchNonExistentAddress();
     home.fillAddress('Rua Dom Pedro II, Porto Alegre');
