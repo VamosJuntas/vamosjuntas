@@ -10,12 +10,13 @@ VamosJuntas mobile application.
 
 ### Normal Setup Without Docker
 
-
-Run `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/)).
-
-Run `npm install`
-
 We recommend using `nvm` (Node Version Manager) if you want to install and manage different versions of node and linking local versions into specific directories ([download](https://github.com/creationix/nvm)).
+
+After install nvm, run `nvm install 4.3.1`, so the supported node version of the project would be installed.
+
+Run `nvm use` to use the node version defined in the *.nvmrc* file.
+
+Run `npm install` to install the node dependencies.
 
 
 ### Setup With Docker <not working>
@@ -42,7 +43,7 @@ It can be run with laptop's browser.
 It will run with debug output.
 
 ```
-npm run ionic
+npm run serve
 ```
 
 ##Run on Mobile Devices
@@ -180,4 +181,3 @@ If you need to add new variables to the app, follow these steps:
 If you’ve used ionic serve or ionic run with live reload and accessing external API endpoints, chances are you’ve run into some CORS issues.
 
 See the blog: http://blog.ionic.io/handling-cors-issues-in-ionic/
-
