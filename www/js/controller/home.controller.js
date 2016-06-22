@@ -1,7 +1,10 @@
-angular.module('vamosJuntas').controller('HomeController', ['$scope', 'placeFactory', function($scope, placeFactory) {
-  $scope.places = placeFactory.fetchPlaces().then(function(response) {
+angular.module('vamosJuntas').controller('HomeController',
+ ['$scope', 'placeFactory', 'addressFactory',  function($scope, placeFactory, addressFactory) {
+  placeFactory.fetchPlaces().then(function(response) {
     $scope.places = response.data;
   });
+  $scope.search = {};
+  $scope.addresses;
 
   $scope.getSpecificPlace = function(place) {
     placeFactory.addPlace(place);
@@ -15,4 +18,20 @@ angular.module('vamosJuntas').controller('HomeController', ['$scope', 'placeFact
     return numberOfOccurrences;
   };
 
+  $scope.getSpecificPlace = function(place) {
+    placeFactory.addPlace(place);
+  };
+
+  $scope.searchAddress = function() {
+    addressFactory.getAutoCompleteFromAddress($scope.search.text).then(function(response) {
+      $scope.addresses = response.data.predictions;
+    }, function(error) {
+      $scope.addresses = [];
+    });
+  };
+
+  $scope.confirmAddress = function (place) {
+    $scope.search.text = place.description;
+  };
+  
 }]);

@@ -2,6 +2,7 @@ bower_components/
 node_modules/
 www/lib/
 www/css/
+www/js/app-settings.js
 .tmp
 .sass-cache
 <%= appPath %>/bower_components
@@ -16,3 +17,4 @@ www/ionic.app.css
 www/ionic.app.min.css
 .idea/
 screenlog.*
+config.xml

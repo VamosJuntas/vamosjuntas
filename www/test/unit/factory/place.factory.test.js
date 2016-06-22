@@ -36,7 +36,7 @@ describe('Place Factory', function() {
 
   it('should return places', function() {
     var url, result;
-    url = 'http://localhost:3000/places';
+    url = 'http://0.0.0.0:3000/places';
 
     httpBackend.whenGET(url).respond(httpResponse);
 

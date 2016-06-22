@@ -14,7 +14,7 @@
     return placeObject;
 
     function fetchPlaces() {
-      return $http.get('http://localhost:3000/places');
+      return $http.get('http://0.0.0.0:3000/places');
     }
 
     function addPlace(place) {
