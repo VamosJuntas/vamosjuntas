@@ -23,16 +23,14 @@ exports.config = {
       });
   },
 
-  multiCapabilities:[
-    {
-      'browserName':'chrome',
-      'chromeOptions': {
-        prefs: {
-          'profile.managed_default_content_settings.notifications': 'Allow'
-        }
+  capabilities: {
+    browserName: "chrome",
+    chromeOptions: {
+      prefs: {
+        "profile.default_content_setting_values.geolocation": 1,
       }
     }
-  ],
+  }
 
   directConnect : true,
   framework: 'jasmine2',
