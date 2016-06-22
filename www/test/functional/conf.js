@@ -23,6 +23,17 @@ exports.config = {
       });
   },
 
+  multiCapabilities:[
+    {
+      'browserName':'chrome',
+      'chromeOptions': {
+        prefs: {
+          'profile.managed_default_content_settings.notifications': 'Allow'
+        }
+      }
+    }
+  ],
+
   directConnect : true,
   framework: 'jasmine2',
   specs: ['report.spec.js'],
