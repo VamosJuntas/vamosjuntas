@@ -30,7 +30,7 @@ exports.config = {
         "profile.default_content_setting_values.geolocation": 1,
       }
     }
-  }
+  },
 
   directConnect : true,
   framework: 'jasmine2',
