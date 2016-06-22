@@ -56,13 +56,15 @@ describe('Report address form', function() {
 
     browser.wait(function() {
       var deferred = protractor.promise.defer();
-      element(by.css('.loading-active')).isPresent()
-        .then(function (isPresent) {
-          deferred.fulfill(!isPresent);
-        });
-      return deferred.promise;
-    }, 3500);
+      var q = element(by.css('.loading-container.visible.active')).isPresent();
 
+      q.then( function (isPresent) {
+        deferred.fulfill(!isPresent);
+      });
+
+      return deferred.promise;
+
+    }, 10000);
 
     home.searchExistingAddress();
     home.searchNonExistentAddress();
