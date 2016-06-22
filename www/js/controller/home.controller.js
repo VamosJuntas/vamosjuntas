@@ -9,7 +9,7 @@ angular.module('vamosJuntas').controller('HomeController',
 
   $ionicLoading.show();
 
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  var posOptions = {timeout: 5000, enableHighAccuracy: false};
 
   $cordovaGeolocation
     .getCurrentPosition(posOptions)
