@@ -8,6 +8,8 @@
   "dependencies": {
     "bower": "^1.3.3",
     "cordova": "*",
+    "gulp": "^3.9.1",
+    "gulp-preprocess": "^2.0.0",
     "express": "^4.13.4",
     "ionic": "*",
     "ios-sim": "*",
@@ -20,8 +22,6 @@
     "eslint-config-angular": "^0.4.0",
     "eslint-plugin-angular": "^0.14.0",
     "eslint-plugin-react": "^3.11.2",
-    "gulp": "^3.9.1",
-    "gulp-preprocess": "^2.0.0",
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.22",
