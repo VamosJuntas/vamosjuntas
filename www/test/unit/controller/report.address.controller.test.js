@@ -3,18 +3,27 @@ describe('ReportAddressController', function() {
 
   beforeEach(function() {
     module('vamosJuntas');
-
     inject(function($rootScope, $controller, $injector, $httpBackend, _$location_) {
       scope = $rootScope.$new();
       $location = _$location_;
-      placeFactory = $injector.get('placeFactory');
       $httpBackend.whenGET(/templates.*/).respond('');
+
       spyOn($location, 'path');
-      createController = function() {
+      createController = function(stateParams) {
+        var $stateParams;
+        var defaultStateParams = {
+          address: ''
+        };
+        if (stateParams === undefined) {
+          $stateParams = defaultStateParams;
+        } else {
+          $stateParams = stateParams;
+        }
+
         $controller('ReportAddressController', {
           '$scope': scope,
-          'placeFactory': placeFactory,
-          '$location': $location
+          '$location': $location,
+          '$stateParams': $stateParams
         });
       };
     });
@@ -48,15 +57,33 @@ describe('ReportAddressController', function() {
       }]
     };
 
-    spyOn(placeFactory,'getPlace').and.returnValue(place);
+    spyOn(placeFactory, 'getPlace').and.returnValue(place);
+  });
+
+  describe('when an address is received', function() {
+    it('should be passed to report.address', function() {
+      var stateParams = {
+        address: 'anyAddress'
+      };
+      var controller = createController(stateParams);
+      expect(scope.report.address).toEqual(stateParams.address);
+    });
+  });
+
+  describe('and form is not valid', function() {
+    it('should not redirect to the success page if address is empty', function() {
+      var controller = createController();
+      scope.submit(false);
+      expect($location.path).not.toHaveBeenCalled();
+    });
   });
 
   describe('Saving data', function() {
-    it('should save a new occurrence for existent risk', function () {
+    it('should save a new occurrence for existent risk', function() {
       createController();
       scope.placeDetails = placeFactory.getPlace();
       scope.report = {
-        "risk" : "Roubo",
+        "risk": "Roubo",
         "date": "10/10/2016",
         "period": "Manhã"
       };
@@ -65,11 +92,11 @@ describe('ReportAddressController', function() {
       expect(scope.placeDetails.occurrences[0].count).toEqual(3);
     });
 
-    it('should save a new occurrence for a non existent risk', function () {
+    it('should save a new occurrence for a non existent risk', function() {
       createController();
       scope.placeDetails = placeFactory.getPlace();
       scope.report = {
-        "risk" : "Abuso",
+        "risk": "Abuso",
         "date": "10/10/2016",
         "period": "Manhã"
       };
@@ -85,4 +112,5 @@ describe('ReportAddressController', function() {
       expect($location.path).not.toHaveBeenCalled();
     });
   });
-  });
+
+});

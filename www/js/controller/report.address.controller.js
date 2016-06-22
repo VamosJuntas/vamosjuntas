@@ -1,8 +1,8 @@
-angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', 'placeFactory', '$location','$ionicHistory', function($scope, placeFactory, $location, $ionicHistory) {
+angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', 'placeFactory', '$stateParams','$location','$ionicHistory', function($scope, placeFactory, $stateParams, $location, $ionicHistory) {
 
   $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
-  $scope.report.address = $scope.placeDetails.address;
+  $scope.report.address = $stateParams.address;
 
   $scope.myGoBack = function() {
     $ionicHistory.goBack();
