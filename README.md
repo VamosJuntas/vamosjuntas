@@ -12,10 +12,13 @@ VamosJuntas mobile application.
 
 ### Normal Setup Without Docker
 
+We recommend using `nvm` (Node Version Manager) if you want to install and manage different versions of node and linking local versions into specific directories ([download](https://github.com/creationix/nvm)).
 
-Run `brew install node` (for mac, other platforms: [nodejs downloads](https://nodejs.org/en/download/)).
+After install nvm, run `nvm install 4.3.1`, so the supported node version of the project would be installed.
 
-Run `npm install`
+Run `nvm use` to use the node version defined in the *.nvmrc* file.
+
+Run `npm install` to install the node dependencies.
 
 
 ### Setup With Docker <not working>
@@ -42,7 +45,7 @@ It can be run with laptop's browser.
 It will run with debug output.
 
 ```
-npm run ionic
+npm run serve
 ```
 
 ##Run on Mobile Devices
@@ -148,3 +151,35 @@ npm run ionic-emulate-android
 ```
 npm run ionic-emulate-android
 ```
+
+## How to add specific things to specific environments?
+
+We are using templates/appSettings.js along with gulp-preprocess (https://www.npmjs.com/package/gulp-preprocess) to pass variables depending on environment to our angular App.
+If you need to add new variables to the app, follow these steps:
+
+1. Add a new property to the appSettings global object
+
+2. Enclose with commented "if" tags for the specfic environment, so that gulp build task will preprocess and copy the  appSettings file with the correct property values to our project source folder.
+
+  ```
+  // @if NODE_ENV == 'DEVELOPMENT'
+  mapsAPIBaseUrl: '/maps/api/place'
+  // @endif
+  ```
+
+3. You can now use this property in the javascript code.
+
+ For example:
+
+ ```
+ angular.module('vamosJuntas').constant('PlacesAPI', {
+   autoCompleteBaseUrl: AppSettings.mapsAPIBaseUrl + '/autocomplete/json?',
+   coordinatesBaseUrl: AppSettings.mapsAPIBaseUrl + '/details/json?',
+   nearbySearchBaseUrl: AppSettings.mapsAPIBaseUrl + '/nearbysearch/json?'
+ });
+ ```
+
+## CORS issues in development
+If you’ve used ionic serve or ionic run with live reload and accessing external API endpoints, chances are you’ve run into some CORS issues.
+
+See the blog: http://blog.ionic.io/handling-cors-issues-in-ionic/
