@@ -79,7 +79,7 @@ describe('HomeController', function() {
     createController();
     scope.getSpecificPlace(place);
 
-    expect(placeFactory.addPlace).toHaveBeenCalledWith({place});
+    expect(placeFactory.addPlace).toHaveBeenCalledWith(place);
   });
 
   it('should search the address', function() {
