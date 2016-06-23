@@ -53,12 +53,6 @@ describe('Report address form', function() {
     splash.confirmTerms();
     splash.joinApp();
     expect(browser.getCurrentUrl()).toContain('/home');
-    
-    home.searchAutoCompleteAddress();
-    //home.searchExistingAddress();
-    home.searchNonExistentAddress();
-    home.fillAddress('Rua Dom Pedro II, Porto Alegre');
-    home.selectFirstAddress();
 
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');

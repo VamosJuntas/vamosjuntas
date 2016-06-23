@@ -19,7 +19,7 @@ var checkAddressInputContainsText = function(text) {
 
 var findLiElements = function() {
   //return element.all(by.css('.place-list'));
-  return element.all(by.css('.pac-matched'));
+  return element.all(by.css('.pac-container'));
 };
 
 var findAddressInput = function() {
@@ -33,47 +33,6 @@ var Home = function() {
     scrollIntoView(reportRiskButton);
     return reportRiskButton.click();
   };
-
-/*  this.searchExistingAddress = function() {
-    this.fillAddress('Dom Pedro');
-    submitAddressSearch();
-    checkAddressInputContainsText();
-    //assert
-  }*/
-
- this.searchAutoCompleteAddress = function() {
-    this.fillAddress('Dom Pedro');
-    //submitAddressSearch();
-    findLiElements().then(function(items){
-        expect(items.length).toBeGreaterThan(1);
-    });
-  }
-
-  this.searchNonExistentAddress = function() {
-    this.fillAddress('invalidAddress');
- /*   submitAddressSearch();*/
-    findLiElements().then(function(items){
-      expect(items[0].isEmpty());
-    });
-  }
-
-  this.fillAddress = function(text) {
-    clearInputAddress();
-    var addressInput = findAddressInput();
-    return addressInput.sendKeys(text);
-  }
-
- this.selectFirstAddress = function() {
-    //element(by.buttonText('Buscar')).click();
-    findLiElements().then(function(items) {
-      var firstPlace = items[0];
-      firstPlace.click();
-      firstPlace.innerText.then(function(text) {
-        checkAddressInputContainsText(text);
-      });
-    });
-  }
-
 };
 
 module.exports = Home;
