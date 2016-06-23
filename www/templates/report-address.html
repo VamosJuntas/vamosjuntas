@@ -16,7 +16,7 @@
         </label>
         <label class="item item-input" ng-class="{'has-errors' : reportForm.date.$invalid && !reportForm.date.$pristine}" ng-min="15-06-2000">
           <span class="input-label">Data*</span>
-          <input name="date" type="date" class="date" ng-model="report.date" required>
+          <input name="date" type="datetime-local" class="date" ng-model="report.date" required>
         </label>
         <div>
           <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.period.$invalid && !reportForm.period.$pristine}">
