@@ -63,51 +63,6 @@ describe('HomeController', function() {
     createController();
     expect(scope.getTotalOfOccurrences(place)).toBe(17);
   });
-/*
-  it('should search the address', function() {
-    spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
-
-    deferred.resolve({
-      data: {
-        predictions: [
-          {
-            description: 'Rua Dom Pedro I - São Paulo'
-          },
-          {
-            description: 'Rua Dom Pedro II - Porto Alegre'
-          }
-        ]
-      }
-    });
-
-    createController();
-    scope.search.text = 'Rua Dom Pedro';
-    scope.searchAddress();
-
-    scope.$apply();
-    expect(addressFactory.getAutoCompleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
-    expect(scope.addresses[0].description).toBe('Rua Dom Pedro I - São Paulo');
-  });*/
-
- /* it('should not search the address', function() {
-    spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
-
-    deferred.reject();
-
-    createController();
-    scope.search.text = 'Rua Dom Pedro';
-    scope.searchAddress();
-
-    scope.$apply();
-    expect(scope.addresses.length).toBe(0);
-  });*/
-
- /* it('should fill the search with the selected address', function() {
-    var place = {description: 'Av. Ipiranga, 123 - Porto Alegre'}
-    createController();
-    scope.confirmAddress(place);
-    scope.$apply();
-    expect(scope.search.text).toBe('Av. Ipiranga, 123 - Porto Alegre');
-  });*/
-
+    
+    
 });

@@ -3,11 +3,6 @@ angular.module('vamosJuntas').factory('addressFactory', function($http, PlacesAP
   var url = "";
   
   return {
-    //https://developers.google.com/places/web-service/autocomplete#place_autocomplete_responses
-    getAutoCompleteFromAddress: function(name) {
-     /* url = PlacesAPI.autoCompleteBaseUrl + 'input=' + name + '&key=' + api_key;
-      return $http.get(url);*/
-    },
     //https://developers.google.com/places/web-service/details#PlaceDetailsRequests
     getCoordFromAddress: function(placeid) {
       url = PlacesAPI.coordinatesBaseUrl + "placeid=" + placeid + "&key=" + api_key;
