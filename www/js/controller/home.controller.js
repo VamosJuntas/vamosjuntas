@@ -6,9 +6,13 @@ angular.module('vamosJuntas').controller('HomeController',
   $scope.search = {};
   $scope.addresses;
 
+  $scope.getSpecificPlace = function(place) {
+    placeFactory.addPlace(place);
+  };
+
   $scope.getTotalOfOccurrences = function(place) {
-    var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
-      return total + occurrence.numberOfOccurrences;
+   var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
+      return total + occurrence.count;
     }, 0);
 
     return numberOfOccurrences;
@@ -28,5 +32,6 @@ angular.module('vamosJuntas').controller('HomeController',
 
   $scope.confirmAddress = function (place) {
     $scope.search.text = place.description;
-  }
+  };
+  
 }]);
