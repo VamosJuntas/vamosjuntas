@@ -17,23 +17,16 @@ angular.module('vamosJuntas').controller('HomeController',
       $scope.coordinates.latitude  = position.coords.latitude
       $scope.coordinates.longitude = position.coords.longitude
 
-      console.log('Getting position.');
-      console.log('latitude: ', $scope.coordinates.latitude);
-      console.log('longitude: ', $scope.coordinates.longitude);
-
       placeFactory.fetchPlaces($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response) {
-        console.log('Fetch Places');
         $scope.places = response.data;
       });
 
       addressFactory.getAddressByCoord($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response){
-        console.log('addresses');
         $scope.search.text = response;
       });
 
       $ionicLoading.hide();
     }, function() {
-      console.log('Error getting position.');
       $scope.errorMessage = true;
       $ionicLoading.hide();
     });

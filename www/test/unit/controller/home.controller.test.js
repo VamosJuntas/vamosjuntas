@@ -73,6 +73,15 @@ describe('HomeController', function() {
     expect(scope.getTotalOfOccurrences(place)).toBe(17);
   });
 
+  it('should get info for a specific place', function() {
+    spyOn(placeFactory, 'addPlace');
+
+    createController();
+    scope.getSpecificPlace(place);
+
+    expect(placeFactory.addPlace).toHaveBeenCalledWith({place});
+  });
+
   it('should search the address', function() {
     spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
 
