@@ -5,7 +5,7 @@ var scrollIntoView = function(element) {
 };
 
 var clearInputAddress = function() {
-  element(by.model('search.text')).clear();
+  element(by.model('chosenPlace')).clear();
 };
 
 var checkAddressInputContainsText = function(text) {
@@ -13,16 +13,17 @@ var checkAddressInputContainsText = function(text) {
   expect(addressInput.getAttribute('value')).toContain(text);
 };
 
-var submitAddressSearch = function() {
+/*var submitAddressSearch = function() {
   return element(by.buttonText('Buscar')).click();
-};
+};*/
 
 var findLiElements = function() {
-  return element.all(by.css('.place-list li'));
+  //return element.all(by.css('.place-list'));
+  return element.all(by.css('.pac-matched'));
 };
 
 var findAddressInput = function() {
-  return element(by.model('search.text'));
+  return element(by.model('chosenPlace'));
 };
 
 var Home = function() {
@@ -33,19 +34,26 @@ var Home = function() {
     return reportRiskButton.click();
   };
 
-  this.searchExistingAddress = function() {
+/*  this.searchExistingAddress = function() {
     this.fillAddress('Dom Pedro');
     submitAddressSearch();
+    checkAddressInputContainsText();
+    //assert
+  }*/
+
+ this.searchAutoCompleteAddress = function() {
+    this.fillAddress('Dom Pedro');
+    //submitAddressSearch();
     findLiElements().then(function(items){
-      expect(items[0].getText()).toContain('Dom Pedro');
+        expect(items.length).toBeGreaterThan(1);
     });
   }
 
   this.searchNonExistentAddress = function() {
     this.fillAddress('invalidAddress');
-    submitAddressSearch();
+ /*   submitAddressSearch();*/
     findLiElements().then(function(items){
-      expect(items[0].getText()).toContain('Nenhum resultado encontrado.');
+      expect(items[0].isEmpty());
     });
   }
 
@@ -55,15 +63,14 @@ var Home = function() {
     return addressInput.sendKeys(text);
   }
 
-  this.selectFirstAddress = function() {
-    element(by.buttonText('Buscar')).click();
+ this.selectFirstAddress = function() {
+    //element(by.buttonText('Buscar')).click();
     findLiElements().then(function(items) {
       var firstPlace = items[0];
       firstPlace.click();
-      firstPlace.getText().then(function(text) {
+      firstPlace.innerText.then(function(text) {
         checkAddressInputContainsText(text);
       });
-
     });
   }
 
