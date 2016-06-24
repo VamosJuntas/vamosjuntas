@@ -20,7 +20,6 @@ describe('Report address form', function() {
   it('should not send to confirmation page without address', function() {
     browser.get('/#/report');
     report.fillDate('01/30/2015');
-    report.fillPeriod('Madrugada');
     report.fillPeriod('Roubo');
     expect(report.submitButton().isEnabled()).toBe(false);
   });
@@ -28,7 +27,6 @@ describe('Report address form', function() {
   it('should not send to confirmation page without date', function() {
     browser.get('/#/report');
     report.fillDate('01/30/2015');
-    report.fillPeriod('Madrugada');
     report.fillPeriod('Roubo');
     expect(report.submitButton().isEnabled()).toBe(false);
   });
@@ -46,7 +44,7 @@ describe('Report address form', function() {
 
     report.fillAddress('My address');
     report.fillDate('01/30/2015');
-    report.fillPeriod('Madrugada');
+
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
@@ -78,8 +76,11 @@ describe('Report address form', function() {
     expect(browser.getCurrentUrl()).toContain('/report');
 
     report.fillAddress('My address');
-    report.fillDate('01/30/2015');
-    report.fillPeriod('Madrugada');
+
+    var date = new Date(2015, 1, 30, 2, 0);
+    element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
+                                  protractor.Key.TAB,date.getHours(),date.getMinutes(),
+                                  protractor.Key.TAB, "PM");
     report.fillPeriod('Roubo');
     report.submitButtonClick();
 
