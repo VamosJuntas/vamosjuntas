@@ -4,24 +4,22 @@ angular.module('vamosJuntas').controller('HomeController',
 
   $scope.search = {};
   $scope.addresses;
-  $scope.coordinates = {};
   $scope.errorMessage = false;
 
   $ionicLoading.show();
 
+  var coordinates = {};
   var posOptions = {timeout: 5000, enableHighAccuracy: false};
 
   $cordovaGeolocation
     .getCurrentPosition(posOptions)
     .then(function (position) {
-      $scope.coordinates.latitude  = position.coords.latitude
-      $scope.coordinates.longitude = position.coords.longitude
 
-      placeFactory.fetchPlaces($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response) {
+      placeFactory.fetchPlaces(position.coords.latitude, position.coords.longitude).then(function(response) {
         $scope.places = response.data;
       });
 
-      addressFactory.getAddressByCoord($scope.coordinates.latitude, $scope.coordinates.longitude).then(function(response){
+      addressFactory.getAddressByCoord(position.coords.latitude, position.coords.longitude).then(function(response){
         $scope.search.text = response;
       });
 

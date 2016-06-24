@@ -146,14 +146,12 @@ describe('HomeController', function() {
       createController();
       scope.$apply();
       expect(cordovaGeolocation.getCurrentPosition).toHaveBeenCalledWith(posOptions);
-      expect(scope.coordinates.latitude).toBe(-30.057977);
-      expect(scope.coordinates.longitude).toBe(-51.1755227);
     });
 
     it('gets the risk places', function() {
       createController();
       scope.$apply();
-      expect(placeFactory.fetchPlaces).toHaveBeenCalled();
+      expect(placeFactory.fetchPlaces).toHaveBeenCalledWith(-30.057977, -51.1755227);
     });
 
     it('gets the address by coords', function() {
@@ -175,11 +173,9 @@ describe('HomeController', function() {
       createController();
       scope.$apply();
       expect(scope.errorMessage).toBe(true);
-      expect(scope.coordinates.latitude).toBe(undefined);
-      expect(scope.coordinates.longitude).toBe(undefined);
     });
 
-    it('should not get the risk places', function() {
+    it('should not get the risk places and address', function() {
       createController();
       scope.$apply();
       expect(placeFactory.fetchPlaces).not.toHaveBeenCalled();
