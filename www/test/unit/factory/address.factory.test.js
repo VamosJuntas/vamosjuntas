@@ -12,22 +12,6 @@ describe('AddressFactory', function() {
       });
     }
   );
-/*
-  it('should return autocomplete address from an address', function() {
-    var url = 'mapsAPIStub/autocomplete/json?input=Av. Ipiranga&key=' + key;
-    var httpResponse = {id: '1', description: 'Av Ipiranga, Porto Alegre' };
-    var result;
-
-    httpBackend.whenGET(url).respond(httpResponse);
-
-    addressFactory.getAutoCompleteFromAddress('Av. Ipiranga').then(function (data){
-      result = data;
-    });
-    httpBackend.expectGET(url);
-    httpBackend.flush();
-    expect(result.data.description).toBe('Av Ipiranga, Porto Alegre');
-  });*/
-
   it('should return coord from a address id', function() {
     var url = 'mapsAPIStub/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + key;
     var httpResponse = { geometry: {
