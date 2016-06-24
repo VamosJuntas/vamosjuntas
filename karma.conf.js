@@ -49,7 +49,7 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-        dir: 'test-results/coverage/',
+        dir: 'test-results/unit/coverage/',
         reporters:[
             {type: 'html'},
             {type: 'lcovonly'}

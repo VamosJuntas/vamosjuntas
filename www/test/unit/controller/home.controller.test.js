@@ -34,25 +34,31 @@ describe('HomeController', function() {
     });
 
     place = {
-      "title": "Chafariz da Redenção",
+      "address": "Av. Ipiranga",
+      "location": {
+        "latitude": 10,
+        "longitude": 20
+      },
       "occurrences": [{
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
+        "risk": "Roubo",
+        "count": 5,
+        "reports": [{
+          "date": "10/10/2016",
+          "period": "Manhã"
+        }, {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        }]
       }, {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 4
-      }, {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 10
+        "risk": "Local Mal Iluminado",
+        "count": 3,
+        "reports": [{
+          "date": "10/10/2016",
+          "period": "Manhã"
+        }, {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        }]
       }]
     };
 
@@ -67,10 +73,9 @@ describe('HomeController', function() {
     spyOn(addressFactory, 'getAddressByCoord').and.returnValue(q.when('Av. Ipiranga, 6681'));
   });
 
-
   it('should get a total of occurrences from a specific place', function() {
     createController();
-    expect(scope.getTotalOfOccurrences(place)).toBe(17);
+    expect(scope.getTotalOfOccurrences(place)).toBe(8);
   });
 
   it('should get info for a specific place', function() {
@@ -87,14 +92,11 @@ describe('HomeController', function() {
 
     deferred.resolve({
       data: {
-        predictions: [
-          {
-            description: 'Rua Dom Pedro I - São Paulo'
-          },
-          {
-            description: 'Rua Dom Pedro II - Porto Alegre'
-          }
-        ]
+        predictions: [{
+          description: 'Rua Dom Pedro I - São Paulo'
+        }, {
+          description: 'Rua Dom Pedro II - Porto Alegre'
+        }]
       }
     });
 
@@ -121,7 +123,9 @@ describe('HomeController', function() {
   });
 
   it('should fill the search with the selected address', function() {
-    var place = {description: 'Av. Ipiranga, 123 - Porto Alegre'}
+    var place = {
+      description: 'Av. Ipiranga, 123 - Porto Alegre'
+    };
     createController();
     scope.confirmAddress(place);
     scope.$apply();
@@ -182,5 +186,4 @@ describe('HomeController', function() {
       expect(addressFactory.getAddressByCoord).not.toHaveBeenCalled();
     });
   });
-
 });

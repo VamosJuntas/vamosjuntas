@@ -1,7 +1,7 @@
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
 var reporter = new HtmlScreenshotReporter({
-  dest: './www/test/functional/screenshots',
+  dest: './test-results/functional/screenshots',
   filename: 'functional-test-report.html'
 });
 
