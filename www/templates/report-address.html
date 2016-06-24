@@ -15,21 +15,9 @@
           <input type="text" name="address" class="address" placeholder="Onde você estava?" ng-model="report.address" required />
         </label>
         <label class="item item-input" ng-class="{'has-errors' : reportForm.date.$invalid && !reportForm.date.$pristine}" ng-min="15-06-2000">
-          <span class="input-label">Data*</span>
+          <span class="input-label">Data e Hora*</span>
           <input name="date" type="datetime-local" class="date" ng-model="report.date" required>
         </label>
-        <div>
-          <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.period.$invalid && !reportForm.period.$pristine}">
-            <div class="input-label">Turno*</div>
-            <select name="period" class="period" ng-model="report.period" ng-model-instant required>
-              <option value="">Selecione um período</option>
-              <option>Manhã</option>
-              <option>Tarde</option>
-              <option>Noite</option>
-              <option>Madrugada</option>
-            </select>
-          </label>
-        </div>
         <div>
           <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.risk.$invalid && !reportForm.risk.$pristine}">
             <div class="input-label">Risco*</div>
