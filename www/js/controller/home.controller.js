@@ -18,6 +18,3 @@
     placeFactory.addPlace(place);
    };
  }]);
-
-
-

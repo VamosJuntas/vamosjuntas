@@ -1,54 +1,32 @@
-[
-  {
-    "title": "Chafariz da Redenção",
-    "occurrences": [
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 6
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 6
-      }
-    ]
+[{
+  "address": "Av. Ipiranga",
+  "location": {
+    "latitude": 10,
+    "longitude": 20
   },
-  {
-    "title": "Parada João Pessoa",
-    "occurrences": [
+  "occurrences": [{
+    "risk": "Roubo",
+    "count": 2,
+    "reports": [
       {
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
+      "date": "10/10/2016",
+      "period": "Manhã"
+    },
+    {
+      "date": "12/10/2016",
+      "period": "Manhã"
+    }]},
+    {
+      "risk": "Local Mal Iluminado",
+      "count": 2,
+      "reports": [
+        {
+        "date": "10/10/2016",
+        "period": "Manhã"
       },
       {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 4
-      },
-      {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 10
-      }
-    ]
-  }
-]
+        "date": "12/10/2016",
+        "period": "Manhã"
+      }]
+  }]
+}]

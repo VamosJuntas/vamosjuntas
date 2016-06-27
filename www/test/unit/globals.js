@@ -1,3 +1,3 @@
 AppSettings = {
   mapsAPIBaseUrl: 'mapsAPIStub'
-}
+};

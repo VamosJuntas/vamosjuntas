@@ -33,7 +33,10 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   .state('report', {
     url: '/report',
     templateUrl: 'templates/report-address.html',
-    controller: 'ReportAddressController'
+    controller: 'ReportAddressController',
+    params: {
+      address: ''
+    }
   })
   .state('home', {
     url: '/home',

@@ -1,10 +1,15 @@
-<ion-view>
+<ion-view view-title="Detalhes do Local">
+    <ion-nav-bar ng-controller="ReportAddressController">
+      <ion-nav-back-button id="backBtn" class="button-clear" ng-click="myGoBack()">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content class="padding">
-        <h2>{{placeDetails.title}}</h2>
+        <h2>{{placeDetails.address}}</h2>
         <h3>Este local tem os seguintes reportes<h3>
         <ul class="list list-inset">
             <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
-                {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
+                {{occurrences.risk}} ({{occurrences.count}} reportes)
             </li>
         </ul>
         <button class="button button-block button-positive" ng-click="submit()">Reportar risco nesse endereço</button>

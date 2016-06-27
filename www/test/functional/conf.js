@@ -1,4 +1,28 @@
+var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+var reporter = new HtmlScreenshotReporter({
+  dest: './test-results/functional/screenshots',
+  filename: 'functional-test-report.html'
+});
+
 exports.config = {
+
+  beforeLaunch: function() {
+      return new Promise(function(resolve){
+        reporter.beforeLaunch(resolve);
+      });
+   },
+
+  onPrepare: function() {
+    jasmine.getEnv().addReporter(reporter);
+  },
+
+  afterLaunch: function(exitCode) {
+      return new Promise(function(resolve){
+        reporter.afterLaunch(resolve.bind(this, exitCode));
+      });
+  },
+
   directConnect : true,
   framework: 'jasmine2',
   specs: ['report.spec.js'],

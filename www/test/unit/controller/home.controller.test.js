@@ -1,5 +1,5 @@
 describe('HomeController', function() {
-  var scope, placeFactory, place, addressFactory, q, deferred;
+  var scope, placeFactory, state, place, addressFactory, q, deferred;
 
   beforeEach(function() {
     module('vamosJuntas');
@@ -63,6 +63,4 @@ describe('HomeController', function() {
     createController();
     expect(scope.getTotalOfOccurrences(place)).toBe(17);
   });
-    
-    
 });

@@ -6,7 +6,6 @@ www/js/app-settings.js
 .tmp
 .sass-cache
 <%= appPath %>/bower_components
-coverage/
 platforms/
 plugins/
 *.swp
@@ -18,3 +17,4 @@ www/ionic.app.min.css
 .idea/
 screenlog.*
 config.xml
+test-results/
