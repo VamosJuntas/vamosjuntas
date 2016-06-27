@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
+angular.module('vamosJuntas', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,7 +19,7 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('splash', {
     url: '/',
@@ -48,11 +48,7 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova','uiGmapgoogle-maps'])
     templateUrl: 'templates/placeDetails.html',
     controller: 'placeDetailsController'
   });
-  uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es',
-        v: '3.20', //defaults to latest 3.X anyhow
-        libraries: 'weather,geometry,visualization'
-    });
+
   $urlRouterProvider.otherwise('/');
 
 });
