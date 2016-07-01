@@ -20,13 +20,12 @@ module.exports = function(config) {
       'www/lib/ngCordova/dist/ng-cordova.min.js',
       'www/lib/moment.min.js',
       'www/lib/angular-mocks/angular-mocks.js',
+      'www/lib/autocomplete/index',
       'www/js/app-settings.js',
       'www/test/unit/globals.js',
       'www/js/app.js',
       'www/js/**/*.js',
-      'www/test/unit/**/*.js',
-      'www/lib/angular-simple-logger/dist/angular-simple-logger.min.js',
-      'www/lib/angular-google-maps/dist/angular-google-maps.min.js'
+      'www/test/unit/**/*.js'
     ],
 
 

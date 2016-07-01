@@ -19,23 +19,27 @@ describe('Report address form', function() {
 
   it('should not send to confirmation page without address', function() {
     browser.get('/#/report');
-    report.fillDate('01/30/2015');
-    report.fillPeriod('Roubo');
+
+    var date = new Date(2015, 1, 30, 2, 0);
+    report.fillDate(date);
+
+    report.fillRisk('Roubo');
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
   it('should not send to confirmation page without date', function() {
     browser.get('/#/report');
-    report.fillDate('01/30/2015');
-    report.fillPeriod('Roubo');
+    report.fillRisk('Roubo');
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
   it('should not send to confirmation page without period', function() {
     browser.get('/#/report');
     element(by.className('address')).sendKeys('My address');
-    element(by.className('date')).sendKeys('01/30/2015');
-    report.fillPeriod('Roubo');
+
+    var date = new Date(2015, 1, 30, 2, 0);
+    report.fillDate(date);
+
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
@@ -43,7 +47,9 @@ describe('Report address form', function() {
     browser.get('/#/report');
 
     report.fillAddress('My address');
-    report.fillDate('01/30/2015');
+
+    var date = new Date(2015, 1, 30, 2, 0);
+    report.fillDate(date);
 
     expect(report.submitButton().isEnabled()).toBe(false);
   });
@@ -55,21 +61,16 @@ describe('Report address form', function() {
     splash.joinApp();
     expect(browser.getCurrentUrl()).toContain('/home');
 
-    home.searchExistingAddress();
-    home.searchNonExistentAddress();
-    home.fillAddress('Rua Dom Pedro II, Porto Alegre');
-    home.selectFirstAddress();
-
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
 
     report.fillAddress('My address');
 
     var date = new Date(2015, 1, 30, 2, 0);
-    element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
-                                  protractor.Key.TAB,date.getHours(),date.getMinutes(),
-                                  protractor.Key.TAB, "PM");
-    report.fillPeriod('Roubo');
+    report.fillDate(date);
+    
+    report.fillRisk('Roubo');
+
     report.submitButtonClick();
 
     expect(browser.getCurrentUrl()).toContain('/confirmation');
