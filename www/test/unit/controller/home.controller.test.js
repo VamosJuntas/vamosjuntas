@@ -34,31 +34,25 @@ describe('HomeController', function() {
     });
 
     place = {
-      "address": "Av. Ipiranga",
-      "location": {
-        "latitude": 10,
-        "longitude": 20
-      },
+      "title": "Chafariz da Redenção",
       "occurrences": [{
-        "risk": "Roubo",
-        "count": 5,
-        "reports": [{
-          "date": "10/10/2016",
-          "period": "Manhã"
-        }, {
-          "date": "12/10/2016",
-          "period": "Manhã"
-        }]
+        "address": "Avenida Ipiranga",
+        "risk": "Local Deserto",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 3
       }, {
-        "risk": "Local Mal Iluminado",
-        "count": 3,
-        "reports": [{
-          "date": "10/10/2016",
-          "period": "Manhã"
-        }, {
-          "date": "12/10/2016",
-          "period": "Manhã"
-        }]
+        "address": "Avenida Ipiranga",
+        "risk": "Mal Iluminado",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 4
+      }, {
+        "address": "Avenida Ipiranga",
+        "risk": "roubo",
+        "date": "10/10/2015",
+        "period": "Manhã",
+        "numberOfOccurrences": 10
       }]
     };
 
@@ -126,10 +120,11 @@ describe('HomeController', function() {
     var place = {
       description: 'Av. Ipiranga, 123 - Porto Alegre'
     };
+  });
+
+  it('should get a total of occurrences from a specific place', function() {
     createController();
-    scope.confirmAddress(place);
-    scope.$apply();
-    expect(scope.search.text).toBe('Av. Ipiranga, 123 - Porto Alegre');
+    expect(scope.getTotalOfOccurrences(place)).toBe(17);
   });
 
   describe('get successfully current position', function (){

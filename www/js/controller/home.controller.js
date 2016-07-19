@@ -1,7 +1,6 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', '$ionicLoading', function($scope, placeFactory, addressFactory, $cordovaGeolocation, $ionicLoading) {
 
-
   $scope.search = {};
   $scope.addresses;
   $scope.errorMessage = false;
@@ -29,32 +28,15 @@ angular.module('vamosJuntas').controller('HomeController',
       $ionicLoading.hide();
     });
 
-  $scope.getSpecificPlace = function(place) {
-    placeFactory.addPlace(place);
-  };
-
-  $scope.getTotalOfOccurrences = function(place) {
-   var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
-      return total + occurrence.count;
+    $scope.getTotalOfOccurrences = function(place) {
+     var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
+       return total + occurrence.numberOfOccurrences;
     }, 0);
 
     return numberOfOccurrences;
-  };
+   };
 
-  $scope.getSpecificPlace = function(place) {
-    placeFactory.addPlace(place);
-  };
-
-  $scope.searchAddress = function() {
-    addressFactory.getAutoCompleteFromAddress($scope.search.text).then(function(response) {
-      $scope.addresses = response.data.predictions;
-    }, function(error) {
-      $scope.addresses = [];
-    });
-  };
-
-  $scope.confirmAddress = function (place) {
-    $scope.search.text = place.description;
-  };
-  
-}]);
+   $scope.getSpecificPlace = function(place) {
+     placeFactory.addPlace(place);
+   };
+ }]);
