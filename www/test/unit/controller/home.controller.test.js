@@ -67,11 +67,6 @@ describe('HomeController', function() {
     spyOn(addressFactory, 'getAddressByCoord').and.returnValue(q.when('Av. Ipiranga, 6681'));
   });
 
-  it('should get a total of occurrences from a specific place', function() {
-    createController();
-    expect(scope.getTotalOfOccurrences(place)).toBe(8);
-  });
-
   it('should get info for a specific place', function() {
     spyOn(placeFactory, 'addPlace');
 
@@ -79,41 +74,6 @@ describe('HomeController', function() {
     scope.getSpecificPlace(place);
 
     expect(placeFactory.addPlace).toHaveBeenCalledWith(place);
-  });
-
-  it('should search the address', function() {
-    spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
-
-    deferred.resolve({
-      data: {
-        predictions: [{
-          description: 'Rua Dom Pedro I - São Paulo'
-        }, {
-          description: 'Rua Dom Pedro II - Porto Alegre'
-        }]
-      }
-    });
-
-    createController();
-    scope.search.text = 'Rua Dom Pedro';
-    scope.searchAddress();
-
-    scope.$apply();
-    expect(addressFactory.getAutoCompleteFromAddress).toHaveBeenCalledWith('Rua Dom Pedro');
-    expect(scope.addresses[0].description).toBe('Rua Dom Pedro I - São Paulo');
-  });
-
-  it('should not search the address', function() {
-    spyOn(addressFactory, 'getAutoCompleteFromAddress').and.returnValue(deferred.promise);
-
-    deferred.reject();
-
-    createController();
-    scope.search.text = 'Rua Dom Pedro';
-    scope.searchAddress();
-
-    scope.$apply();
-    expect(scope.addresses.length).toBe(0);
   });
 
   it('should fill the search with the selected address', function() {
