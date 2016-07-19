@@ -1,7 +1,7 @@
 angular.module('vamosJuntas').factory('addressFactory', function($http, $q, PlacesAPI) {
   var api_key = "AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4";
   var url = "";
-  
+
   return {
     //https://developers.google.com/places/web-service/details#PlaceDetailsRequests
     getCoordFromAddress: function(placeid) {
@@ -18,9 +18,9 @@ angular.module('vamosJuntas').factory('addressFactory', function($http, $q, Plac
       var deferred = $q.defer();
       var geocoder = new google.maps.Geocoder();
       var latlng = {
-          lat: latitude,
-          lng: longitude
-        };
+        lat: latitude,
+        lng: longitude
+      };
 
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK && results.length > 0) {

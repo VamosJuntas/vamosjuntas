@@ -1,5 +1,5 @@
 angular.module('vamosJuntas').controller('HomeController',
- ['$scope', 'placeFactory', 'addressFactory', '$cordovaGeolocation', '$ionicLoading', function($scope, placeFactory, addressFactory, $cordovaGeolocation, $ionicLoading) {
+ ['$scope', 'placeFactory', 'addressFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, geolocationFactory, $ionicLoading) {
 
   $scope.search = {};
   $scope.addresses;
@@ -10,7 +10,7 @@ angular.module('vamosJuntas').controller('HomeController',
   var coordinates = {};
   var posOptions = {timeout: 5000, enableHighAccuracy: false};
 
-  $cordovaGeolocation
+  geolocationFactory
     .getCurrentPosition(posOptions)
     .then(function (position) {
 
