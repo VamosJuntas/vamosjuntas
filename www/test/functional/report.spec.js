@@ -61,6 +61,18 @@ describe('Report address form', function() {
     splash.joinApp();
     expect(browser.getCurrentUrl()).toContain('/home');
 
+    browser.wait(function() {
+      var deferred = protractor.promise.defer();
+      var q = element(by.css('.loading-container.visible.active')).isPresent();
+
+      q.then( function (isPresent) {
+        deferred.fulfill(!isPresent);
+      });
+
+      return deferred.promise;
+
+    }, 10000);
+
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
 
@@ -68,7 +80,7 @@ describe('Report address form', function() {
 
     var date = new Date(2015, 1, 30, 2, 0);
     report.fillDate(date);
-    
+
     report.fillRisk('Roubo');
 
     report.submitButtonClick();

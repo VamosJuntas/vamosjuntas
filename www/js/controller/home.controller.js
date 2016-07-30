@@ -1,12 +1,34 @@
-  angular.module('vamosJuntas').controller('HomeController',
- ['$scope', 'placeFactory', 'addressFactory',  function($scope, placeFactory, addressFactory) {
-     placeFactory.fetchPlaces().then(function(response) {
-       $scope.places = response.data;
-     });
+angular.module('vamosJuntas').controller('HomeController',
+ ['$scope', 'placeFactory', 'addressFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, geolocationFactory, $ionicLoading) {
 
- $scope.search = {};
+  $scope.search = {};
+  $scope.addresses;
+  $scope.errorMessage = false;
 
-  $scope.getTotalOfOccurrences = function(place) {
+  $ionicLoading.show();
+
+  var coordinates = {};
+  var posOptions = {timeout: 5000, enableHighAccuracy: false};
+
+  geolocationFactory
+    .getCurrentPosition(posOptions)
+    .then(function (position) {
+
+      placeFactory.fetchPlaces(position.coords.latitude, position.coords.longitude).then(function(response) {
+        $scope.places = response.data;
+      });
+
+      addressFactory.getAddressByCoord(position.coords.latitude, position.coords.longitude).then(function(response){
+        $scope.search.text = response;
+      });
+
+      $ionicLoading.hide();
+    }, function() {
+      $scope.errorMessage = true;
+      $ionicLoading.hide();
+    });
+
+    $scope.getTotalOfOccurrences = function(place) {
      var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
        return total + occurrence.numberOfOccurrences;
     }, 0);
@@ -15,6 +37,6 @@
    };
 
    $scope.getSpecificPlace = function(place) {
-    placeFactory.addPlace(place);
+     placeFactory.addPlace(place);
    };
  }]);

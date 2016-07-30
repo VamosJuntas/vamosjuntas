@@ -36,11 +36,11 @@ describe('Place Factory', function() {
 
   it('should return places', function() {
     var url, result;
-    url = 'http://0.0.0.0:3000/places';
+    url = 'http://0.0.0.0:3000/risks-around?latitude=-30.057977&longitude=-30.0123';
 
     httpBackend.whenGET(url).respond(httpResponse);
 
-    placeFactory.fetchPlaces().then(function(response) {
+    placeFactory.fetchPlaces(-30.057977, -30.0123).then(function(response) {
       result = response.data;
     });
 

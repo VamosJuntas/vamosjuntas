@@ -25,7 +25,10 @@ module.exports = function(config) {
       'www/test/unit/globals.js',
       'www/js/app.js',
       'www/js/**/*.js',
-      'www/test/unit/**/*.js'
+      'www/test/unit/**/*.js',
+      'www/lib/angular-simple-logger/dist/angular-simple-logger.min.js',
+      'www/lib/angular-google-maps/dist/angular-google-maps.min.js',
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4'
     ],
 
 
