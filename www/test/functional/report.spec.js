@@ -73,11 +73,6 @@ describe('Report address form', function() {
 
     }, 10000);
 
-    home.searchExistingAddress();
-    home.searchNonExistentAddress();
-    home.fillAddress('Rua Dom Pedro II, Porto Alegre');
-    home.selectFirstAddress();
-
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
 
