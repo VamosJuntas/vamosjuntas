@@ -34,6 +34,7 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova'])
     url: '/report',
     templateUrl: 'templates/report-address.html',
     controller: 'ReportAddressController',
+    cache: false,
     params: {
       address: ''
     }

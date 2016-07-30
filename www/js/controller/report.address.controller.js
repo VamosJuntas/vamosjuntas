@@ -45,7 +45,6 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', '
   $scope.submit = function(isFormValid) {
     if (isFormValid) {
       reportANewRisk();
-      $scope.report = {};
       $scope.hasError = false;
       $location.path('/confirmation');
     }
