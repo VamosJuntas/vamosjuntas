@@ -4,6 +4,10 @@
     return element(by.model('report.address')).sendKeys(content);
   };
 
+  this.getAddress = function() {
+    return element(by.model('report.address')).getAttribute('value');
+  }
+
   this.fillDate = function (date) {
     return element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
         protractor.Key.TAB,date.getHours(),date.getMinutes(),
