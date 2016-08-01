@@ -10,6 +10,10 @@ var Home = function() {
     scrollIntoView(reportRiskButton);
     return reportRiskButton.click();
   };
+
+  this.googlePlaceTag = function () {
+    return element(by.tagName('googleplace'));
+  };
 };
 
 module.exports = Home;
