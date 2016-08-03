@@ -34,7 +34,7 @@ exports.config = {
 
   directConnect : true,
   framework: 'jasmine2',
-  specs: ['report.spec.js'],
+  specs: ['report.spec.js', 'home.spec.js'],
 };
 if (process.env.SNAP_CI) {
     exports.config.directConnect = true;
