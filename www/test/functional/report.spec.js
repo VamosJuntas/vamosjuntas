@@ -89,7 +89,7 @@ describe('Report address form', function() {
 
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
-
+    expect(element(by.model('report.address')).getAttribute('googleplace')).toBe('');
     report.fillAddress('My address');
 
     var date = new Date(2015, 1, 30, 2, 0);
