@@ -9,9 +9,7 @@
   }
 
   this.fillDate = function (date) {
-    return element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
-        protractor.Key.TAB,date.getHours(),date.getMinutes(),
-        protractor.Key.TAB, "PM");
+    return element(by.className('date')).sendKeys('10/10/2016 00:00:00');
   };
 
   this.fillRisk = function (risk) {
