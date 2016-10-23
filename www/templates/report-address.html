@@ -16,7 +16,7 @@
         </label>
         <label class="item item-input" ng-class="{'has-errors' : reportForm.date.$invalid && !reportForm.date.$pristine}" ng-min="15-06-2000">
           <span class="input-label">Data e Hora*</span>
-          <input name="date" type="datetime-local" class="date" ng-model="report.date" required>
+          <input name="date" type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2100-12-31T00:00:00" class="date" ng-model="report.date" required>
         </label>
         <div>
           <label class="item item-input item-select" ng-class="{'has-errors' : reportForm.risk.$invalid && !reportForm.risk.$pristine}">

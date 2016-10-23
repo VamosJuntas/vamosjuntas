@@ -14,6 +14,7 @@ exports.config = {
    },
 
   onPrepare: function() {
+    browser.manage().window().setSize(1600, 1000);
     jasmine.getEnv().addReporter(reporter);
   },
 
