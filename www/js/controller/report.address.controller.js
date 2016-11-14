@@ -1,31 +1,41 @@
-angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', 'placeFactory', '$stateParams','$location','$ionicHistory', function($scope, placeFactory, $stateParams, $location, $ionicHistory) {
+angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$http', 'placeFactory', '$stateParams','$location','$ionicHistory','ApiEndpoint', function($scope, $http, placeFactory, $stateParams, $location, $ionicHistory, ApiEndpoint) {
 
   $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
-  $scope.report.address = $stateParams.address;
+  $scope.search = {};
+  $scope.search.text = $stateParams.address;
+  $scope.search.latitude = $stateParams.latitude;
+  $scope.search.longitude = $stateParams.longitude;
 
   $scope.myGoBack = function() {
     $ionicHistory.goBack();
   };
 
-  var addPlaceFromForm = function(report) {
+  var addPlaceFromForm = function(report, search) {
     return {
-      "address": report.address,
-      "risk": report.risk,
-      "reports": [{
-        "date": report.date,
-        "period": report.period
-      }],
-      "count": 1
+      "address": search.text,
+      "geolocation": {
+        "latitude": search.latitude,
+        "longitude": search.longitude
+      },
+      "category": report.risk,
+      "date": report.date
     };
   };
 
   var reportANewRisk = function() {
     var found = false;
-    if ($scope.placeDetails.address === undefined) {
-      $scope.placeDetails = addPlaceFromForm($scope.report);
-    } else {
-      for (var i = 0; i < $scope.placeDetails.occurrences.length; i++) {
+    if($scope.placeDetails.address === undefined){
+      $scope.placeDetails = addPlaceFromForm($scope.report, $scope.search);
+      $http.post(ApiEndpoint.url, $scope.placeDetails, {})
+      .success(function (data, status, headers, config) {
+        console.log('funcionou');
+      })
+      .error(function (data, status, header, config) {
+        console.log('não funcionou');
+      });
+    }else{
+      for(var i = 0; i < $scope.placeDetails.occurrences.length; i++ ){
         if ($scope.placeDetails.occurrences[i].risk === $scope.report.risk) {
           $scope.placeDetails.occurrences[i].reports.push({
             "date": $scope.report.date,

@@ -6,6 +6,10 @@
 
 angular.module('vamosJuntas', ['ionic', 'ngCordova'])
 
+.constant('ApiEndpoint', {
+  url: 'http://localhost:8100/api/reports'
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -36,7 +40,9 @@ angular.module('vamosJuntas', ['ionic', 'ngCordova'])
     controller: 'ReportAddressController',
     cache: false,
     params: {
-      address: ''
+      address: '',
+      latitude: '',
+      longitude: ''
     }
   })
   .state('home', {
