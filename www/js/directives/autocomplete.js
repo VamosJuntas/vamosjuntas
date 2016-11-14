@@ -5,6 +5,11 @@ angular.module('vamosJuntas').directive('googleplace', function() {
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
             var place = autocomplete.getPlace();
             scope.search.text = place.formatted_address;
+            scope.search.latitude = place.geometry.location.lat();
+            scope.search.longitude = place.geometry.location.lng();
+            console.log("lat", place.geometry.location);
+            console.log("lat", place.geometry.location.lat());
+            console.log("lng", place.geometry.location.lng());
             scope.$apply();
           });
         }

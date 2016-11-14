@@ -2,6 +2,10 @@
   "name": "vamosjuntas",
   "app_id": "",
   "proxies": [
+  {
+    "path": "/api/reports",
+    "proxyUrl": "http://localhost:3001/reports"
+  },
     {
       "path": "/maps/api",
       "proxyUrl": "https://maps.googleapis.com/maps/api"
