@@ -7,7 +7,7 @@
 angular.module('vamosJuntas', ['ionic', 'ngCordova'])
 
 .constant('ApiEndpoint', {
-  url: 'http://localhost:8100/api/reports'
+  url: 'http://localhost:3001/reports'
 })
 
 .run(function($ionicPlatform) {
