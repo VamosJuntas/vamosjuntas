@@ -2,21 +2,21 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$
 
   $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
-  $scope.search = {};
-  $scope.search.text = $stateParams.address;
-  $scope.search.latitude = $stateParams.latitude;
-  $scope.search.longitude = $stateParams.longitude;
+  $scope.report.address = $stateParams.address;
+  $scope.report.latitude = $stateParams.latitude;
+  $scope.report.longitude = $stateParams.longitude;
 
   $scope.myGoBack = function() {
     $ionicHistory.goBack();
   };
 
-  var addPlaceFromForm = function(report, search) {
+  var addPlaceFromForm = function(report) {
     return {
-      "address": search.text,
+      "count": 1,
+      "address": report.address,
       "geolocation": {
-        "latitude": search.latitude,
-        "longitude": search.longitude
+        "latitude": report.latitude,
+        "longitude": report.longitude
       },
       "category": report.risk,
       "date": report.date
@@ -26,7 +26,7 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$
   var reportANewRisk = function() {
     var found = false;
     if($scope.placeDetails.address === undefined){
-      $scope.placeDetails = addPlaceFromForm($scope.report, $scope.search);
+      $scope.placeDetails = addPlaceFromForm($scope.report);
       $http.post(ApiEndpoint.url, $scope.placeDetails, {})
       .success(function (data, status, headers, config) {
         console.log('funcionou');
