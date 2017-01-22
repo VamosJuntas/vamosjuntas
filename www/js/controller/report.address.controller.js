@@ -22,10 +22,10 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', '
 
   var reportANewRisk = function() {
     var found = false;
-    if($scope.placeDetails.address === undefined){
+    if ($scope.placeDetails.address === undefined) {
       $scope.placeDetails = addPlaceFromForm($scope.report);
-    }else{
-      for(var i = 0; i < $scope.placeDetails.occurrences.length; i++ ){
+    } else {
+      for (var i = 0; i < $scope.placeDetails.occurrences.length; i++) {
         if ($scope.placeDetails.occurrences[i].risk === $scope.report.risk) {
           $scope.placeDetails.occurrences[i].reports.push({
             "date": $scope.report.date,
@@ -36,7 +36,7 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope', '
           break;
         }
       }
-      if(!found){
+      if (!found) {
         $scope.placeDetails.occurrences.push(addPlaceFromForm($scope.report));
       }
     }

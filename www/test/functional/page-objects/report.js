@@ -1,25 +1,28 @@
  var Report = function () {
 
   this.fillAddress = function (content) {
-    return element(by.model('report.address')).sendKeys(content);
+    element(by.model('report.address')).sendKeys(content);
+    return this;
   };
 
   this.getAddress = function() {
     return element(by.model('report.address')).getAttribute('value');
-  }
+  };
 
-  this.fillDate = function (date) {
-    return element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
-    protractor.Key.TAB,date.getHours(),date.getMinutes(),
-    protractor.Key.TAB, "PM");
+  this.fillDateWithFormat = function(date) {
+    element(by.className('date')).sendKeys(date);
+    element(by.className('date')).sendKeys('A');
+    return this;
   };
 
   this.fillRisk = function (risk) {
-    return element(by.cssContainingText('option', risk)).click();
+    element(by.cssContainingText('option', risk)).click();
+    return this;
   };
 
   this.submitButtonClick = function() {
-    return element(by.css('[ng-click="submit(reportForm.$valid)"]')).click();
+    element(by.css('[ng-click="submit(reportForm.$valid)"]')).click();
+    return this;
   };
 
   this.submitButton = function() {
@@ -27,7 +30,12 @@
   };
 
   this.backButton = function() {
-    return element(by.id('backBtn')).click();
+    element(by.id('backBtn')).click();
+    return this;
+  };
+
+  this.isSubmitButtonEnabled = function() {
+    return element(by.buttonText('Enviar')).isEnabled();
   };
 
 };

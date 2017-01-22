@@ -8,13 +8,14 @@
   "dependencies": {
     "bower": "^1.3.3",
     "cordova": "*",
+    "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-preprocess": "^2.0.0",
-    "express": "^4.13.4",
     "ionic": "*",
     "ios-sim": "*",
     "node-sass": "^3.4.2",
-    "nodemon": "^1.9.1"
+    "nodemon": "^1.9.1",
+    "protractor": "^4.0.8"
   },
   "devDependencies": {
     "eslint": "^1.10.2",
@@ -32,8 +33,9 @@
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
+    "moment": "^2.17.1",
     "phantomjs": "^1.9.18",
-    "protractor": "^3.1.1",
+    "protractor": "^4.0.8",
     "protractor-jasmine2-screenshot-reporter": "^0.3.1"
   },
   "cordovaPlugins": [

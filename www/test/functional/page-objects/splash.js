@@ -1,11 +1,13 @@
 var Splash = function () {
 
   this.confirmTerms = function() {
-    return element(by.id('check-terms')).click();
+    element(by.id('check-terms')).click();
+    return this;
   };
 
   this.joinApp = function() {
-    return element(by.id('joinBtn')).click();
+    element(by.id('joinBtn')).click();
+    return this;
   };
 
 };
