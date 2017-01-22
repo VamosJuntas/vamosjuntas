@@ -1,17 +1,12 @@
  var Report = function () {
 
   this.fillAddress = function (content) {
-    return element(by.model('report.address')).sendKeys(content);
+    element(by.model('report.address')).sendKeys(content);
+    return this;
   };
 
   this.getAddress = function() {
     return element(by.model('report.address')).getAttribute('value');
-  }
-
-  this.fillDate = function (date) {
-    return element(by.className('date')).sendKeys(date.getMonth(),date.getDate(),date.getYear(),
-    protractor.Key.TAB,date.getHours(),date.getMinutes(),
-    protractor.Key.TAB, "PM");
   };
 
   this.fillDateWithFormat = function(date) {
@@ -31,8 +26,7 @@
   };
 
   this.submitButton = function() {
-    element(by.buttonText('Enviar'));
-    return this;
+    return element(by.buttonText('Enviar'));
   };
 
   this.backButton = function() {

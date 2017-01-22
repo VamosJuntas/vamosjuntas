@@ -15,33 +15,34 @@ describe('Report address form', function() {
     report = new Report();
     confirmation = new Confirmation();
     placeDetails = new PlaceDetails();
-
   });
 
   it('should not send to confirmation page without address', function() {
     browser.get('/#/report');
+    var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
+    report
+      .fillDateWithFormat(date)
+      .fillRisk('Roubo');
 
-    var date = new Date(2015, 1, 30, 2, 0);
-    report.fillDate(date);
-
-    report.fillRisk('Roubo');
-    expect(report.submitButton().isEnabled()).toBe(false);
+    expect(report.isSubmitButtonEnabled()).toBe(false);
   });
 
   it('should not send to confirmation page without date', function() {
     browser.get('/#/report');
     report.fillRisk('Roubo');
-    expect(report.submitButton().isEnabled()).toBe(false);
+
+    expect(report.isSubmitButtonEnabled()).toBe(false);
   });
 
   it('should not send to confirmation page without period', function() {
+    var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
     browser.get('/#/report');
+
     element(by.className('address')).sendKeys('My address');
+    report
+      .fillDateWithFormat(date);
 
-    var date = new Date(2015, 1, 30, 2, 0);
-    report.fillDate(date);
-
-    expect(report.submitButton().isEnabled()).toBe(false);
+    expect(report.isSubmitButtonEnabled()).toBe(false);
   });
 
   it('should clean the form when coming back from confirmation page', function() {
@@ -53,9 +54,10 @@ describe('Report address form', function() {
       .fillDateWithFormat(date)
       .fillRisk('Roubo');
 
-    expect(report.submitButton().isEnabled()).toBe(true);
+    expect(report.isSubmitButtonEnabled()).toBe(true);
 
-    report.submitButtonClick();
+    report
+      .submitButtonClick();
     expect(browser.getCurrentUrl()).toContain('/confirmation');
 
     browser.navigate().back();
@@ -63,21 +65,24 @@ describe('Report address form', function() {
   });
 
   it('should not send to confirmation page without risk', function() {
+    var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
     browser.get('/#/report');
 
-    report.fillAddress('My address');
+    report
+      .fillAddress('My address')
+      .fillDateWithFormat(date);
 
-    var date = new Date(2015, 1, 30, 2, 0);
-    report.fillDate(date);
-
-    expect(report.submitButton().isEnabled()).toBe(false);
+    expect(report.isSubmitButtonEnabled()).toBe(false);
   });
 
   it('should go through whole report flow and go back to home', function() {
+    var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
     browser.get('/');
 
-    splash.confirmTerms();
-    splash.joinApp();
+    splash
+      .confirmTerms()
+      .joinApp();
+    
     expect(browser.getCurrentUrl()).toContain('/home');
 
     browser.wait(function() {
@@ -95,19 +100,15 @@ describe('Report address form', function() {
     home.reportRisk();
     expect(browser.getCurrentUrl()).toContain('/report');
     expect(element(by.model('report.address')).getAttribute('googleplace')).toBe('');
-    report.fillAddress('My address');
 
-    var date = new Date(2015, 1, 30, 2, 0);
-    report.fillDate(date);
-
-    report.fillRisk('Roubo');
-
-    report.submitButtonClick();
+    report
+      .fillAddress('My address')
+      .fillDateWithFormat(date)
+      .fillRisk('Roubo')
+      .submitButtonClick();
 
     expect(browser.getCurrentUrl()).toContain('/confirmation');
-
     confirmation.backToHome();
-
     expect(browser.getCurrentUrl()).toContain('/home');
   });
 });
