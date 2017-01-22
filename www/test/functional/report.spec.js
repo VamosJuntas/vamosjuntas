@@ -44,7 +44,7 @@ describe('Report address form', function() {
     expect(report.submitButton().isEnabled()).toBe(false);
   });
 
-  fit('should clean the form when coming back from confirmation page', function() {
+  it('should clean the form when coming back from confirmation page', function() {
     var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
     browser.get('/#/report');
     element(by.className('address')).sendKeys('My address');
