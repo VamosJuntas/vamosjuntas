@@ -1,6 +1,5 @@
-angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$http', 'placeFactory', '$stateParams','$location','$ionicHistory','ApiEndpoint', function($scope, $http, placeFactory, $stateParams, $location, $ionicHistory, ApiEndpoint) {
+angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$http', '$stateParams','$location','$ionicHistory','ApiEndpoint', function($scope, $http, $stateParams, $location, $ionicHistory, ApiEndpoint) {
 
-  $scope.placeDetails = placeFactory.getPlace();
   $scope.report = {};
   $scope.report.address = $stateParams.address;
   $scope.report.latitude = $stateParams.latitude;
@@ -12,7 +11,6 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$
 
   var addPlaceFromForm = function(report) {
     return {
-      "count": 1,
       "address": report.address,
       "geolocation": {
         "latitude": report.latitude,
@@ -24,39 +22,19 @@ angular.module('vamosJuntas').controller('ReportAddressController', ['$scope','$
   };
 
   var reportANewRisk = function() {
-    var found = false;
-    if($scope.placeDetails.address === undefined){
-      $scope.placeDetails = addPlaceFromForm($scope.report);
-      $http.post(ApiEndpoint.url, $scope.placeDetails, {})
-      .success(function (data, status, headers, config) {
-        console.log('funcionou');
-      })
-      .error(function (data, status, header, config) {
-        console.log('não funcionou');
-      });
-    }else{
-      for(var i = 0; i < $scope.placeDetails.occurrences.length; i++ ){
-        if ($scope.placeDetails.occurrences[i].risk === $scope.report.risk) {
-          $scope.placeDetails.occurrences[i].reports.push({
-            "date": $scope.report.date,
-            "period": $scope.report.period
-          });
-          $scope.placeDetails.occurrences[i].count += 1;
-          found = true;
-          break;
-        }
-      }
-      if (!found) {
-        $scope.placeDetails.occurrences.push(addPlaceFromForm($scope.report));
-      }
-    }
+    $http.post(ApiEndpoint.url, addPlaceFromForm($scope.report), {})
+    .success(function (data, status, headers, config) {
+      $location.path('/confirmation');
+    })
+    .error(function (data, status, header, config) {
+      console.log('error');
+      $scope.hasError = true;
+    });
   };
 
   $scope.submit = function(isFormValid) {
     if (isFormValid) {
       reportANewRisk();
-      $scope.hasError = false;
-      $location.path('/confirmation');
     }
   };
 }]);
