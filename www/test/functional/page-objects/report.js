@@ -14,6 +14,12 @@
     protractor.Key.TAB, "PM");
   };
 
+  this.fillDateWithFormat = function(date) {
+    element(by.className('date')).sendKeys(date);
+    element(by.className('date')).sendKeys('A');
+    return this;
+  };
+
   this.fillRisk = function (risk) {
     return element(by.cssContainingText('option', risk)).click();
   };
