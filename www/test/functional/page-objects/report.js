@@ -21,19 +21,27 @@
   };
 
   this.fillRisk = function (risk) {
-    return element(by.cssContainingText('option', risk)).click();
+    element(by.cssContainingText('option', risk)).click();
+    return this;
   };
 
   this.submitButtonClick = function() {
-    return element(by.css('[ng-click="submit(reportForm.$valid)"]')).click();
+    element(by.css('[ng-click="submit(reportForm.$valid)"]')).click();
+    return this;
   };
 
   this.submitButton = function() {
-    return element(by.buttonText('Enviar'));
+    element(by.buttonText('Enviar'));
+    return this;
   };
 
   this.backButton = function() {
-    return element(by.id('backBtn')).click();
+    element(by.id('backBtn')).click();
+    return this;
+  };
+
+  this.isSubmitButtonEnabled = function() {
+    return element(by.buttonText('Enviar')).isEnabled();
   };
 
 };
