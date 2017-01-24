@@ -39,7 +39,8 @@
     "moment": "^2.17.1",
     "phantomjs": "^1.9.18",
     "protractor": "^4.0.8",
-    "protractor-jasmine2-screenshot-reporter": "^0.3.1"
+    "protractor-jasmine2-screenshot-reporter": "^0.3.1",
+    "stubby": "^4.0.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -64,7 +65,7 @@
     "webdriver-update": "webdriver-manager update",
     "protractor": "npm run webdriver-update && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js && npm run kill-ionic",
     "dev-functional-test": "gulp build-dev && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js",
-    "functional-test": "gulp build-dev && npm run build-css && npm run ionic-test && npm run protractor",
+    "functional-test": "npm run start-stubby & gulp build-dev && npm run build-css && npm run ionic-test && npm run protractor",
     "unit-test": "karma start karma.conf.js --single-run",
     "watch-unit-test": "karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
@@ -74,6 +75,7 @@
     "ionic-emulate-android-debugger": "gulp build-dev && ionic emulate -lc android",
     "ionic-emulate-ios": "gulp build-dev build-prod && ionic emulate ios && node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-ios-debugger": "gulp build-dev build-prod && ionic emulate -lc ios",
-    "ionic-state-restore": "ionic state restore"
+    "ionic-state-restore": "ionic state restore",
+    "start-stubby": "stubby -q -s 3001 -l localhost -d ./stubs/reports.yml"
   }
 }
