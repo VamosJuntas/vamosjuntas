@@ -1,0 +1,10 @@
+-  request:
+      url: ^/reports$
+      method: POST
+      headers:
+         Content-Type: application/json
+   response:
+      headers:
+         Content-Type: application/json
+      latency: 500
+      status: 201
