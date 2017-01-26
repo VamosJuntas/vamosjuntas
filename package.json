@@ -2,15 +2,18 @@
   "name": "vamosjuntas",
   "version": "1.1.1",
   "description": "vamosjuntas: An Ionic project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VamosJuntas/vamosjuntas.git"
+  },
   "engines": {
     "node": "4.3.1"
   },
+  "license": "ISC",
   "dependencies": {
     "bower": "^1.3.3",
     "cordova": "*",
     "express": "^4.13.4",
-    "gulp": "^3.9.1",
-    "gulp-preprocess": "^2.0.0",
     "ionic": "*",
     "ios-sim": "*",
     "node-sass": "^3.4.2",
@@ -36,7 +39,8 @@
     "moment": "^2.17.1",
     "phantomjs": "^1.9.18",
     "protractor": "^4.0.8",
-    "protractor-jasmine2-screenshot-reporter": "^0.3.1"
+    "protractor-jasmine2-screenshot-reporter": "^0.3.1",
+    "stubby": "^4.0.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -52,25 +56,26 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "./node_modules/gulp/bin/gulp.js build-prod && bower install && npm run build-css",
-    "serve": "./node_modules/gulp/bin/gulp.js build-dev && ionic serve -s -c",
+    "postinstall": "gulp build-prod && bower install && npm run build-css",
+    "serve": "gulp build-dev && ionic serve -s -c",
     "ionic-test": "screen -d -m -L ionic serve --address localhost",
     "kill-ionic": "killall ionic",
     "build-css": "node-sass --include-path scss scss/ionic.app.scss www/css/ionic.app.css && node-sass --include-path scss --output-style compressed scss/ionic.app.scss www/css/ionic.app.min.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "webdriver-update": "webdriver-manager update",
     "protractor": "npm run webdriver-update && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js && npm run kill-ionic",
-    "dev-functional-test": "./node_modules/gulp/bin/gulp.js build-dev && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js",
-    "functional-test": "./node_modules/gulp/bin/gulp.js build-dev && npm run build-css && npm run ionic-test && npm run protractor",
+    "dev-functional-test": "gulp build-dev && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js",
+    "functional-test": "npm run start-stubby & gulp build-dev && npm run build-css && npm run ionic-test && npm run protractor",
     "unit-test": "karma start karma.conf.js --single-run",
     "watch-unit-test": "karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
-    "ionic-emulate-android": "./node_modules/gulp/bin/gulp.js build-prod && ionic emulate android",
-    "ionic-emulate-android-debugger": "./node_modules/gulp/bin/gulp.js build-dev && ionic emulate -lc android",
-    "ionic-emulate-ios": "./node_modules/gulp/bin/gulp.js build-dev build-prod && ionic emulate ios && node www/conf/stubserver.js > /dev/null 2>&1 &",
-    "ionic-emulate-ios-debugger": "./node_modules/gulp/bin/gulp.js build-dev build-prod && ionic emulate -lc ios",
-    "ionic-state-restore": "ionic state restore"
+    "ionic-emulate-android": "gulp build-prod && ionic emulate android",
+    "ionic-emulate-android-debugger": "gulp build-dev && ionic emulate -lc android",
+    "ionic-emulate-ios": "gulp build-dev build-prod && ionic emulate ios && node www/conf/stubserver.js > /dev/null 2>&1 &",
+    "ionic-emulate-ios-debugger": "gulp build-dev build-prod && ionic emulate -lc ios",
+    "ionic-state-restore": "ionic state restore",
+    "start-stubby": "stubby -q -s 3001 -l localhost -d ./stubs/reports.yml"
   }
 }

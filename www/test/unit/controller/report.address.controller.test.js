@@ -1,98 +1,66 @@
 describe('ReportAddressController', function() {
-  var scope, state, $location, placeFactory, place;
+  var scope, state, $location, placeFactory, place, $httpBackend;
 
   beforeEach(function() {
     module('vamosJuntas');
 
-    inject(function ($rootScope, $controller, $injector, $httpBackend, _$location_) {
-        scope = $rootScope.$new();
-        $location = _$location_;
-        $httpBackend.whenGET(/templates.*/).respond('');
+    inject(function ($rootScope, $controller, $injector, _$httpBackend_, _$location_) {
+      scope = $rootScope.$new();
+      $location = _$location_;
+      $httpBackend = _$httpBackend_;
+      $httpBackend.whenGET(/templates.*/).respond('');
 
-        spyOn($location, 'path');
-        createController = function(stateParams) {
-          var $stateParams;
-          var defaultStateParams = {
-            address: ''
-          };
-          if(stateParams === undefined) {
-            $stateParams = defaultStateParams;
-          } else {
-            $stateParams = stateParams;
-          }
-
-          $controller('ReportAddressController', {
-            '$scope': scope,
-            '$location': $location,
-            '$stateParams': $stateParams
-          });
+      spyOn($location, 'path');
+      createController = function(stateParams) {
+        var $stateParams;
+        var defaultStateParams = {
+          address: ''
         };
+        if(stateParams === undefined) {
+          $stateParams = defaultStateParams;
+        } else {
+          $stateParams = stateParams;
+        }
 
+        $controller('ReportAddressController', {
+          '$scope': scope,
+          '$location': $location,
+          '$stateParams': $stateParams
+        });
+      };
     });
-    place = {
-      "address": "Av. Ipiranga",
-      "location": {
-        "latitude": 10,
-        "longitude": 20
-      },
-      "occurrences": [{
-        "risk": "Roubo",
-        "count": 2,
-        "reports": [{
-          "date": "10/10/2016",
-          "period": "Manhã"
-        }, {
-          "date": "12/10/2016",
-          "period": "Manhã"
-        }]
-      }, {
-        "risk": "Local Mal Iluminado",
-        "count": 2,
-        "reports": [{
-          "date": "10/10/2016",
-          "period": "Manhã"
-        }, {
-          "date": "12/10/2016",
-          "period": "Manhã"
-        }]
-      }]
-    };
   });
-
-    describe('Saving data', function() {
-      it('should save a new occurrence for existent risk', function() {
-        createController();
-        scope.placeDetails = place;
-        scope.report = {
-          "risk": "Roubo",
-          "date": "10/10/2016",
-          "period": "Manhã"
-        };
-        scope.submit(true);
-        scope.$apply();
-        expect(scope.placeDetails.occurrences[0].count).toEqual(3);
-      });
-
-      it('should save a new occurrence for a non existent risk', function() {
-        createController();
-        scope.placeDetails = place;
-        scope.report = {
-          "risk": "Abuso",
-          "date": "10/10/2016",
-          "period": "Manhã"
-        };
-        scope.submit(true);
-        scope.$apply();
-        expect(scope.placeDetails.occurrences.length).toEqual(3);
-        expect(scope.placeDetails.occurrences[2].count).toEqual(1);
-      });
-    });
 
   describe('when submit form', function() {
     describe('and form is valid', function() {
-      it('should redirect to the success page', function() {
-        var controller = createController();
+      it('should post to endpint with report data', function() {
+        createController();
+        scope.report = {
+          address: 'The Adress',
+          latitude: '30',
+          longitude: '50',
+          risk: 'risk',
+          date: '10/10/2010'
+        };
         scope.submit(true);
+        $httpBackend.resetExpectations();
+        $httpBackend.expectPOST('http://localhost:3001/reports', {
+          "address": scope.report.address,
+          "geolocation": {
+            "latitude": scope.report.latitude,
+            "longitude": scope.report.longitude
+          },
+          "category": scope.report.risk,
+          "date": scope.report.date
+        }).respond(201);
+        expect($httpBackend.verifyNoOutstandingExpectation).not.toThrow();
+      });
+
+      it('should redirect to the success page when response is success', function() {
+        createController();
+        scope.submit(true);
+        $httpBackend.when('POST', 'http://localhost:3001/reports').respond(201);
+        $httpBackend.flush();
         expect($location.path).toHaveBeenCalledWith('/confirmation');
       });
     });
@@ -113,6 +81,26 @@ describe('ReportAddressController', function() {
       };
       var controller = createController(stateParams);
       expect(scope.report.address).toEqual(stateParams.address);
+    });
+  });
+
+  describe('when an latitude is received', function() {
+    it('should be passed to report.latitude', function() {
+      var stateParams = {
+        latitude: '1'
+      };
+      var controller = createController(stateParams);
+      expect(scope.report.latitude).toEqual(stateParams.latitude);
+    });
+  });
+
+  describe('when an longitude is received', function() {
+    it('should be passed to report.longitude', function() {
+      var stateParams = {
+        longitude: '20'
+      };
+      var controller = createController(stateParams);
+      expect(scope.report.longitude).toEqual(stateParams.longitude);
     });
   });
 });
