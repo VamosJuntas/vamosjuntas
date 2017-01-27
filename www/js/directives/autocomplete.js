@@ -16,5 +16,5 @@ angular.module('vamosJuntas').directive('googleplace', function() {
                 scope.$apply();
             });
         }
-    }
+    };
 });
