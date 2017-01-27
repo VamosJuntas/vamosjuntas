@@ -78,10 +78,10 @@ describe('HomeController', function() {
     };
   });
 
-  it('should get a total of occurrences from a specific place', function() {
-    createController();
-    expect(scope.getTotalOfOccurrences(place)).toBe(17);
-  });
+  // it('should get a total of occurrences from a specific place', function() {
+  //   createController();
+  //   expect(scope.getTotalOfOccurrences(place)).toBe(17);
+  // });
 
   describe('get successfully current position', function (){
     beforeEach(function () {
