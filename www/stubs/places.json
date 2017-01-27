@@ -1,65 +1,32 @@
 [{
-    "address": "Av. Ipiranga",
-    "location": {
-        "latitude": 10,
-        "longitude": 20
+  "address": "Av. Ipiranga",
+  "location": {
+    "latitude": 10,
+    "longitude": 20
+  },
+  "occurrences": [{
+    "risk": "Roubo",
+    "numberOfOccurrences": 2,
+    "reports": [
+      {
+      "date": "10/10/2016",
+      "period": "Manhã"
     },
-    "occurrences": [{
-        "risk": "Roubo",
-        "numberOfOccurrences": 2,
-        "reports": [{
-            "date": "10/10/2016",
-            "period": "Manhã"
-        }, {
-            "date": "12/10/2016",
-            "period": "Manhã"
-        }]
-    }, {
-        "risk": "Local Mal Iluminado",
-        "numberOfOccurrences": 2,
-        "reports": [{
-            "date": "10/10/2016",
-            "period": "Manhã"
-        }, {
-            "date": "12/10/2016",
-            "period": "Manhã"
-        }]
-    }]
-}, {
-    "address": "Av. Ipiranga",
-    "location": {
-        "latitude": 10,
-        "longitude": 20
-    },
-    "occurrences": [{
-        "risk": "Roubo",
-        "numberOfOccurrences": 2,
-        "reports": [{
-            "date": "10/10/2016",
-            "period": "Manhã"
-        }, {
-            "date": "12/10/2016",
-            "period": "Manhã"
-        }]
-    }, {
-        "risk": "Local Mal Iluminado",
-        "numberOfOccurrences": 2,
-        "reports": [{
-            "date": "10/10/2016",
-            "period": "Manhã"
-        }, {
-            "date": "12/10/2016",
-            "period": "Manhã"
-        }]
-    },{
-        "risk": "Outro",
-        "numberOfOccurrences": 2,
-        "reports": [{
-            "date": "10/10/2016",
-            "period": "Manhã"
-        }, {
-            "date": "12/10/2016",
-            "period": "Manhã"
-        }]
-    } ]
+    {
+      "date": "12/10/2016",
+      "period": "Manhã"
+    }]},
+    {
+      "risk": "Local Mal Iluminado",
+      "numberOfOccurrences": 2,
+      "reports": [
+        {
+        "date": "10/10/2016",
+        "period": "Manhã"
+      },
+      {
+        "date": "12/10/2016",
+        "period": "Manhã"
+      }]
+  }]
 }]
