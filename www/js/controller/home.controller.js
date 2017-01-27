@@ -27,7 +27,6 @@ angular.module('vamosJuntas').controller('HomeController',
       $ionicLoading.hide();
     });
 
-    // code to aggregate total of occurrences for a specific place - OOS for now
     $scope.getTotalOfOccurrences = function(place) {
       var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
         return total + occurrence.numberOfOccurrences;
