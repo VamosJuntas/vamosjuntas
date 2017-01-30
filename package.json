@@ -76,6 +76,6 @@
     "ionic-emulate-ios": "gulp build-dev build-prod && ionic emulate ios && node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-ios-debugger": "gulp build-dev build-prod && ionic emulate -lc ios",
     "ionic-state-restore": "ionic state restore",
-    "start-stubby": "stubby -q -s 3001 -l localhost -d ./stubs/reports.yml"
+    "start-stubby": "node_modules/stubby/bin/stubby -q -s 3001 -l localhost -d ./stubs/reports.yml"
   }
 }
