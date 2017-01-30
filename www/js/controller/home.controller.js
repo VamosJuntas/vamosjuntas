@@ -2,7 +2,6 @@ angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, geolocationFactory, $ionicLoading) {
 
   $scope.search = {};
-  $scope.addresses;
   $scope.errorMessage = false;
 
   $ionicLoading.show();
