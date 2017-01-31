@@ -35,10 +35,12 @@ describe('ReportAddressController', function() {
     describe('and form is valid', function() {
       it('should post to endpint with report data', function() {
         createController();
-        scope.report = {
-          address: 'The Adress',
+        scope.search = {
+          text: 'The Adress',
           latitude: '30',
           longitude: '50',
+        };
+        scope.report = {
           risk: 'risk',
           date: '10/10/2010'
         };
@@ -75,32 +77,32 @@ describe('ReportAddressController', function() {
   });
 
   describe('when an address is received', function() {
-    it('should be passed to report.address', function() {
+    it('should be passed to search.text', function() {
       var stateParams = {
         address: 'anyAddress'
       };
       var controller = createController(stateParams);
-      expect(scope.report.address).toEqual(stateParams.address);
+      expect(scope.search.text).toEqual(stateParams.address);
     });
   });
 
   describe('when an latitude is received', function() {
-    it('should be passed to report.latitude', function() {
+    it('should be passed to search.latitude', function() {
       var stateParams = {
         latitude: '1'
       };
       var controller = createController(stateParams);
-      expect(scope.report.latitude).toEqual(stateParams.latitude);
+      expect(scope.search.latitude).toEqual(stateParams.latitude);
     });
   });
 
   describe('when an longitude is received', function() {
-    it('should be passed to report.longitude', function() {
+    it('should be passed to search.longitude', function() {
       var stateParams = {
         longitude: '20'
       };
       var controller = createController(stateParams);
-      expect(scope.report.longitude).toEqual(stateParams.longitude);
+      expect(scope.search.longitude).toEqual(stateParams.longitude);
     });
   });
 });

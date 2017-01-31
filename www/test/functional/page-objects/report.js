@@ -1,12 +1,12 @@
  var Report = function () {
 
   this.fillAddress = function (content) {
-    element(by.model('report.address')).sendKeys(content);
+    element(by.model('search.text')).sendKeys(content);
     return this;
   };
 
   this.getAddress = function() {
-    return element(by.model('report.address')).getAttribute('value');
+    return element(by.model('search.text')).getAttribute('value');
   };
 
   this.fillDateWithFormat = function(date) {

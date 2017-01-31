@@ -74,41 +74,4 @@ describe('Report address form', function() {
 
     expect(report.isSubmitButtonEnabled()).toBe(false);
   });
-
-  it('should go through whole report flow and go back to home', function() {
-    var date = moment('2015-02-25T02:30:00').format('MM/DD/YYYY, HH:mm');
-    browser.get('/');
-
-    splash
-      .confirmTerms()
-      .joinApp();
-    
-    expect(browser.getCurrentUrl()).toContain('/home');
-
-    browser.wait(function() {
-      var deferred = protractor.promise.defer();
-      var q = element(by.css('.loading-container.visible.active')).isPresent();
-
-      q.then( function (isPresent) {
-        deferred.fulfill(!isPresent);
-      });
-
-      return deferred.promise;
-
-    }, 10000);
-
-    home.reportRisk();
-    expect(browser.getCurrentUrl()).toContain('/report');
-    expect(element(by.model('report.address')).getAttribute('googleplace')).toBe('');
-
-    report
-      .fillAddress('My address')
-      .fillDateWithFormat(date)
-      .fillRisk('Roubo')
-      .submitButtonClick();
-
-    expect(browser.getCurrentUrl()).toContain('/confirmation');
-    confirmation.backToHome();
-    expect(browser.getCurrentUrl()).toContain('/home');
-  });
 });
