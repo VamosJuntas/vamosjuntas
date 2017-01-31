@@ -18,9 +18,6 @@
     "ios-sim": "*",
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
-    "protractor": "^4.0.8"
-  },
-  "devDependencies": {
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
     "eslint-config-angular": "^0.4.0",
