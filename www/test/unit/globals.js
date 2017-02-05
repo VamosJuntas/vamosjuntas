@@ -1,3 +1,4 @@
 AppSettings = {
-  mapsAPIBaseUrl: 'mapsAPIStub'
+  mapsAPIBaseUrl: 'mapsAPIStub',
+  apiBaseUrl: 'http://localhost:3001'
 };
