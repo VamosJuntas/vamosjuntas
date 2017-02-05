@@ -1,5 +1,5 @@
 describe('ReportAddressController', function() {
-  var scope, state, $location, placeFactory, place, $httpBackend;
+  var scope, state, $location, placeFactory, place, $httpBackend, controller;
 
   beforeEach(function() {
     module('vamosJuntas');
@@ -35,10 +35,12 @@ describe('ReportAddressController', function() {
     describe('and form is valid', function() {
       it('should post to endpint with report data', function() {
         createController();
-        scope.report = {
-          address: 'The Adress',
+        scope.search = {
+          text: 'The Adress',
           latitude: '30',
           longitude: '50',
+        };
+        scope.report = {
           risk: 'risk',
           date: '10/10/2010'
         };
@@ -67,40 +69,33 @@ describe('ReportAddressController', function() {
 
     describe('and form is not valid', function() {
       it('should not redirect to the success page if address is empty', function() {
-        var controller = createController();
+        createController();
         scope.submit(false);
         expect($location.path).not.toHaveBeenCalled();
       });
     });
   });
 
-  describe('when an address is received', function() {
-    it('should be passed to report.address', function() {
-      var stateParams = {
-        address: 'anyAddress'
-      };
-      var controller = createController(stateParams);
-      expect(scope.report.address).toEqual(stateParams.address);
-    });
-  });
-
-  describe('when an latitude is received', function() {
-    it('should be passed to report.latitude', function() {
-      var stateParams = {
-        latitude: '1'
-      };
-      var controller = createController(stateParams);
-      expect(scope.report.latitude).toEqual(stateParams.latitude);
-    });
-  });
-
-  describe('when an longitude is received', function() {
-    it('should be passed to report.longitude', function() {
-      var stateParams = {
+  describe('when the controller is created', function() {
+    beforeEach(function() {
+      stateParams = {
+        address: 'anyAddress',
+        latitude: '1',
         longitude: '20'
       };
-      var controller = createController(stateParams);
-      expect(scope.report.longitude).toEqual(stateParams.longitude);
+     controller = createController(stateParams);
+    });
+
+    it('should be passed to search.text', function() {
+      expect(scope.search.text).toEqual(stateParams.address);
+    });
+
+    it('should be passed to search.latitude', function() {
+      expect(scope.search.latitude).toEqual(stateParams.latitude);
+    });
+
+    it('should be passed to search.longitude', function() {
+      expect(scope.search.longitude).toEqual(stateParams.longitude);
     });
   });
 });
