@@ -22,7 +22,7 @@
 
 
         function createReport(report) {
-            return $http.post(ApiEndpoint.url, addPlaceFromForm(report), {});
+            return $http.post(AppSettings.apiBaseUrl + '/reports', addPlaceFromForm(report), {});
         }
     }
 })();

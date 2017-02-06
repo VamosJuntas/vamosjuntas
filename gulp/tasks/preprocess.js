@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var preprocess = require('gulp-preprocess');
+var replace = require('gulp-replace-task');
 var appSettings = './templates/app-settings.js';
 
 gulp.task('preprocess:dev', function() {
@@ -10,6 +11,14 @@ gulp.task('preprocess:dev', function() {
 
 gulp.task('preprocess:prod', function() {
   gulp.src(appSettings)
+    .pipe(replace({
+      patterns: [
+        {
+          match: 'apiBaseUrl',
+          replacement: process.env.API_BASE_URL
+        }
+      ]
+    }))
     .pipe(preprocess({context: { NODE_ENV: 'PRODUCTION'}}))
     .pipe(gulp.dest('./www/js/'));
 });
