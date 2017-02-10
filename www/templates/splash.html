@@ -1,6 +1,8 @@
 <ion-view>
     <ion-content>
       <img id="splash-logo" src='img/logo.png'>
+      <p><a href="" ng-click="showAlert()"><center>Leia os termos de uso</center></a></p>
+    </button>
       <div id="terms-check">
         <ion-checkbox id="check-terms" ng-model="checked">Estou de acordo com os termos</ion-checkbox>
         <button class="button button-block button-positive" id="joinBtn" ng-disabled="!checked" ng-click = "submit()">Entrar</button>
