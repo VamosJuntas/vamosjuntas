@@ -10,7 +10,7 @@ angular.module('vamosJuntas')
       });
 
       alertPopup.then(function(res) {
-        console.log('Thank you for not eating my delicious ice cream cone');
+        console.log('Alert showing with success');
       });
     };
 }]);
