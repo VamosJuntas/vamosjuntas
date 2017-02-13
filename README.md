@@ -6,7 +6,10 @@ VamosJuntas mobile application.
 
 ## Setup
 
+What's the [Google Maps Key](https://developers.google.com/maps/documentation/javascript/get-api-key).
+Access the link [API keys for the standard API](https://developers.google.com/maps/documentation/javascript/get-api-key#key) to create the key.
 
+When you have your key in hands, export it with the following command `export API_KEY=your Key`. After you run `npm run serve` for the first time it will generate the configuration file for you.
 
 ### Normal Setup Without Docker
 
