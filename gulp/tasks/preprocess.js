@@ -5,6 +5,14 @@ var appSettings = './templates/app-settings.js';
 
 gulp.task('preprocess:dev', function() {
   gulp.src(appSettings)
+      .pipe(replace({
+        patterns: [
+          {
+            match: 'apiKey',
+            replacement: process.env.API_KEY
+          }
+        ]
+      }))
       .pipe(preprocess({context: {NODE_ENV: 'DEVELOPMENT'}}))
       .pipe(gulp.dest('./www/js/'));
 });
@@ -16,6 +24,10 @@ gulp.task('preprocess:prod', function() {
         {
           match: 'apiBaseUrl',
           replacement: process.env.API_BASE_URL
+        },
+        {
+          match: 'apiKey',
+          replacement: process.env.API_KEY
         }
       ]
     }))

@@ -1,6 +1,5 @@
 describe('AddressFactory', function() {
   var addressFactory, httpBackend, geocoderSpy, scope;
-  var key = 'AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4';
 
   beforeEach(function() {
       module('vamosJuntas');
@@ -17,7 +16,7 @@ describe('AddressFactory', function() {
     }
   );
   it('should return coord from a address id', function() {
-    var url = 'mapsAPIStub/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + key;
+    var url = 'mapsAPIStub/details/json?placeid=EjhBdi4gSXBpcmFuZ2EgLSBQcmFpYSBkZSBCZWxhcywgUG9ydG8gQWxlZ3JlIC0gUlMsIEJyYXppbA&key=' + AppSettings.apiKey;
     var httpResponse = { geometry: {
          location: {
             lat: -30.0556739,
@@ -38,7 +37,7 @@ describe('AddressFactory', function() {
   });
 
   it('should return places near address from coords', function() {
-    var url = 'mapsAPIStub/nearbysearch/json?location=-30.0556739,-51.1881215&radius=300&language=pt-PT&key=' + key;
+    var url = 'mapsAPIStub/nearbysearch/json?location=-30.0556739,-51.1881215&radius=300&language=pt-PT&key=' + AppSettings.apiKey;
     var httpResponse = {name: 'Bourbon Shopping'};
     var result;
 
