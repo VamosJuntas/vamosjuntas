@@ -23,11 +23,11 @@ gulp.task('preprocess:prod', function() {
       patterns: [
         {
           match: 'apiBaseUrl',
-          replacement: process.env.API_BASE_URL
+          replacement: process.env.API_BASE_URL || 'http://localhost:3001'
         },
         {
           match: 'apiKey',
-          replacement: process.env.API_KEY
+          replacement: process.env.API_KEY || 'NO_KEY'
         }
       ]
     }))
