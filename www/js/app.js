@@ -6,7 +6,8 @@
 
 angular.module('vamosJuntas', ['ionic', 'ngCordova'])
     .constant('ApiEndpoint', {
-        url: 'http://localhost:3001/reports'
+        url: 'http://localhost:3001/reports',
+        risksAroundUrl: AppSettings.apiBaseUrl + '/reports/'
     })
     .constant('PlacesAPI', {
         autoCompleteBaseUrl: AppSettings.mapsAPIBaseUrl + '/autocomplete/json?',

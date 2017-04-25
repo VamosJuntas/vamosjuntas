@@ -2,9 +2,9 @@
   'use strict';
   angular.module('vamosJuntas').factory('placeFactory', placeFactory);
 
-  placeFactory.$inject = ['$http'];
+  placeFactory.$inject = ['$http', 'ApiEndpoint'];
 
-  function placeFactory($http) {
+  function placeFactory($http, ApiEndpoint) {
     var placeObject = {};
 
     placeObject.fetchPlaces = fetchPlaces;
@@ -14,12 +14,7 @@
     return placeObject;
 
     function fetchPlaces(lat, long) {
-      return $http.get('http://0.0.0.0:3000/risks-around', {
-        params: {
-          latitude: lat,
-          longitude: long
-        }
-      });
+      return $http.get(ApiEndpoint.risksAroundUrl + lat + ',' + long);
     }
 
     function addPlace(place) {
