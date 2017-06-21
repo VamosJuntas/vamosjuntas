@@ -9,7 +9,8 @@ describe('ReportAddressController', function() {
       $location = _$location_;
       $httpBackend = _$httpBackend_;
       $httpBackend.whenGET(/templates.*/).respond('');
-
+      placeFactory = $injector.get('placeFactory');
+      console.log(placeFactory);
       spyOn($location, 'path');
       createController = function(stateParams) {
         var $stateParams;
@@ -25,7 +26,8 @@ describe('ReportAddressController', function() {
         $controller('ReportAddressController', {
           '$scope': scope,
           '$location': $location,
-          '$stateParams': $stateParams
+          '$stateParams': $stateParams,
+          'placeFactory': placeFactory
         });
       };
     });
@@ -76,6 +78,20 @@ describe('ReportAddressController', function() {
     });
   });
 
+  describe('when the controller is created with address', function() {
+    beforeEach(function() {
+      place = {
+        address: 'placeAddress'
+      };
+      stateParams = {}
+      spyOn(placeFactory, 'getPlace').and.returnValue({address: 'Parada da João Pessoa'});
+      controller = createController(stateParams);
+    });
+
+    it('should be passed to search.text', function() {
+      expect(scope.search.text).toEqual('Parada da João Pessoa');
+    });
+  });
   describe('when the controller is created', function() {
     beforeEach(function() {
       stateParams = {
@@ -83,6 +99,7 @@ describe('ReportAddressController', function() {
         latitude: '1',
         longitude: '20'
       };
+      spyOn(placeFactory, 'getPlace').and.returnValue(undefined);
      controller = createController(stateParams);
     });
 

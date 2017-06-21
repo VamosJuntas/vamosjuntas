@@ -1,10 +1,10 @@
 angular.module('vamosJuntas')
-    .controller('ReportAddressController', ['$scope', '$stateParams', '$location', '$ionicHistory', 'reportFactory',
-        function($scope, $stateParams, $location, $ionicHistory, reportFactory) {
+    .controller('ReportAddressController', ['$scope', '$stateParams', '$location', '$ionicHistory', 'placeFactory', 'reportFactory',
+        function($scope, $stateParams, $location, $ionicHistory, placeFactory, reportFactory) {
 
             $scope.report = {};
             $scope.search = {};
-            $scope.search.text = $stateParams.address;
+            $scope.search.text = placeFactory.getPlace() === undefined ? $stateParams.address : placeFactory.getPlace().address;
             $scope.search.latitude = $stateParams.latitude;
             $scope.search.longitude = $stateParams.longitude;
 
