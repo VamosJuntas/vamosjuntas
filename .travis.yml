@@ -1,0 +1,13 @@
+language: nodejs
+
+cache:
+   directories:
+     - node_modules
+before_install:
+  - npm install
+
+script:  
+ - npm run unit-test
+ - npm run functional-test
+
+
