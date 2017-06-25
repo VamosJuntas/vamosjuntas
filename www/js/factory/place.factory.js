@@ -14,12 +14,7 @@
     return placeObject;
 
     function fetchPlaces(lat, long) {
-      return $http.get('http://0.0.0.0:3000/risks-around', {
-        params: {
-          latitude: lat,
-          longitude: long
-        }
-      });
+      return $http.get('http://0.0.0.0:3001/reports/' + lat + ',' + long);
     }
 
     function addPlace(place) {

@@ -1,65 +1,28 @@
-[{
-  "address": "Av. Ipiranga",
-  "location": {
-    "latitude": 10,
-    "longitude": 20
-  },
-  "occurrences": [{
-    "risk": "Roubo",
-    "numberOfOccurrences": 2,
-    "reports": [
-      {
-      "date": "10/10/2016",
-      "period": "Manhã"
+[
+    {
+        "_id": "594fd5dd6aa2cec76f591cd9",
+        "updatedAt": "2017-06-25T15:25:17.331Z",
+        "createdAt": "2017-06-25T15:25:17.331Z",
+        "address": "R. Vicente da Fontoura, 2265 - Rio Branco, Porto Alegre - RS, 90640-002, Brazil",
+        "geolocation": [
+            -30.0422047,
+            -51.1963351
+        ],
+        "category": "Local deserto",
+        "__v": 0,
+        "date": "2017-10-10T23:10:00.000Z"
     },
     {
-      "date": "12/10/2016",
-      "period": "Manhã"
-    }]},
-    {
-      "risk": "Local Mal Iluminado",
-      "numberOfOccurrences": 2,
-      "reports": [
-        {
-        "date": "10/10/2016",
-        "period": "Manhã"
-      },
-      {
-        "date": "12/10/2016",
-        "period": "Manhã"
-      }]
-  }]
-},
-{
-  "address": "Bento Gonçalves",
-  "location": {
-    "latitude": 30,
-    "longitude": 50
-  },
-  "occurrences": [{
-    "risk": "Roubo",
-    "numberOfOccurrences": 4,
-    "reports": [
-      {
-      "date": "22/06/2016",
-      "period": "Manhã"
-    },
-    {
-      "date": "23/06/2016",
-      "period": "Noite"
-    }]},
-    {
-      "risk": "Local Mal Iluminado",
-      "numberOfOccurrences": 8,
-      "reports": [
-        {
-        "date": "16/07/2016",
-        "period": "Manhã"
-      },
-      {
-        "date": "12/10/2016",
-        "period": "Tarde"
-      }]
-  }]
-}
+        "_id": "588fe45015c4689ee700e25d",
+        "updatedAt": "2017-01-31T01:11:44.324Z",
+        "createdAt": "2017-01-31T01:11:44.324Z",
+        "address": "R. Vicente da Fontoura - Rio Branco, Porto Alegre - RS, 90640-001, Brazil",
+        "geolocation": [
+            -30.04785579999999,
+            -51.200179400000025
+        ],
+        "category": "Latrocínio",
+        "__v": 0,
+        "date": "2010-10-10T13:10:00.000Z"
+    }
 ]
