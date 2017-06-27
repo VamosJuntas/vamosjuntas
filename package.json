@@ -36,7 +36,7 @@
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
     "phantomjs": "^1.9.18",
-    "protractor": "^4.0.8",
+    "protractor": "^4.0.14",
     "protractor-jasmine2-screenshot-reporter": "^0.3.1",
     "stubby": "^4.0.0"
   },
@@ -61,7 +61,7 @@
     "build-css": "node-sass --include-path scss scss/ionic.app.scss www/css/ionic.app.css && node-sass --include-path scss --output-style compressed scss/ionic.app.scss www/css/ionic.app.min.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "webdriver-update": "webdriver-manager update",
-    "protractor": "npm run webdriver-update && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js && npm run kill-ionic",
+    "protractor": "protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js && npm run kill-ionic",
     "dev-functional-test": "gulp build-dev && protractor --baseUrl 'http://localhost:8100' www/test/functional/conf.js",
     "functional-test": "npm run start-stubby & gulp build-dev && npm run build-css && npm run ionic-test && npm run protractor",
     "unit-test": "karma start karma.conf.js --single-run",
