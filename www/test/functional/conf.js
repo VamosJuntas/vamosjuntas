@@ -30,6 +30,7 @@ exports.config = {
   capabilities: {
     browserName: "chrome",
     chromeOptions: {
+      args: ['no-sandbox'],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
       }
