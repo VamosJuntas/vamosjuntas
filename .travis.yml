@@ -26,7 +26,8 @@ before_install:
   - npm install
 
 before_script:
-  - webdriver-manager update
+  - node_modules/protractor/bin/webdriver-manager update
+  - node_modules/protractor/bin/webdriver-manager start 2>&1 &
 
 script:
  - npm run unit-test
