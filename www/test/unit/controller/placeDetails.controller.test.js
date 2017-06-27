@@ -20,7 +20,7 @@ describe('placeDetailsController', function() {
       };
     });
 
-    spyOn(placeFactory, 'getPlace').and.returnValue({title: 'Parada da João Pessoa'});
+    spyOn(placeFactory, 'getPlace').and.returnValue({title: 'Parada da João Pessoa', occurrences: []});
   });
 
   it('gets the risk places', function() {

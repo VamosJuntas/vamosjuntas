@@ -10,7 +10,6 @@ describe('ReportAddressController', function() {
       $httpBackend = _$httpBackend_;
       $httpBackend.whenGET(/templates.*/).respond('');
       placeFactory = $injector.get('placeFactory');
-      console.log(placeFactory);
       spyOn($location, 'path');
       createController = function(stateParams) {
         var $stateParams;
