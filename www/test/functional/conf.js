@@ -7,20 +7,24 @@ var reporter = new HtmlScreenshotReporter({
 
 exports.config = {
 
+  chromeDriver: '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.28',
+
+  seleniumServerJar: '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
+
   beforeLaunch: function() {
-      return new Promise(function(resolve){
-        reporter.beforeLaunch(resolve);
-      });
-   },
+    return new Promise(function(resolve){
+      reporter.beforeLaunch(resolve);
+    });
+  },
 
   onPrepare: function() {
     jasmine.getEnv().addReporter(reporter);
   },
 
   afterLaunch: function(exitCode) {
-      return new Promise(function(resolve){
-        reporter.afterLaunch(resolve.bind(this, exitCode));
-      });
+    return new Promise(function(resolve){
+      reporter.afterLaunch(resolve.bind(this, exitCode));
+    });
   },
 
   capabilities: {
@@ -34,10 +38,10 @@ exports.config = {
 
   directConnect : true,
   framework: 'jasmine2',
-  specs: ['report.spec.js', 'home.spec.js'],
+  specs: ['*.spec.js'],
 };
+
 if (process.env.SNAP_CI) {
     exports.config.directConnect = true;
     exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }
-seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.52.0.jar'
