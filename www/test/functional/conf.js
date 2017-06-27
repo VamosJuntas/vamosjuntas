@@ -44,5 +44,5 @@ exports.config = {
 if (process.env.TRAVIS) {
     exports.config.directConnect = true;
     exports.config.chromeDriver = '/usr/local/bin/chromedriver';
-    exports.config.browsers = ['Chrome_travis_ci'];
+    exports.config.browsers = ['PhantomJS', 'Chrome_travis_ci'];
 }
