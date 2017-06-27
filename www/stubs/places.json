@@ -29,4 +29,37 @@
         "period": "Manhã"
       }]
   }]
-}]
+},
+{
+  "address": "Bento Gonçalves",
+  "location": {
+    "latitude": 30,
+    "longitude": 50
+  },
+  "occurrences": [{
+    "risk": "Roubo",
+    "numberOfOccurrences": 4,
+    "reports": [
+      {
+      "date": "22/06/2016",
+      "period": "Manhã"
+    },
+    {
+      "date": "23/06/2016",
+      "period": "Noite"
+    }]},
+    {
+      "risk": "Local Mal Iluminado",
+      "numberOfOccurrences": 8,
+      "reports": [
+        {
+        "date": "16/07/2016",
+        "period": "Manhã"
+      },
+      {
+        "date": "12/10/2016",
+        "period": "Tarde"
+      }]
+  }]
+}
+]

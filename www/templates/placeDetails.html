@@ -9,9 +9,16 @@
         <h3>Este local tem os seguintes reportes<h3>
         <ul class="list list-inset">
             <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
-                {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
+              {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
             </li>
         </ul>
+
+        <ul class="item" ng-repeat="occurrence in allOccurrences">
+          <ul ng-repeat="report in occurrence.reports">
+            <p>{{occurrence.risk}} - {{report.period}} - {{report.date}}</p>
+          </ul>
+        </ul>
+
         <button class="button button-block button-positive" ng-click="submit()">Reportar risco nesse endereço</button>
     </ion-content>
 </ion-view>
