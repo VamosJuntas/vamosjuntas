@@ -1,27 +1,27 @@
 language: node_js
 node_js:
- - "node"
- - "6.11.0"
+  - "node"
+  - "6.11.0"
 
 addons:
- apt:
-   sources:
-     - ubuntu-toolchain-r-test
-     - google-chrome
-   packages:
-     - g++-4.8
-     - xvfb
-     - libgnome-keyring-dev
-     - google-chrome-stable
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+      - xvfb
+      - libgnome-keyring-dev
 
 env:
   - CXX=g++-4.8
 
 cache:
-   directories:
-     - node_modules
+  directories:
+    - node_modules
 
 before_install:
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome-stable_current_amd64.deb
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm install
@@ -32,5 +32,5 @@ before_script:
   - node_modules/protractor/bin/webdriver-manager start 2>&1 &
 
 script:
- - npm run unit-test
- - npm run functional-test
+  - npm run unit-test
+  - npm run functional-test
