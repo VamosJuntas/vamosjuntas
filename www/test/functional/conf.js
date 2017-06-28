@@ -37,12 +37,11 @@ exports.config = {
     }
   },
 
-  directConnect : false,
+  directConnect : true,
   framework: 'jasmine2',
   specs: ['*.spec.js'],
 };
 
 if (process.env.TRAVIS) {
   exports.config.chromeDriver = '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.29';
-  exports.config.browsers = ['Chrome_travis_ci'];
 }
