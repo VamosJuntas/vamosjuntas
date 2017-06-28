@@ -1,9 +1,11 @@
+dist: trusty
 language: node_js
 node_js:
   - "node"
   - "6.11.0"
 
 addons:
+  chrome: stable
   apt:
     sources:
       - ubuntu-toolchain-r-test
@@ -20,6 +22,8 @@ cache:
     - node_modules
 
 before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - npm install
 
 before_script:
