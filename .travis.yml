@@ -19,6 +19,7 @@ before_install:
 before_script:
   - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.29
   - node_modules/protractor/bin/webdriver-manager start --versions.chrome 2.29 2>&1 &
+  - sleep 5
 
 script:
   - npm run unit-test
