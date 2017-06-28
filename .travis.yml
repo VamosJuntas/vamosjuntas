@@ -3,14 +3,17 @@ node_js:
   - "node"
   - "6.11.0"
 
+sudo: required
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - google-chrome
     packages:
       - g++-4.8
       - xvfb
       - libgnome-keyring-dev
+      - google-chrome-stable
 
 env:
   - CXX=g++-4.8
@@ -20,12 +23,9 @@ cache:
     - node_modules
 
 before_install:
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome-stable_current_amd64.deb
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm install
-  - sleep 3
 
 before_script:
   - node_modules/protractor/bin/webdriver-manager update
