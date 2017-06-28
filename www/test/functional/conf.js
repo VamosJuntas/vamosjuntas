@@ -37,7 +37,7 @@ exports.config = {
     }
   },
 
-  directConnect : true,
+  directConnect : false,
   framework: 'jasmine2',
   specs: ['*.spec.js'],
 };
