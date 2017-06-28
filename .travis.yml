@@ -13,7 +13,13 @@ addons:
       - g++-4.8
       - xvfb
       - libgnome-keyring-dev
+      - libfontconfig1
+      - libnspr4
+      - libpango-1.0-0
+      - libpangocairo-1.0-0
+      - lsb-base
       - google-chrome-stable
+
 
 env:
   - CXX=g++-4.8
