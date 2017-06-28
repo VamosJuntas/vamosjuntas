@@ -4,7 +4,6 @@ node_js:
   - "6.11.0"
 
 addons:
-  chrome: beta
   apt:
     sources:
       - ubuntu-toolchain-r-test
@@ -26,7 +25,7 @@ before_install:
   - npm install
 
 before_script:
-  - node_modules/protractor/bin/webdriver-manager update
+  - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.10
   - node_modules/protractor/bin/webdriver-manager start 2>&1 &
 
 script:
