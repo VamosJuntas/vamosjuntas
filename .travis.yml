@@ -3,23 +3,14 @@ node_js:
   - "node"
   - "6.11.0"
 
-sudo: required
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - google-chrome
     packages:
       - g++-4.8
       - xvfb
       - libgnome-keyring-dev
-      - libfontconfig1
-      - libnspr4
-      - libpango-1.0-0
-      - libpangocairo-1.0-0
-      - lsb-base
-      - google-chrome-stable
-
 
 env:
   - CXX=g++-4.8
@@ -34,6 +25,9 @@ before_install:
   - npm install
 
 before_script:
+  - sudo apt-get install libxss1 libappindicator1 libindicator7
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/protractor/bin/webdriver-manager start 2>&1 &
 
