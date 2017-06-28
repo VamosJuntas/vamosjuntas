@@ -30,7 +30,7 @@ exports.config = {
   capabilities: {
     browserName: "chrome",
     chromeOptions: {
-      args: ['no-sandbox'],
+      args: [ "--headless", "--disable-gpu", "--window-size=800x600" ],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
       }
