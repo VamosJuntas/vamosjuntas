@@ -10,12 +10,8 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
-      - xvfb
-      - libgnome-keyring-dev
 
 env:
-  - CXX=g++-4.8
 
 cache:
   directories:
@@ -29,9 +25,6 @@ before_install:
 before_script:
   - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.29
   - node_modules/protractor/bin/webdriver-manager start --versions.chrome 2.29 2>&1 &
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 5
 
 script:
   - npm run unit-test
