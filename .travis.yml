@@ -28,7 +28,7 @@ before_install:
 before_script:
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo apt-get install -f
-  - dpkg -i google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome-stable_current_amd64.deb
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/protractor/bin/webdriver-manager start 2>&1 &
 
