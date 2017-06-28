@@ -6,12 +6,6 @@ node_js:
 
 addons:
   chrome: stable
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-
-env:
 
 cache:
   directories:
