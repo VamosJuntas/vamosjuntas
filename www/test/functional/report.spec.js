@@ -15,7 +15,6 @@ describe('Report address form', function() {
     report = new Report();
     confirmation = new Confirmation();
     placeDetails = new PlaceDetails();
-    browser.ignoreSynchronization = true;
   });
 
   it('should not send to confirmation page without address', function() {
