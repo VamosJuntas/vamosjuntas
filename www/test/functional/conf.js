@@ -11,26 +11,26 @@ exports.config = {
 
   seleniumServerJar: '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
 
-  beforeLaunch: function() {
-    return new Promise(function(resolve){
-      reporter.beforeLaunch(resolve);
-    });
-  },
-
-  onPrepare: function() {
-    jasmine.getEnv().addReporter(reporter);
-  },
-
-  afterLaunch: function(exitCode) {
-    return new Promise(function(resolve){
-      reporter.afterLaunch(resolve.bind(this, exitCode));
-    });
-  },
+  // beforeLaunch: function() {
+  //   return new Promise(function(resolve){
+  //     reporter.beforeLaunch(resolve);
+  //   });
+  // },
+  //
+  // onPrepare: function() {
+  //   jasmine.getEnv().addReporter(reporter);
+  // },
+  //
+  // afterLaunch: function(exitCode) {
+  //   return new Promise(function(resolve){
+  //     reporter.afterLaunch(resolve.bind(this, exitCode));
+  //   });
+  // },
 
   capabilities: {
     browserName: "chrome",
     chromeOptions: {
-      args: [ "--headless", "--disable-gpu", "--dump-dom", "--no-sandbox" ],
+      args: [ "--no-sandbox" ],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
       }

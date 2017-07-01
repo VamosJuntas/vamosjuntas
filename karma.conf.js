@@ -85,8 +85,6 @@ module.exports = function(config) {
       ChromeHeadless: {
         base: 'Chrome',
         flags: [
-          '--headless',
-          '--disable-gpu',
           '--no-sandbox'
         ]
       }

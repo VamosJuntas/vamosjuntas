@@ -25,5 +25,5 @@ before_script:
   - sleep 5
 
 script:
-  - npm run unit-test
+  # - npm run unit-test
   - npm run functional-test
