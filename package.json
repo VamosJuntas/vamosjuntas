@@ -67,6 +67,7 @@
     "unit-test": "karma start karma.conf.js --single-run",
     "watch-unit-test": "karma start karma.conf.js",
     "ci": "npm run unit-test && npm run functional-test",
+    "ci-functional-test": "google-chrome protractor",
     "lint": "eslint www/js/**/*.js www/test/**/*.js",
     "preserve": "node www/conf/stubserver.js > /dev/null 2>&1 &",
     "ionic-emulate-android": "gulp build-prod && ionic emulate android",
