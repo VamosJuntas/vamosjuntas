@@ -30,7 +30,7 @@ exports.config = {
   capabilities: {
     browserName: "chrome",
     chromeOptions: {
-      args: [ "--headless", "--disable-gpu", "--remote-debugging-port=9222", "--dump-dom", "--no-sandbox" ],
+      args: [ "--headless", "--disable-gpu", "--dump-dom", "--no-sandbox" ],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
       }
