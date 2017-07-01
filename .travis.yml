@@ -18,9 +18,12 @@ before_install:
   - npm install
 
 before_script:
-  - wget https://chromedriver.storage.googleapis.com/2.12/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - mv chromedriver test/chromium/chromedriver
+  - wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   # - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.29
   # - node_modules/protractor/bin/webdriver-manager start --versions.chrome 2.29 2>&1 &
   - sleep 5
