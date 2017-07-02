@@ -13,7 +13,6 @@ cache:
     - node_modules
 
 before_install:
-  - export DISPLAY=:99.0
   - npm install
 
 before_script:
