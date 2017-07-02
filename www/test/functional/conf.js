@@ -30,7 +30,6 @@ exports.config = {
   capabilities: {
     browserName: "chrome",
     chromeOptions: {
-      binary: '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.30',
       args: [
         "--headless",
         "--disable-gpu",
