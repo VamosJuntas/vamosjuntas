@@ -31,12 +31,12 @@ exports.config = {
     browserName: "chrome",
     chromeOptions: {
       args: [
-        "--headless",
-        "--disable-gpu",
-        "--remote-debugging-port=9222",
-        "--dump-dom",
-        "--no-sandbox",
-        "--window-size=800x600",
+        // "--headless",
+        // "--disable-gpu",
+        // "--remote-debugging-port=9222",
+        // "--dump-dom",
+        // "--no-sandbox",
+        // "--window-size=800x600",
         "--no-default-browser-check",
         "--no-first-run",
         "--disable-default-apps"
@@ -55,4 +55,5 @@ exports.config = {
 
 if (process.env.TRAVIS) {
   exports.config.chromeDriver = '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.30';
+  exports.config.seleniumServerJar = '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar';
 }
