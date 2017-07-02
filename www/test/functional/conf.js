@@ -37,7 +37,10 @@ exports.config = {
         "--remote-debugging-port=9222",
         "--dump-dom",
         "--no-sandbox",
-        "--window-size=800x600"
+        "--window-size=800x600",
+        "--no-default-browser-check",
+        "--no-first-run",
+        "--disable-default-apps"
       ],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
