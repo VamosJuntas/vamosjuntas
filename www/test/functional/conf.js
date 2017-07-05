@@ -54,5 +54,5 @@ exports.config = {
 
 if (process.env.TRAVIS) {
   exports.config.directConnect = true;
-  exports.config.chromeDriver = '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.30';
+  exports.config.chromeDriver = '/home/travis/build/VamosJuntas/vamosjuntas/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.29';
 }
