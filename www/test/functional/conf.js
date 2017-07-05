@@ -37,9 +37,9 @@ exports.config = {
       //   // "--dump-dom",
       //   // "--no-sandbox",
       //   // "--window-size=800x600",
-      //   "--no-default-browser-check",
-      //   "--no-first-run",
-      //   "--disable-default-apps"
+      //   // "--no-default-browser-check",
+      //   // "--no-first-run",
+      //   // "--disable-default-apps"
       // ],
       prefs: {
         "profile.default_content_setting_values.geolocation": 1,
