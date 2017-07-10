@@ -29,7 +29,7 @@ First, inside project root folder build the image:
 
 ```
 docker build -t vamosjuntas .
-````
+```
 
 To test the code in development environment, use that command:
 
@@ -49,7 +49,7 @@ It will run with debug output.
 npm run serve
 ```
 
-##Run on Mobile Devices
+## Run on Mobile Devices
 
 To enable android emulator to get position is necessary to update the file platforms/android/AndroidManifest.xml with the following code:
 
@@ -68,10 +68,10 @@ npm run ionic-emulate-ios
 ```
 
 
-##Testing
+## Testing
 
 
-####Dev Testing
+#### Dev Testing
 
 
 If you want to **watch** unit test changes you can also run:
@@ -94,7 +94,7 @@ npm run dev-functional-test
 ```
 
 
-####More complete testing (CI...)
+#### More complete testing (CI...)
 
 
 Run both unit and functional test (separated commands bellow):
@@ -117,7 +117,7 @@ npm run unit-test
 ```
 
 
-##CSS
+## CSS
 
 Compile css:
 
