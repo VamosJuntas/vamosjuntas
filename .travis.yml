@@ -1,0 +1,19 @@
+dist: trusty
+language: node_js
+node_js:
+  - "node"
+  - "6.11.0"
+
+addons:
+  chrome: stable
+
+before_install:
+  - npm install
+
+before_script:
+  - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.29
+  - node_modules/protractor/bin/webdriver-manager start --versions.chrome 2.29 2>&1 &
+
+script:
+  - npm run unit-test
+  - npm run functional-test
