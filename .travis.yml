@@ -12,7 +12,7 @@ node_js:
 
 env:
   global:
-    - API_KEY=AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4
+    -secure: "meP3FKat278MD+Ve9zmJ90SMwdtiDHgu0/InD+EtOhJVXga2yr0IRzjyYXfA63B0XzQhZsENDp3aL7CjJ+g3FdfNbwgl/tIrJiGCBrrc4ZCjbRn/KjxmOlsQ/T9Prc4iw+HlgLh2aQpzkVf07+Y0DlQlpc2PR67o4MfvGXYVN0AjzpQNIvlhu0mZpakN4y5c0qngdSHGvdHv1CLxmupyMV2T1KpAq3Mwn+XdeuWEYS7bedN7mo9F1sst2rxBs7WG7e6fY7fm81Vve9ZSHRRnidiz8pIUh8DMqrif+8k7AJ95YJu9qMwOEuiuqWrONpr7NcKJiwQxwegjXHjx/RY/EMnznn4csO5Zc6gWHs06UldVmh56NAH0qCxJS8loYr2Tit3PsuBf7TAz9ussQVx8cgPlSqa1ec9OJiQ3eMKJC6rSpR+4vzMDmkY5j3x9nUpfonSxvpqZa/7yRjyGJg/5tnlCsp5CS9X7zmi7Y4dYBABH08tRd/LR/pThnPgki4Cazsv0Rh+IYswM5TEtodXEsZgqs8dtdORBLFbojraqZuxOyZEdFWXiTev2e593JLvXzEFLMnKYP/RvO58KrPOmZBd/guT7u7CM+A8roY8iq0yXfwiVo5mHlga5FPJbQgr4iJYENJQ357p31zlT1qg6PMcvdrofxMh7smsWl0tE5gI="
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
