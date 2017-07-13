@@ -6,11 +6,6 @@ var reporter = new HtmlScreenshotReporter({
 });
 
 exports.config = {
-
-  chromeDriver: '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.28',
-
-  seleniumServerJar: '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
-
   beforeLaunch: function() {
     return new Promise(function(resolve){
       reporter.beforeLaunch(resolve);
@@ -31,13 +26,18 @@ exports.config = {
     browserName: "chrome",
     chromeOptions: {
       prefs: {
+        'args': ['--disable-extensions'],
         "profile.default_content_setting_values.geolocation": 1,
       }
     }
   },
-
   directConnect : true,
   framework: 'jasmine2',
+  jasmineNodeOpts: {
+    showColors: true,
+    defaultTimeoutInterval: 30000,
+    print: function() {}
+  },
   specs: ['*.spec.js'],
 };
 
