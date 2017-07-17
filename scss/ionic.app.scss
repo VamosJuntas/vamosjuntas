@@ -36,19 +36,34 @@ $error: #FA787E;
 #splash-logo {
   max-width: 100%;
   display: block;
+  margin: 0 auto;
 }
 
 .logo {
   max-width: 100%;
 }
 
+.terms-of-use {
+  a {
+    color: #cc3399;
+  }
+}
+
 #terms-check {
   padding: 0 10px;
   display: block;
 
+  #check-terms {
+    input:checked:before, input:checked+.checkbox-icon:before {
+      background: #cc3399;
+      border-color: #cc3399;
+    }
+  }
+
   button {
     with: 100%;
-    background: blue;
+    background: #cc3399;
+    border-color: #cc3399;
     margin-top: 10px;
   }
 }
