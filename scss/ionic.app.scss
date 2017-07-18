@@ -81,22 +81,56 @@ ion-content {
     padding: 0 10px;
 }
 
+div.title.title-center.header-item {
+  background: url("img/logo-27h.png") center no-repeat;
+}
+
+.bordered-places-list {
+  a {
+    margin-bottom: 10px;
+  }
+}
+
 .vamosjuntas-home-header {
-    padding-top: 30px;
+  padding-top: 30px;
+  color: #cc3399;
+}
+
+.horizontal-rule {
+  height: 1px;
+  color: #cc3399;
+  background-color: #cc3399;
+  border: none;
+  width: 95%;
+}
+
+.item-input {
+  padding: 0px 0 0px 16px;
+}
+
+label.item.item-input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cc3399;
+  margin-top: 15px;
+}
+
+.button.button-positive {
+  border-color: #cc3399;
+  background-color: #cc3399;
+  font-weight: 600;
+  font-family: OpenSans;
 }
 
 .vamosjuntas-search-button {
-    margin-top: 20px;
+  background-color: #cc3399;
+  border-color: #cc3399;
+  color: #fff;
+  font-weight: 600;
+  font-family: OpenSans;
+  border-radius: 0px;
 }
 
 ion-content {
     padding: 0 10px;
-}
-
-.vamosjuntas-home-header {
-    padding-top: 30px;
-}
-
-.vamosjuntas-search-button {
-    margin-top: 20px;
 }
