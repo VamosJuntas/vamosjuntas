@@ -91,17 +91,44 @@ div.title.title-center.header-item {
   }
 }
 
+h2, p, span {
+  font-family: OpenSans;
+}
+
+h4 {
+  font-family: OpenSans;
+  font-weight: 500;
+}
+
+.number-of-occurrences {
+  font-weight: 600;
+}
+
+.vamosjuntas-home-header-wrapper {
+  text-align: center;
+}
+
 .vamosjuntas-home-header {
   padding-top: 30px;
   color: #cc3399;
+  font-family: OpenSans;
+  font-weight: 500;
 }
 
-.horizontal-rule {
+.pink-horizontal-rule {
   height: 1px;
   color: #cc3399;
   background-color: #cc3399;
   border: none;
   width: 95%;
+}
+
+.grey-horizontal-rule {
+  height: 1px;
+  color: #000000;
+  background-color: #000000;
+  border: none;
+  width: 100%;
 }
 
 .item-input {

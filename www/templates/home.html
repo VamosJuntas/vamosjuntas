@@ -3,9 +3,10 @@
         <p ng-if="errorMessage">
           Não foi possível encontrar sua localização. Verifique se seu GPS está ligado.
         </p>
-
-        <h3 class="vamosjuntas-home-header">Lista de Denúncias</h3>
-        <hr class="horizontal-rule">
+        <div class="vamosjuntas-home-header-wrapper">
+            <h3 class="vamosjuntas-home-header">Lista de Denúncias</h3>
+        </div>
+        <hr class="pink-horizontal-rule">
         <form ng-submit="searchAddress()">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
@@ -28,11 +29,10 @@
       <h4>Localidades de risco próximos a você</h4>
       <div ng-repeat="place in places">
         <div class="list bordered-places-list">
-          <a class="item item-thumbnail-left" ng-click="getSpecificPlace(place)" ui-sref="placeDetails">
-            <img src="http://lorempixel.com/80/80"/>
+          <a class="item" ng-click="getSpecificPlace(place)" ui-sref="placeDetails">
             <h2>{{ place.address }}</h2>
-            <p>{{ getTotalOfOccurrences(place) }}
-              denúncias</p>
+            <hr class="grey-horizontal-rule">
+            <p class="number-of-occurrences">({{ getTotalOfOccurrences(place) }}) denúncias</p>
           </a>
         </div>
       </div>
