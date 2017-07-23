@@ -1,17 +1,17 @@
 angular.module('vamosJuntas').controller('HomeController',
  ['$scope', 'placeFactory', 'addressFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, geolocationFactory, $ionicLoading) {
 
-  $scope.search = {};
-  $scope.errorMessage = false;
+   $scope.search = {};
+   $scope.errorMessage = false;
 
-  $ionicLoading.show();
+   $ionicLoading.show();
 
-  var coordinates = {};
-  var posOptions = {timeout: 5000, enableHighAccuracy: false};
+   var coordinates = {};
+   var posOptions = {timeout: 5000, enableHighAccuracy: false};
 
-  geolocationFactory
+   geolocationFactory
     .getCurrentPosition(posOptions)
-    .then(function (position) {
+    .then(function(position) {
 
       placeFactory.fetchPlaces(position.coords.latitude, position.coords.longitude).then(function(response) {
         $scope.places = response.data;
@@ -27,13 +27,13 @@ angular.module('vamosJuntas').controller('HomeController',
       $ionicLoading.hide();
     });
 
-    $scope.getTotalOfOccurrences = function(place) {
-      var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
-        return total + occurrence.numberOfOccurrences;
-      }, 0);
+   $scope.getTotalOfOccurrences = function(place) {
+     var numberOfOccurrences = place.occurrences.reduce(function(total, occurrence) {
+       return total + occurrence.numberOfOccurrences;
+     }, 0);
 
-      return numberOfOccurrences;
-    };
+     return numberOfOccurrences;
+   };
 
    $scope.getSpecificPlace = function(place) {
      placeFactory.addPlace(place);
