@@ -31,7 +31,7 @@
     "karma-cli": "*",
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.2",
     "moment": "^2.17.1",
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
@@ -75,5 +75,8 @@
     "ionic-emulate-ios-debugger": "gulp build-dev build-prod && ionic emulate -lc ios",
     "ionic-state-restore": "ionic state restore",
     "start-stubby": "stubby -q -s 3001 -l localhost -d ./stubs/reports.yml"
+  },
+  "devDependencies": {
+    "karma": "^0.13.22"
   }
 }
