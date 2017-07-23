@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+
   angular.module('vamosJuntas').factory('placeFactory', placeFactory);
 
   placeFactory.$inject = ['$http'];
@@ -17,8 +17,8 @@
       return $http.get('http://0.0.0.0:3000/risks-around', {
         params: {
           latitude: lat,
-          longitude: long
-        }
+          longitude: long,
+        },
       });
     }
 
