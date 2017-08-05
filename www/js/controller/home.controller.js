@@ -1,5 +1,5 @@
 angular.module('vamosJuntas').controller('HomeController',
- ['$scope', 'placeFactory', 'addressFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, geolocationFactory, $ionicLoading) {
+ ['$scope', 'placeFactory', 'addressFactory', 'occurrencesFactory', 'geolocationFactory', '$ionicLoading', function($scope, placeFactory, addressFactory, occurrencesFactory, geolocationFactory, $ionicLoading) {
 
   $scope.search = {};
   $scope.errorMessage = false;
@@ -7,14 +7,14 @@ angular.module('vamosJuntas').controller('HomeController',
   $ionicLoading.show();
 
   var coordinates = {};
-  var posOptions = {timeout: 5000, enableHighAccuracy: false};
+  var posOptions = { timeout: 5000, enableHighAccuracy: false };
 
   geolocationFactory
     .getCurrentPosition(posOptions)
     .then(function (position) {
 
       placeFactory.fetchPlaces(position.coords.latitude, position.coords.longitude).then(function(response) {
-        $scope.places = response.data;
+        $scope.places = occurrencesFactory.build(response.data);
       });
 
       addressFactory.getAddressByCoord(position.coords.latitude, position.coords.longitude).then(function(response){

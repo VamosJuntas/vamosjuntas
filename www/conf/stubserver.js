@@ -22,4 +22,4 @@ app.get('/reports/:geolocation', function(req, res) {
   });
 });
 
-app.listen(3001, function () {});
+app.listen(3000, function () {});

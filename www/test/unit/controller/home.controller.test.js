@@ -1,5 +1,5 @@
 describe('HomeController', function() {
-  var scope, placeFactory, state, place, addressFactory, q, deferred, geolocationFactory, ionicLoading;
+  var scope, placeFactory, state, place, responseData, occurrences, addressFactory, q, deferred, geolocationFactory, ionicLoading, occurrencesFactory;
 
   beforeEach(function() {
     module('vamosJuntas');
@@ -8,6 +8,7 @@ describe('HomeController', function() {
         scope = $rootScope.$new();
         httpBackend = $injector.get('$httpBackend');
         placeFactory = $injector.get('placeFactory');
+        occurrencesFactory = $injector.get('occurrencesFactory');
         addressFactory = $injector.get('addressFactory');
         ionicLoading = $injector.get('$ionicLoading');
         geolocationFactory = $injector.get('geolocationFactory');
@@ -20,44 +21,77 @@ describe('HomeController', function() {
             '$scope': scope,
             'placeFactory': placeFactory,
             'addressFactory': addressFactory,
+            'occurrencesFactory': occurrencesFactory,
             'geolocationFactory': geolocationFactory,
             '$ionicLoading': ionicLoading
           });
         };
     });
 
+    responseData = [
+      {
+          "_id": "594fd5dd6aa2cec76f591cd9",
+          "updatedAt": "2017-06-25T15:25:17.331Z",
+          "createdAt": "2017-06-25T15:25:17.331Z",
+          "address": "R. Vicente da Fontoura, 2265 - Rio Branco, Porto Alegre - RS, 90640-002, Brazil",
+          "geolocation": [
+              -30.0422047,
+              -51.1963351
+          ],
+          "category": "Local deserto",
+          "__v": 0,
+          "date": "2017-10-10T23:10:00.000Z"
+      }
+    ];
+
     place = {
-      "title": "Chafariz da Redenção",
+      "address": "Av. Ipiranga",
+      "location": {
+        "latitude": 10,
+        "longitude": 20
+      },
       "occurrences": [{
-        "address": "Avenida Ipiranga",
-        "risk": "Local Deserto",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 3
-      }, {
-        "address": "Avenida Ipiranga",
-        "risk": "Mal Iluminado",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 4
-      }, {
-        "address": "Avenida Ipiranga",
-        "risk": "roubo",
-        "date": "10/10/2015",
-        "period": "Manhã",
-        "numberOfOccurrences": 10
+        "risk": "Roubo",
+        "numberOfOccurrences": 2,
+        "reports": [
+          {
+          "date": "10/10/2016",
+          "period": "Manhã"
+        },
+        {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        }]},
+        {
+          "risk": "Local Mal Iluminado",
+          "numberOfOccurrences": 2,
+          "reports": [
+            {
+            "date": "10/10/2016",
+            "period": "Manhã"
+          },
+          {
+            "date": "12/10/2016",
+            "period": "Manhã"
+          }]
       }]
     };
+
+    occurrences = [place];
 
     spyOn(placeFactory, 'fetchPlaces').and.callFake(function() {
       return {
         then: function(callback) {
-          return callback(place);
+          return callback({
+            data: responseData
+          });
         }
       };
     });
 
     spyOn(addressFactory, 'getAddressByCoord').and.returnValue(q.when('Av. Ipiranga, 6681'));
+
+    spyOn(occurrencesFactory, 'build').and.returnValue(occurrences);
 
     spyOn(geolocationFactory, 'getCurrentPosition').and.returnValue(deferred.promise);
 
@@ -72,20 +106,13 @@ describe('HomeController', function() {
     expect(placeFactory.addPlace).toHaveBeenCalledWith(place);
   });
 
-  it('should fill the search with the selected address', function() {
-    var place = {
-      description: 'Av. Ipiranga, 123 - Porto Alegre'
-    };
-  });
-
   it('should get a total of occurrences from a specific place', function() {
     createController();
-    expect(scope.getTotalOfOccurrences(place)).toBe(17);
+    expect(scope.getTotalOfOccurrences(place)).toBe(4);
   });
 
   describe('get successfully current position', function (){
     beforeEach(function () {
-
        deferred.resolve({
         coords: {
           latitude: -30.057977,
@@ -106,6 +133,12 @@ describe('HomeController', function() {
       createController();
       scope.$apply();
       expect(placeFactory.fetchPlaces).toHaveBeenCalledWith(-30.057977, -51.1755227);
+    });
+
+    it('builds occurrences from response data', function() {
+      createController();
+      scope.$apply();
+      expect(occurrencesFactory.build).toHaveBeenCalledWith(responseData);
     });
 
     it('gets the address by coords', function() {
