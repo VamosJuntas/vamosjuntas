@@ -100,6 +100,17 @@ h4 {
   font-weight: 500;
 }
 
+.table-occurrences {
+  margin: auto;
+
+  .occurrences-counter {
+    font-size: 0.9em;
+    font-family: OpenSans;
+    padding: 0.75em;
+    font-weight: 700;
+  }
+}
+
 .number-of-occurrences {
   font-weight: 600;
 }
@@ -113,6 +124,12 @@ h4 {
   color: #cc3399;
   font-family: OpenSans;
   font-weight: 500;
+}
+
+p.pink-denunciation-title {
+  font-family: OpenSans;
+  font-size: 0.7em;
+  color: #cc3399;
 }
 
 .pink-horizontal-rule {

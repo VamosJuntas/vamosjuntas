@@ -5,20 +5,41 @@
       </ion-nav-back-button>
     </ion-nav-bar>
     <ion-content class="padding">
-        <h2>{{placeDetails.address}}</h2>
-        <h3>Este local tem os seguintes reportes<h3>
-        <ul class="list list-inset">
-            <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
+      <div class="item">
+        <span>{{placeDetails.address}}</span>
+        <hr class="grey-horizontal-rule" />
+        <p class="pink-denunciation-title">Denúncias</p>
+          <div class="">
+            <table class="table-occurrences">
+              <tr>
+                <td>
+                  <strong>
+                    <span class="occurrences-counter">
+                      {{ mostFrequentOccurence.risk }} ({{ mostFrequentOccurence.numberOfOccurrences }})
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <strong>
+                    <span class="occurrences-counter">
+                      Outras ({{ numberOfOtherOccurrences }})
+                    </span>
+                  </strong>
+                </td>
+              </tr>
+            </table>
+            <!-- <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
               {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
-            </li>
-        </ul>
+            </li> -->
+          </div>
+      </div>
 
-        <ul class="item" ng-repeat="occurrence in allOccurrences">
-          <ul ng-repeat="report in occurrence.reports">
-            <p>{{occurrence.risk}} - {{report.period}} - {{report.date}}</p>
-          </ul>
+      <ul class="item" ng-repeat="occurrence in allOccurrences">
+        <ul ng-repeat="report in occurrence.reports">
+          <p>{{occurrence.risk}} - {{report.period}} - {{report.date}}</p>
         </ul>
+      </ul>
 
-        <button class="button button-block button-positive" ng-click="submit()">Reportar risco nesse endereço</button>
+      <button class="button button-block button-positive" ng-click="submit()">REPORTAR RISCO</button>
     </ion-content>
 </ion-view>

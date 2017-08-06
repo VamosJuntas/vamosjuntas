@@ -31,7 +31,6 @@ describe('placeDetailsController', function() {
   it('should get a place', function() {
     createController();
     expect(scope.placeDetails.title).toBe('Parada da João Pessoa');
-
   });
 
   it('should redirect to report page', function() {
