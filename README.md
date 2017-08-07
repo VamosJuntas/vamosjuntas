@@ -1,5 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/VamosJuntas/vamosjuntas.png?label=ready&title=Ready)](https://waffle.io/VamosJuntas/vamosjuntas)
-[![Build Status](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master/build_image)](https://snap-ci.com/VamosJuntas/vamosjuntas/branch/master)
+[![Build Status](https://travis-ci.org/VamosJuntas/vamosjuntas.svg?branch=master)](https://travis-ci.org/VamosJuntas/vamosjuntas)
 
 # Vamos Juntas
 
