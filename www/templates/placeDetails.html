@@ -5,7 +5,12 @@
       </ion-nav-back-button>
     </ion-nav-bar>
     <ion-content class="padding">
-      <div class="item">
+      <div class="vamosjuntas-home-header-wrapper">
+        <h3 class="vamosjuntas-home-header">Detalhes da Localidade</h3>
+      </div>
+
+      <hr class="pink-horizontal-rule" />
+      <div class="item place-details-item">
         <span>{{placeDetails.address}}</span>
         <hr class="grey-horizontal-rule" />
         <p class="pink-denunciation-title">Denúncias</p>
@@ -28,16 +33,16 @@
                 </td>
               </tr>
             </table>
-            <!-- <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
-              {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
-            </li> -->
           </div>
       </div>
 
-      <ul class="item" ng-repeat="occurrence in allOccurrences">
-        <ul ng-repeat="report in occurrence.reports">
-          <p>{{occurrence.risk}} - {{report.period}} - {{report.date}}</p>
-        </ul>
+      <ul class="item" ng-repeat="report in allOccurrencesReports">
+        <li>
+          <p>
+            <span class="report-risk">{{report.risk}}</span>
+            <span class="report-period-date">{{report.period}} <span class="grey-dot">●</span> {{report.date}}</span>
+          </p>
+        </li>
       </ul>
 
       <button class="button button-block button-positive" ng-click="submit()">REPORTAR RISCO</button>

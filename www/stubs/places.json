@@ -1,5 +1,5 @@
 [{
-  "address": "Av. Ipiranga",
+  "address": "Av. Ipiranga, 6681",
   "location": {
     "latitude": 10,
     "longitude": 20
@@ -47,7 +47,7 @@
   }]
 },
 {
-  "address": "Bento Gonçalves",
+  "address": "Bento Gonçalves, 1515",
   "location": {
     "latitude": 30,
     "longitude": 50

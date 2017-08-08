@@ -10,6 +10,18 @@ function placeDetailsController($scope, placeFactory, $location) {
     return { risk: ocurrence.risk, reports: ocurrence.reports };
   });
 
+  $scope.allOccurrencesReports = allOccurrencesReports($scope.allOccurrences);
+
+  function allOccurrencesReports(allOccurrences) {
+    var _allOccurrences = allOccurrences.slice();
+
+    return _allOccurrences.map(function(occurence) {
+      return occurence.reports.map(function(report) {
+        return { risk: occurence.risk, date: report.date, period: report. period };
+      });
+    }).reduce(function(previous, current) { return previous.concat(current); });
+  }
+
   $scope.myGoBack = function() {
     $ionicHistory.goBack();
   };

@@ -111,12 +111,29 @@ h4 {
   }
 }
 
+.report-period-date {
+  font-family: OpenSans;
+  float: right;
+  color: #cc3399;
+}
+
+.report-risk {
+  font-family: OpenSans;
+  font-weight: 600;
+}
+
+.grey-dot {
+  font-size: 0.9em;
+  color: #c4c4c4;
+}
+
 .number-of-occurrences {
   font-weight: 600;
 }
 
 .vamosjuntas-home-header-wrapper {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .vamosjuntas-home-header {
@@ -152,6 +169,10 @@ p.pink-denunciation-title {
   padding: 0px 0 0px 16px;
 }
 
+.place-details-item {
+  margin-top: 20px;
+}
+
 label.item.item-input {
   border-style: solid;
   border-width: 1px;
@@ -164,6 +185,7 @@ label.item.item-input {
   background-color: #cc3399;
   font-weight: 600;
   font-family: OpenSans;
+  margin-bottom: 50px;
 }
 
 .vamosjuntas-search-button {
