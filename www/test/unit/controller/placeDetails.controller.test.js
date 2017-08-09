@@ -1,4 +1,4 @@
-describe('placeDetailsController', function() {
+xdescribe('placeDetailsController', function() {
   var scope;
   var placeFactory;
   var $location;
