@@ -5,17 +5,18 @@
   function occurrencesFactory() {
     return {
       build: function build(reports) {
-        var addresses = reports.map((report) => {
+        var addresses = reports.map(function (report) {
           return report.address;
-        })
+        });
+
         var uniqueAddresses = [...new Set(addresses)]
 
-        var occurrences = uniqueAddresses.map((addressName) => {
-          var relatedReports = reports.filter((report) => {
+        var occurrences = uniqueAddresses.map(function(addressName) {
+          var relatedReports = reports.filter(function(report) {
             return report.address == addressName;
           })
 
-          var risks = relatedReports.map((report) => {
+          var risks = relatedReports.map(function(report) {
             return report.category;
           })
 
@@ -23,14 +24,14 @@
 
           return {
             address: addressName,
-            occurrences: uniqueRisks.map((risk) => {
-              var relatedRisks = relatedReports.filter((report) => {
+            occurrences: uniqueRisks.map(function(risk) {
+              var relatedRisks = relatedReports.filter(function(report) {
                 return report.address == addressName && report.category == risk;
               })
               return {
                 risk: risk,
                 numberOfOccurrences: relatedRisks.length,
-                reports: relatedRisks.map((risk) => {
+                reports: relatedRisks.map(function(risk) {
                   return { date: risk.date }
                 })
               }
