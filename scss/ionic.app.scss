@@ -186,6 +186,17 @@ label.item.item-input {
   font-weight: 600;
   font-family: OpenSans;
   margin-bottom: 50px;
+
+  &:visited, &:hover, &:active {
+    border-color: #cc3399;
+    background-color: #cc3399;
+  }
+}
+
+.place-details-navbar {
+  img {
+    margin-top: 5px;
+  }
 }
 
 .vamosjuntas-search-button {

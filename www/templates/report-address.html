@@ -1,11 +1,17 @@
 <ion-view view-title="Reportar Risco">
+  <ion-nav-title class="place-details-navbar">
+    <img src="img/logo-27h.png">
+  </ion-nav-title>
   <ion-nav-bar ng-controller="ReportAddressController">
     <ion-nav-back-button id="backBtn" class="button-clear" ng-click="myGoBack()">
       <i class="ion-arrow-left-c"></i> Back
     </ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="padding">
-    <h3>Reportar risco</h3>
+    <div class="vamosjuntas-home-header-wrapper">
+      <h3 class="vamosjuntas-home-header">Reportar risco</h3>
+    </div>
+    <hr class="pink-horizontal-rule" />
     <p>Quando for escrever a denúncia, procure dar referências de onde você estava. Parque, ruas e estações de metrô podem ser grandes.</p>
 
     <form name="reportForm" method="post" novalidate>
@@ -39,7 +45,7 @@
           </label>
         </div>
       </div>
-      <button id="submitButton" type="submit" ng-disabled="reportForm.$invalid" ng-click="submit(reportForm.$valid)" class="button button-block button-positive">Enviar</button>
+      <button id="submitButton" type="submit" ng-disabled="reportForm.$invalid" ng-click="submit(reportForm.$valid)" class="button button-block button-positive">ENVIAR</button>
     </form>
   </ion-content>
 </ion-view>
