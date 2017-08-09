@@ -5,17 +5,17 @@
   addressFactory.$inject = ['$http', '$q', 'PlacesAPI'];
 
   function addressFactory($http, $q, PlacesAPI) {
-    var url = "";
+    var url = '';
 
     return {
-      //https://developers.google.com/places/web-service/details#PlaceDetailsRequests
+      // https:developers.google.com/places/web-service/details#//
       getCoordFromAddress: function(placeid) {
-        url = PlacesAPI.coordinatesBaseUrl + "placeid=" + placeid + "&key=" + AppSettings.apiKey;
+        url = PlacesAPI.coordinatesBaseUrl + 'placeid=' + placeid + '&key=' + AppSettings.apiKey;
         return $http.get(url);
       },
-      //https://developers.google.com/places/web-service/search#PlaceSearchRequests
+      // https:developers.google.com/places/web-service/search#PlaceSearchRequests//
       getNearbyAddresses: function(lat, long) {
-        url = PlacesAPI.nearbySearchBaseUrl + "location=" + lat + "," + long + "&radius=300&language=pt-PT&key=" + AppSettings.apiKey;
+        url = PlacesAPI.nearbySearchBaseUrl + 'location=' + lat + ',' + long + '&radius=300&language=pt-PT&key=' + AppSettings.apiKey;
         return $http.get(url);
       },
 
@@ -24,7 +24,7 @@
         var geocoder = new google.maps.Geocoder();
         var latlng = {
           lat: latitude,
-          lng: longitude
+          lng: longitude,
         };
 
         geocoder.geocode({'location': latlng}, function(results, status) {
@@ -35,7 +35,7 @@
           }
         });
         return deferred.promise;
-      }
+      },
     };
   }
 })();

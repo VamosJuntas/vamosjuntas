@@ -1,4 +1,3 @@
-angular.module('vamosJuntas').controller('ConfirmationController',
-    ['', function () {
-        $scope.placeDetails = { };
-}]);
+angular.module('vamosJuntas').controller('ConfirmationController', function confirmationController() {
+  $scope.placeDetails = { };
+});
