@@ -17,7 +17,6 @@ Hoje, precisamos de pessoas que saibam programar ou tenham interesse em programa
 * Angular.js
 * Node.js
 * NPM,
-* Bower
 * Jasmine
 
 Para mais detalhes técnicos do projeto visite nossa página da [Wiki](https://github.com/VamosJuntas/vamosjuntas/wiki)!
