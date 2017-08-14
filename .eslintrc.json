@@ -1,11 +1,6 @@
 {
     "extends": ["airbnb", "angular"],
     "plugins": [
-        "react",
-        "jasmine"
-    ],
-    "env":{
-      "jasmine": true,
-      "browser": true
-    }
-  }
+        "react"
+    ]
+}
