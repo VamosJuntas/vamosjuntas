@@ -26,7 +26,7 @@
   };
 
   this.submitButton = function() {
-    return element(by.buttonText('Enviar'));
+    return element(by.buttonText('ENVIAR'));
   };
 
   this.backButton = function() {
@@ -35,7 +35,7 @@
   };
 
   this.isSubmitButtonEnabled = function() {
-    return element(by.buttonText('Enviar')).isEnabled();
+    return element(by.buttonText('ENVIAR')).isEnabled();
   };
 
 };

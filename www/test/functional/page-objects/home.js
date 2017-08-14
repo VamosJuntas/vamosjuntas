@@ -6,7 +6,7 @@ var scrollIntoView = function(element) {
 
 var Home = function() {
   this.reportRisk = function () {
-    var reportRiskButton = element(by.buttonText('Reportar risco'));
+    var reportRiskButton = element(by.buttonText('REPORTAR RISCO'));
     scrollIntoView(reportRiskButton);
     return reportRiskButton.click();
   };
@@ -19,7 +19,7 @@ var Home = function() {
   };
 
   this.clickSearchButton = function() {
-    var searchButton = element(by.buttonText('Buscar'));
+    var searchButton = element(by.buttonText('BUSCAR'));
     browser.driver.sleep(10000);
     searchButton.click();
     return this;
