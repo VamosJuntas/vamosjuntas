@@ -15,12 +15,14 @@ var Home = function() {
     var textField = element(by.model('search.text'));
     textField.sendKeys(textToFill);
     textField.sendKeys(protractor.Key.TAB);
+    browser.wait(function() {
+      return element(by.repeater('place in places')).isPresent();
+    });
     return this;
   };
 
   this.clickSearchButton = function() {
     var searchButton = element(by.buttonText('BUSCAR'));
-    browser.driver.sleep(10000);
     searchButton.click();
     return this;
   };
