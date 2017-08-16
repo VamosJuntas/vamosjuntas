@@ -21,4 +21,5 @@ before_script:
 install:
   - npm install
 script:
+  - node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &
   - npm run ci
