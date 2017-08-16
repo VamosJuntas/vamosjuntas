@@ -41,7 +41,7 @@ exports.config = {
   specs: ['*.spec.js'],
 };
 
-if (process.env.SNAP_CI) {
+if (process.env.TRAVIS) {
     exports.config.directConnect = true;
-    exports.config.chromeDriver = '/usr/local/bin/chromedriver';
+    exports.config.chromeDriver = '/usr/bin/chromedriver';
 }
