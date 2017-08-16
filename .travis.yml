@@ -17,9 +17,9 @@ env:
 before_script:
   - node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.31
   - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
 install:
   - npm install
 script:
   - node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &
+  - sh -e /etc/init.d/xvfb start
   - npm run ci
