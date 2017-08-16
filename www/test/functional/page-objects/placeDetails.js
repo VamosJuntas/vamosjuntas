@@ -4,7 +4,7 @@ var PlaceDetails = function () {
   };
 
   this.occurrencesArePresent = function() {
-    return element(by.repeater('occurrence in allOccurrences')).isPresent();
+    return element(by.repeater('report in allOccurrencesReports')).isPresent();
   };
 };
 

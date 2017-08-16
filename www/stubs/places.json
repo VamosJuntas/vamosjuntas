@@ -1,5 +1,5 @@
 [{
-  "address": "Av. Ipiranga",
+  "address": "Av. Ipiranga, 6681",
   "location": {
     "latitude": 10,
     "longitude": 20
@@ -18,11 +18,27 @@
     }]},
     {
       "risk": "Local Mal Iluminado",
-      "numberOfOccurrences": 2,
+      "numberOfOccurrences": 6,
       "reports": [
         {
-        "date": "10/10/2016",
-        "period": "Manhã"
+          "date": "10/10/2016",
+          "period": "Manhã"
+        },
+        {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        },
+        {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        },
+        {
+          "date": "12/10/2016",
+          "period": "Manhã"
+        },
+        {
+          "date": "12/10/2016",
+          "period": "Manhã"
       },
       {
         "date": "12/10/2016",
@@ -31,7 +47,7 @@
   }]
 },
 {
-  "address": "Bento Gonçalves",
+  "address": "Bento Gonçalves, 1515",
   "location": {
     "latitude": 30,
     "longitude": 50

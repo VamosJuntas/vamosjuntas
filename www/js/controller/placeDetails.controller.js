@@ -1,17 +1,56 @@
 angular.module('vamosJuntas')
-    .controller('placeDetailsController', ['$scope', 'placeFactory', '$location', function($scope, placeFactory, $location) {
-      $scope.placeDetails = placeFactory.getPlace();
+  .controller('placeDetailsController', placeDetailsController);
 
-      $scope.allOccurrences = $scope.placeDetails.occurrences.map(function(ocurrence) {
-        return { risk: ocurrence.risk, reports: ocurrence.reports };
+placeDetailsController.$inject = ['$scope', 'placeFactory', '$location'];
+
+function placeDetailsController($scope, placeFactory, $location) {
+  $scope.placeDetails = placeFactory.getPlace();
+
+  $scope.allOccurrences = $scope.placeDetails.occurrences.map(function(ocurrence) {
+    return { risk: ocurrence.risk, reports: ocurrence.reports };
+  });
+
+  $scope.allOccurrencesReports = allOccurrencesReports($scope.allOccurrences);
+
+  function allOccurrencesReports(allOccurrences) {
+    var _allOccurrences = allOccurrences.slice();
+
+    return _allOccurrences.map(function(occurence) {
+      return occurence.reports.map(function(report) {
+        return { risk: occurence.risk, date: report.date, period: report. period };
       });
+    }).reduce(function(previous, current) { return previous.concat(current); });
+  }
 
-      $scope.myGoBack = function() {
-        $ionicHistory.goBack();
-      };
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
 
-      $scope.submit = function() {
-        $location.path('/report');
-      };
+  $scope.submit = function() {
+    $location.path('/report');
+  };
 
-    }]);
+  $scope.mostFrequentOccurence = mostFrequentOccurence($scope.placeDetails.occurrences);
+  $scope.numberOfOtherOccurrences = numberOfOtherOccurrences($scope.placeDetails.occurrences);
+
+  function mostFrequentOccurence(allOccurrences) {
+    var _allOccurrences = allOccurrences.slice();
+    return _allOccurrences.sort(byNumberOfOcurrences).shift();
+  }
+
+  function numberOfOtherOccurrences(allOccurrences) {
+    var INITIAL_VALUE = 0;
+    var _allOccurrences = allOccurrences.slice();
+    var _otherOccurrences = _allOccurrences.sort(byNumberOfOcurrences).slice(1);
+
+    var sumNumberOfOccurrences = function(previousOccurrence, currentOccurrence) {
+      return previousOccurrence + Number(currentOccurrence.numberOfOccurrences);
+    };
+
+    return _otherOccurrences.reduce(sumNumberOfOccurrences, INITIAL_VALUE);
+  }
+
+  function byNumberOfOcurrences(firstOccurrence, secondOccurrence) {
+    return Number(secondOccurrence.numberOfOccurrences) - Number(firstOccurrence.numberOfOccurrences);
+  }
+}

@@ -1,5 +1,5 @@
 (function() {
-
+  'use strict';
   angular.module('vamosJuntas').factory('geolocationFactory', geolocationFactory);
 
   geolocationFactory.$inject = ['$cordovaGeolocation'];

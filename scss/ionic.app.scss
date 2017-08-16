@@ -36,19 +36,34 @@ $error: #FA787E;
 #splash-logo {
   max-width: 100%;
   display: block;
+  margin: 0 auto;
 }
 
 .logo {
   max-width: 100%;
 }
 
+.terms-of-use {
+  a {
+    color: #cc3399;
+  }
+}
+
 #terms-check {
   padding: 0 10px;
   display: block;
 
+  #check-terms {
+    input:checked:before, input:checked+.checkbox-icon:before {
+      background: #cc3399;
+      border-color: #cc3399;
+    }
+  }
+
   button {
-    with: 100%;
-    background: blue;
+    width: 100%;
+    background: #cc3399;
+    border-color: #cc3399;
     margin-top: 10px;
   }
 }
@@ -66,22 +81,139 @@ ion-content {
     padding: 0 10px;
 }
 
+div.title.title-center.header-item {
+  background: url("img/logo-27h.png") center no-repeat;
+}
+
+.bordered-places-list {
+  a {
+    margin-bottom: 10px;
+  }
+}
+
+h2, p, span {
+  font-family: OpenSans;
+}
+
+h4 {
+  font-family: OpenSans;
+  font-weight: 500;
+}
+
+.table-occurrences {
+  margin: auto;
+
+  .occurrences-counter {
+    font-size: 0.9em;
+    font-family: OpenSans;
+    padding: 0.75em;
+    font-weight: 700;
+  }
+}
+
+.report-period-date {
+  font-family: OpenSans;
+  float: right;
+  color: #cc3399;
+}
+
+.report-risk {
+  font-family: OpenSans;
+  font-weight: 600;
+}
+
+.grey-dot {
+  font-size: 0.9em;
+  color: #c4c4c4;
+}
+
+.number-of-occurrences {
+  font-weight: 600;
+}
+
+.vamosjuntas-home-header-wrapper {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .vamosjuntas-home-header {
-    padding-top: 30px;
+  padding-top: 30px;
+  color: #cc3399;
+  font-family: OpenSans;
+  font-weight: 500;
+}
+
+p.pink-denunciation-title {
+  font-family: OpenSans;
+  font-size: 0.7em;
+  color: #cc3399;
+}
+
+.pink-horizontal-rule {
+  height: 1px;
+  color: #cc3399;
+  background-color: #cc3399;
+  border: none;
+  width: 95%;
+}
+
+.grey-horizontal-rule {
+  height: 1px;
+  color: #000000;
+  background-color: #000000;
+  border: none;
+  width: 100%;
+}
+
+.item-input {
+  padding: 0px 0 0px 16px;
+}
+
+.place-details-item {
+  margin-top: 20px;
+}
+
+label.item.item-input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cc3399;
+  margin-top: 15px;
+}
+
+.button.button-positive {
+  border-color: #cc3399;
+  background-color: #cc3399;
+  font-weight: 600;
+  font-family: OpenSans;
+  margin-bottom: 50px;
+
+  &:visited, &:hover, &:active {
+    border-color: #cc3399;
+    background-color: #cc3399;
+  }
+}
+
+.place-details-navbar {
+  img {
+    margin-top: 5px;
+  }
+}
+
+.bar.bar-positive {
+  border-color: #cc3399;
+  background-color: #cc3399;
+  background-image: linear-gradient(0deg, #cc3399, #cc3399 50%, transparent 50%);
 }
 
 .vamosjuntas-search-button {
-    margin-top: 20px;
+  background-color: #cc3399;
+  border-color: #cc3399;
+  color: #fff;
+  font-weight: 600;
+  font-family: OpenSans;
+  border-radius: 0px;
 }
 
 ion-content {
     padding: 0 10px;
-}
-
-.vamosjuntas-home-header {
-    padding-top: 30px;
-}
-
-.vamosjuntas-search-button {
-    margin-top: 20px;
 }

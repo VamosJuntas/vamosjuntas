@@ -1,24 +1,52 @@
-<ion-view view-title="Detalhes do Local">
-    <ion-nav-bar ng-controller="ReportAddressController">
+<ion-view view-title="Detalhes do Local" class="place-details-navbar">
+    <ion-nav-bar ng-controller="ReportAddressController" class="bar-positive">
       <ion-nav-back-button id="backBtn" class="button-clear" ng-click="myGoBack()">
         <i class="ion-arrow-left-c"></i> Back
       </ion-nav-back-button>
     </ion-nav-bar>
+    <ion-nav-title>
+      <img src="img/logo-27h.png">
+    </ion-nav-title>
     <ion-content class="padding">
-        <h2>{{placeDetails.address}}</h2>
-        <h3>Este local tem os seguintes reportes<h3>
-        <ul class="list list-inset">
-            <li class="item" ng-repeat="occurrences in placeDetails.occurrences">
-              {{occurrences.risk}} ({{occurrences.numberOfOccurrences}} reportes)
-            </li>
-        </ul>
+      <div class="vamosjuntas-home-header-wrapper">
+        <h3 class="vamosjuntas-home-header">Detalhes da Localidade</h3>
+      </div>
+      <hr class="pink-horizontal-rule" />
+      <div class="item place-details-item">
+        <span>{{placeDetails.address}}</span>
+        <hr class="grey-horizontal-rule" />
+        <p class="pink-denunciation-title">Denúncias</p>
+          <div class="">
+            <table class="table-occurrences">
+              <tr>
+                <td>
+                  <strong>
+                    <span class="occurrences-counter">
+                      {{ mostFrequentOccurence.risk }} ({{ mostFrequentOccurence.numberOfOccurrences }})
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <strong>
+                    <span class="occurrences-counter">
+                      Outras ({{ numberOfOtherOccurrences }})
+                    </span>
+                  </strong>
+                </td>
+              </tr>
+            </table>
+          </div>
+      </div>
 
-        <ul class="item" ng-repeat="occurrence in allOccurrences">
-          <ul ng-repeat="report in occurrence.reports">
-            <p>{{occurrence.risk}} - {{report.period}} - {{report.date}}</p>
-          </ul>
-        </ul>
+      <ul class="item" ng-repeat="report in allOccurrencesReports">
+        <li>
+          <p>
+            <span class="report-risk">{{report.risk}}</span>
+            <span class="report-period-date">{{report.period}} <span class="grey-dot">●</span> {{report.date}}</span>
+          </p>
+        </li>
+      </ul>
 
-        <button class="button button-block button-positive" ng-click="submit()">Reportar risco nesse endereço</button>
+      <button class="button button-block button-positive" ng-click="submit()">REPORTAR RISCO</button>
     </ion-content>
 </ion-view>

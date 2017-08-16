@@ -6,7 +6,7 @@ var scrollIntoView = function(element) {
 
 var Home = function() {
   this.reportRisk = function () {
-    var reportRiskButton = element(by.buttonText('Reportar risco'));
+    var reportRiskButton = element(by.buttonText('REPORTAR RISCO'));
     scrollIntoView(reportRiskButton);
     return reportRiskButton.click();
   };
@@ -15,12 +15,14 @@ var Home = function() {
     var textField = element(by.model('search.text'));
     textField.sendKeys(textToFill);
     textField.sendKeys(protractor.Key.TAB);
+    browser.wait(function() {
+      return element(by.repeater('place in places')).isPresent();
+    });
     return this;
   };
 
   this.clickSearchButton = function() {
-    var searchButton = element(by.buttonText('Buscar'));
-    browser.driver.sleep(10000);
+    var searchButton = element(by.buttonText('BUSCAR'));
     searchButton.click();
     return this;
   };
