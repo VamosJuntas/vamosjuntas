@@ -43,5 +43,5 @@ exports.config = {
 
 if (process.env.TRAVIS) {
     exports.config.directConnect = true;
-    exports.config.chromeDriver = '/usr/bin/chromedriver';
+    exports.config.chromeDriver = '../../../node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.31';
 }
