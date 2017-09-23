@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Tue Nov 24 2015 00:33:40 GMT-0200 (BRST)
 
-module.exports = function(config) {
+module.exports = (config) => {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -18,7 +18,6 @@ module.exports = function(config) {
       'www/lib/underscore/underscore-min.js',
       'www/lib/ionic/js/ionic.bundle.js',
       'www/lib/ngCordova/dist/ng-cordova.min.js',
-      'www/lib/moment.min.js',
       'www/lib/angular-mocks/angular-mocks.js',
       'www/lib/autocomplete/index',
       'www/js/app-settings.js',
@@ -26,9 +25,6 @@ module.exports = function(config) {
       'www/js/app.js',
       'www/js/**/*.js',
       'www/test/unit/**/*.js',
-      'www/lib/angular-simple-logger/dist/angular-simple-logger.min.js',
-      'www/lib/angular-google-maps/dist/angular-google-maps.min.js',
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNGPh2ERYJq9Ei1tzDSNG-nOyYAJVhpY4'
     ],
 
 
@@ -40,7 +36,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/www/js/**/*.js': ['coverage']
+      '**/www/js/**/*.js': ['coverage'],
     },
 
 
@@ -50,11 +46,11 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-        dir: 'test-results/unit/coverage/',
-        reporters:[
-            {type: 'html'},
-            {type: 'lcovonly'}
-        ]
+      dir: 'test-results/unit/coverage/',
+      reporters: [
+        { type: 'html' },
+        { type: 'lcovonly' },
+      ],
     },
 
 
@@ -80,6 +76,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultanous
-    concurrency: Infinity
+    concurrency: Infinity,
   });
 };

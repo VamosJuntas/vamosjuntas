@@ -1,0 +1,11 @@
+{
+  "name": "autocomplete",
+  "_cacheHeaders": {
+    "Content-Length": "25947",
+    "Content-Type": "text/javascript; charset=UTF-8"
+  },
+  "main": "index",
+  "_source": "http://maps.googleapis.com/maps/api/js?libraries=places",
+  "_target": "*",
+  "_originalSource": "http://maps.googleapis.com/maps/api/js?libraries=places"
+}

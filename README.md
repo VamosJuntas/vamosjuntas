@@ -16,9 +16,9 @@ Hoje, precisamos de pessoas que saibam programar ou tenham interesse em programa
 * Ionic
 * Angular.js
 * Node.js
-* NPM,
-* Bower
+* npm
 * Jasmine
+* Gulp
 
 Para mais detalhes técnicos do projeto visite nossa página da [Wiki](https://github.com/VamosJuntas/vamosjuntas/wiki)!
 

@@ -2,14 +2,13 @@ FROM node:4.3.1
 
 WORKDIR /code
 
-COPY package.json bower.json .bowerrc /code/
+COPY package.json /code/
 
 RUN npm install && \
-  npm install -g bower && \
+  npm install -g \
   npm install -g karma-cli && \
   npm install -g gulp && \
-  npm install -g cordova ionic ios-sim && \
-  bower install --allow-root
+  npm install -g cordova ionic ios-sim
 
 COPY . /code
 
